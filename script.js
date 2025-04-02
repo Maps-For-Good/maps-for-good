@@ -7,11 +7,11 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 L.marker([51.5, -0.09]).addTo(map)
-    .bindPopup('A pretty CSS popup.<br> Easily customizable.')
+    .bindPopup('A pretty CSS popup!<br> Easily customizable!')
     .openPopup();
 
  function onMapClick(e) {
-    let say = prompt('what does it say')
+    let say = prompt('what does it say?')
 
     L.marker(e.latlng).addTo(map)
     .bindPopup(say)
