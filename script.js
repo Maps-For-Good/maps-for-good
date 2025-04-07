@@ -1,14 +1,24 @@
 
 
-let map = L.map('map').setView([51.505, -0.09], 13);
+let map = L.map('map').setView([42.3, -71.1], 13);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-L.marker([51.5, -0.09]).addTo(map)
-    .bindPopup('A pretty CSS popup!<br> Easily customizable!')
-    .openPopup();
+
+function render(fields) {
+    return `<h3>${fields.name}</h3>`;
+}
+fetch('bathrooms.json').then((r) => r.json()).then(markers => {
+  let markerGroup = L.featureGroup([]).addTo(map);
+    
+  for (const key in markers) {
+      let latlng = L.latLng(markers[key].latitude, markers[key].longitude);
+      L.marker(latlng).bindPopup(render(markers[key])).addTo(markerGroup);
+  }
+});
+    
 
  function onMapClick(e) {
     let say = prompt('what does it say?')
