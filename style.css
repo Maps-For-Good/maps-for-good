@@ -1,1 +1,77 @@
-#map { height: 1080px; }
+#map { height: 700px; }
+
+h1 {
+    text-align: center;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 3em;
+    color: rgb(79, 170, 209);
+}
+
+p {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 1.5em;
+    color: #176ba3;
+}
+
+.desc {
+    text-align: center;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 1.5em;
+    color: rgb(79, 170, 209);
+}
+
+nav {
+    text-align: center;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 1.2em;
+    color: #376472;
+}
+
+button {
+    background-color: rgb(238, 205, 154);
+    color: rgb(133, 80, 1);
+    font-family: 'Helvetica Neue', sans-serif;
+    display: inline;
+   
+    border: none;
+    border-radius: 3px;
+    margin-bottom: 7px;
+    
+    padding: 10px 20px;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+#popup-box {
+   position: absolute;
+   top: 240px; 
+   left: 75px; 
+   width: 500px;
+   background-color: #fff;
+   border: 1px solid #ccc;
+   padding: 15px;
+   border-radius: 3px;
+   box-shadow: 0 4px 8px #7b7b7b;
+   z-index: 1000;
+}
+
+.popup-content {
+   display: none; 
+}
+
+#popup-box.hidden {
+   display: none; 
+}
+
+.popup-content.active {
+   display: block; 
+}
+
+a[href^="mailto:"] {
+    color: #095180; 
+}
+
+a[href^="mailto:"]:hover {
+    color: rgb(112, 169, 106); 
+}
+

@@ -7,8 +7,36 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
     crossorigin=""/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
+ 
   <body>
+    <header>
+      <h1>Maps for Good!</h1>
+      <p class="desc">Find your way to a better world.</p>
+
+      <button onclick="toggleBox('abt')">Our Mission</button>
+      <button onclick="toggleBox('cont')"><i class="fa fa-envelope" aria-hidden="true"></i></button>
+
+      <div id="popup-box" class="hidden">
+        <p id="abt" class="popup-content"><i>Hey!</i> We're Maps For Good, a student-led development team
+          based in Worcester, MA. Our mission is to create a platform that allows disabled users to
+          confidently navigate the world. Finding your way around a new place can be daunting,
+          especially if you have to account for accessibility. We aim to make nearby amenities like benches,
+          handicap restrooms, and accessible parking spaces easy to find. Additionally, we want users to
+          interact with the map and share their experiences with others. If a toilet is out of order, for
+          example, it's important that other people know to avoid it. 
+          <i>With your help, Maps for Good hopes to make the world a little safer for everyone!</i>
+        </p>
+       
+        <p id="cont" class="popup-content hidden">For any questions, concerns, or suggestions,
+          please contact us at <strong><a href="mailto: rahmed@wpi.edu">rahmed@wpi.edu</a></strong>, 
+          <strong><a href="mailto: asun@wpi.edu">asun@wpi.edu</a></strong>, 
+          or <strong><a href="mailto: ichakravarthy@wpi.edu">ichakravarthy@wpi.edu</a></strong>.
+        </p>
+      </div>
+    </header>
+
     <div id="map"></div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
