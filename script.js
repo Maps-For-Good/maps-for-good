@@ -8,8 +8,23 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 L.marker([51.5, -0.09]).addTo(map)
     .bindPopup('A pretty CSS popup!<br> Easily customizable!');
-
-    getLocation();
+    function getLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(success, error);
+        } else {
+        alert("Geolocation is not supported.");
+        }
+      }
+      
+    function success(position) {
+        map.panTo([position.coords.latitude, position.coords.longitude]);
+      }
+      
+      function error() {
+        alert("Sorry, no position available.");
+      }
+    
+getLocation();
 
     function render(fields) {
         return `<h3>${fields.name}</h3>`;
