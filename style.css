@@ -13,6 +13,13 @@ p {
     color: #176ba3;
 }
 
+h3 {
+    text-align: center;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 1.1em;
+  
+}
+
 .desc {
     text-align: center;
     font-family: 'Helvetica Neue', sans-serif;

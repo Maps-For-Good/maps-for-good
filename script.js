@@ -25,11 +25,13 @@ L.marker([51.5, -0.09]).addTo(map)
 getLocation();
 
     function render(fields) {
-        const locationName = fields.name;
-        const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(locationName)}`;
+        const latitude = fields.latitude;
+        const longitude = fields.longitude;
+        let stuff = encodeURIComponent(`${latitude}, ${longitude} ${fields.name}`);
+        const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${stuff}`;
         
         return `
-            <h3>${locationName}</h3>
+            <h3>${fields.name}</h3>
             <a href="${googleMapsUrl}" target="_blank">
                 Open in Google Maps
             </a>
