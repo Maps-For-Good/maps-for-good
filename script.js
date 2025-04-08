@@ -81,5 +81,16 @@ function toggleBox(contentId) {
     selectedContent.classList.add('active');
     popupBox.classList.remove('hidden');
   }
+
+  var fs=require('fs');
+var data=fs.readFileSync('words.json', 'utf8');
+var words=JSON.parse(data);
+var bodyparser=require('body-parser');
+console.log(words);
+var express=require('express');
+
+var app=express();
+
+var server=app.listen(3030,listening);
 }
 
