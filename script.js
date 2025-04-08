@@ -38,7 +38,7 @@ getLocation();
       }
     });
         
- function onMapClick(e) {
+    function onMapClick(e) {
     let say = prompt('What does it say?')
 
     L.marker(e.latlng).addTo(map)
@@ -46,7 +46,7 @@ getLocation();
     .openPopup();
     }
     
-    map.on('click', onMapClick);
+   //map.on('click', onMapClick);
 
 function toggleAbout() {
     var x = document.getElementById("abt");
