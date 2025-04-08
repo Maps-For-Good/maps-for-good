@@ -1,5 +1,3 @@
-
-
 let map = L.map('map').setView([42.3, -71.1], 13);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -27,7 +25,15 @@ L.marker([51.5, -0.09]).addTo(map)
 getLocation();
 
     function render(fields) {
-        return `<h3>${fields.name}</h3>`;
+        const locationName = fields.name;
+        const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(locationName)}`;
+        
+        return `
+            <h3>${locationName}</h3>
+            <a href="${googleMapsUrl}" target="_blank">
+                Open in Google Maps
+            </a>
+        `;
     }
     fetch('bathrooms.json').then((r) => r.json()).then(markers => {
       let markerGroup = L.featureGroup([]).addTo(map);
@@ -82,4 +88,5 @@ function toggleBox(contentId) {
     popupBox.classList.remove('hidden');
   }
 }
+
 
