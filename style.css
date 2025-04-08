@@ -1,4 +1,4 @@
-#map { height: 700px; }
+#map { height: 500px; }
 
 h1 {
     text-align: center;
@@ -75,3 +75,41 @@ a[href^="mailto:"]:hover {
     color: rgb(112, 169, 106); 
 }
 
+footer {
+
+    width: 100%;
+    height: 200px; /* Enough height for 2 rows */
+    background-color: #f8f8f8;
+    border-top: 1px solid #ccc;
+    overflow: hidden; /* Prevent footer itself from scrolling */
+    padding: 10px;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+  }
+  
+  .footer-scroll-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: min-content;
+    gap: 10px;
+    overflow-y: auto;
+    max-height: 100%;
+    padding-right: 10px; /* for scrollbar space */
+  }
+  
+  .footer-item {
+    background-color: white;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+  
+  .footer-item h4 {
+    margin: 0 0 5px 0;
+    font-size: 14px;
+  }
+    
+  .footer-item p {
+    margin: 0;
+    font-size: 12px;
+    color: #555;
+  }
