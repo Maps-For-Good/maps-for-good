@@ -5,6 +5,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 function haversine(lat1, long1, lat2, long2) {
+    // https://en.wikipedia.org/wiki/Haversine_formula
     function hav(theta) {
         return (1 - Math.cos(theta * Math.PI / 180)) / 2;
     }
@@ -17,8 +18,6 @@ function haversine(lat1, long1, lat2, long2) {
     ));
 }
 
-L.marker([51.5, -0.09]).addTo(map)
-    .bindPopup('A pretty CSS popup!<br> Easily customizable!');
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(success, error);
@@ -42,7 +41,7 @@ function getMapsLink(locationFields) {
     return `https://www.google.com/maps/search/?api=1&query=${query}`;
 }
 
-function render(fields) {
+function renderBathroom(fields) {
     const googleMapsUrl = getMapsLink(fields);
 
     return `
@@ -50,19 +49,45 @@ function render(fields) {
             <a href="${googleMapsUrl}" target="_blank">
                 Open in Google Maps
             </a>
+            <div>
+                <strong>Hours:</strong> ${fields.hours}
+            </div>
         `;
 }
+
+let benchIcon = L.icon({
+    iconUrl: 'icons/bench.png',
+   // shadowUrl: 'icons/bench.png',
+
+    iconSize:     [58, 58], // size of the icon
+    shadowSize:   [50, 64], // size of the shadow
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+
+function renderBench(fields) {
+    const googleMapsUrl = getMapsLink(fields);
+    console.log(fields)
+    
+    return `Bench
+    <div>
+        <strong>Backrest:</strong> ${fields.tags.backrest ?? "Maybe"}
+    </div>
+    `;
+}
+
 fetch('bathrooms.json').then((r) => r.json()).then(async markers => {
     let markerGroup = L.featureGroup([]).addTo(map);
 
     for (const key in markers) {
         let latlng = L.latLng(markers[key].latitude, markers[key].longitude);
-        L.marker(latlng).bindPopup(render(markers[key])).addTo(markerGroup);
+        L.marker(latlng).bindPopup(renderBathroom(markers[key])).addTo(markerGroup);
     }
     setInterval(() => {
         let sorted = Object.keys(markers).sort((a, b) => {
-            let da = haversine(markers[a].latitude, markers[a].longitude, map._lastCenter.lat, map._lastCenter.lng);
-            let db = haversine(markers[b].latitude, markers[b].longitude, map._lastCenter.lat, map._lastCenter.lng);
+            let da = haversine(markers[a].latitude, markers[a].longitude, map.getCenter().lat, map.getCenter().lng);
+            let db = haversine(markers[b].latitude, markers[b].longitude, map.getCenter().lat, map.getCenter().lng);
             return da - db;
         });
         const grid = document.querySelector('.footer-scroll-grid');
@@ -72,11 +97,12 @@ fetch('bathrooms.json').then((r) => r.json()).then(async markers => {
         for (const key of sorted) {
             const entry = document.createElement('a');
             entry.href = getMapsLink(markers[key]);
+            entry.setAttribute('target', '_blank');
             const title = document.createElement('h4');
             const desc = document.createElement('p');
             title.textContent = markers[key].name;
 
-            let dist = haversine(markers[key].latitude, markers[key].longitude, map._lastCenter.lat, map._lastCenter.lng);
+            let dist = haversine(markers[key].latitude, markers[key].longitude, map.getCenter().lat, map.getCenter().lng);
             let str = document.createElement('strong');
             str.textContent = `${dist.toFixed(1)} miles away. `;
             desc.textContent = `${markers[key].address}, ${markers[key].zip}.`
@@ -89,7 +115,7 @@ fetch('bathrooms.json').then((r) => r.json()).then(async markers => {
 });
 
 function onMapClick(e) {
-    let say = prompt('What does it say?')
+    let say = prompt('What do you want to add?')
 
     L.marker(e.latlng).addTo(map)
         .bindPopup(say)
@@ -97,6 +123,17 @@ function onMapClick(e) {
 }
 
 map.on('click', onMapClick);
+map.on('moveend', async () => {
+    let bounds = map.getBounds();
+    let bbox = [bounds._southWest.lat, bounds._southWest.lng, bounds._northEast.lat, bounds._northEast.lng];
+    const benches = await getBenches(bbox);
+    let markerGroup = L.featureGroup([]).addTo(map);
+
+    for (const b of benches) {
+        let latlng = L.latLng(b.lat, b.lon);
+        L.marker(latlng, {icon: benchIcon}).bindPopup(renderBench(b)).addTo(markerGroup);
+    }
+});
 
 function toggleAbout() {
     var x = document.getElementById("abt");
@@ -133,4 +170,13 @@ function toggleBox(contentId) {
     }
 }
 
+async function getBenches(bbox) {
+    // Source: openstreetmap.org
+    const query = `[out:json][timeout:25]; (node["amenity"="bench"](${bbox[0]},${bbox[1]},${bbox[2]},${bbox[3]});); out body;`;
 
+    let resp = await (await fetch('https://overpass-api.de/api/interpreter', {
+        method: 'POST',
+        body: query,
+    })).json();
+    return resp.elements;
+}
