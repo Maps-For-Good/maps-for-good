@@ -128,8 +128,14 @@ map.on('moveend', async () => {
     let bbox = [bounds._southWest.lat, bounds._southWest.lng, bounds._northEast.lat, bounds._northEast.lng];
     const benches = await getBenches(bbox);
     let markerGroup = L.featureGroup([]).addTo(map);
+    let sorted = benches.sort((a, b) => {
+        let da = haversine(a.lat, a.lon, map.getCenter().lat, map.getCenter().lng);
+        let db = haversine(b.lat, b.lon, map.getCenter().lat, map.getCenter().lng);
+        return da - db;
+    });
 
-    for (const b of benches) {
+    for (let i = 0; i < 100; i++) {
+        const b = sorted[i];
         let latlng = L.latLng(b.lat, b.lon);
         L.marker(latlng, {icon: benchIcon}).bindPopup(renderBench(b)).addTo(markerGroup);
     }
