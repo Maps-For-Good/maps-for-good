@@ -7,7 +7,7 @@ html, body {margin: 0; height: 100%; overflow: hidden}
 h1 {
     text-align: center;
     font-family: 'Helvetica Neue', sans-serif;
-    font-size: 3em;
+    font-size: min(10vw, 3em);
     color: rgb(79, 170, 209);
     margin-top: 20px;
 }
@@ -111,6 +111,10 @@ footer {
 @media screen and (max-width: 600px) {
     .footer-scroll-grid {
         grid-template-columns: repeat(1, 1fr);
+    }
+
+    .computer-only {
+        display: none;
     }
 }
 
