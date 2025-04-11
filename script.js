@@ -1,5 +1,3 @@
-
-
 let map = L.map('map').setView([42.3, -71.1], 13);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -27,7 +25,17 @@ L.marker([51.5, -0.09]).addTo(map)
 getLocation();
 
     function render(fields) {
-        return `<h3>${fields.name}</h3>`;
+        const latitude = fields.latitude;
+        const longitude = fields.longitude;
+        let stuff = encodeURIComponent(`${latitude}, ${longitude} ${fields.name}`);
+        const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${stuff}`;
+        
+        return `
+            <h3>${fields.name}</h3>
+            <a href="${googleMapsUrl}" target="_blank">
+                Open in Google Maps
+            </a>
+        `;
     }
     fetch('bathrooms.json').then((r) => r.json()).then(markers => {
       let markerGroup = L.featureGroup([]).addTo(map);
@@ -38,7 +46,7 @@ getLocation();
       }
     });
         
-    function onMapClick(e) {
+ function onMapClick(e) {
     let say = prompt('What does it say?')
 
     L.marker(e.latlng).addTo(map)
@@ -46,7 +54,7 @@ getLocation();
     .openPopup();
     }
     
-   //map.on('click', onMapClick);
+   // map.on('click', onMapClick);
 
 function toggleAbout() {
     var x = document.getElementById("abt");
@@ -81,16 +89,5 @@ function toggleBox(contentId) {
     selectedContent.classList.add('active');
     popupBox.classList.remove('hidden');
   }
-
-  var fs=require('fs');
-var data=fs.readFileSync('words.json', 'utf8');
-var words=JSON.parse(data);
-var bodyparser=require('body-parser');
-console.log(words);
-var express=require('express');
-
-var app=express();
-
-var server=app.listen(3030,listening);
 }
 
