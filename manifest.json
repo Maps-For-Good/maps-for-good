@@ -3,7 +3,7 @@
     "name": "Maps for Good",
     "short_name": "Maps for Good",
     "description": "Maps for Good is a community-driven mapping platform that helps people easily find accessible amenities—handicap bathrooms, benches, and handicap parking spaces—on an interactive map. Designed for accessibility, it empowers users to navigate their surroundings and connect with vital resources confidently.",
-    "start_url": "/",
+    "start_url": "/maps-for-good",
     "background_color": "#88e788",
     "theme_color": "#88e788",
     "orientation": "any",
