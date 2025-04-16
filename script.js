@@ -99,7 +99,7 @@ fetch('bathrooms.json').then((r) => r.json()).then(async markers => {
         for (let i = 0; i < 100; i++) {
             const key = sorted[i];
             let latlng = L.latLng(markers[key].latitude, markers[key].longitude);
-            L.marker(latlng).bindPopup(renderBathroom(markers[key])).addTo(markerGroup);
+            //L.marker(latlng).bindPopup(renderBathroom(markers[key])).addTo(markerGroup);
         }
         
         const grid = document.querySelector('.footer-scroll-grid');
@@ -127,6 +127,7 @@ fetch('bathrooms.json').then((r) => r.json()).then(async markers => {
 });
 
 function onMapClick(e) {
+    return;
     let say = prompt('What do you want to add?')
 
     L.marker(e.latlng).addTo(map)
@@ -153,7 +154,16 @@ map.on('moveend', async () => {
         L.marker(latlng, {icon: benchIcon}).bindPopup(renderBench(b)).addTo(markerGroup);
     }
 
-    const parking = (await (await fetch('handicap-parking.json')).json()).features.map(p => p.attributes);
+    let parking = (await (await fetch('handicap-parking.json')).json()).features.map(p => p.attributes);
+    const cambridge = (await (await fetch('handicap-parking-cambridge.json')).json()).features.map(p => {
+      return {
+        latitude: p.geometry.coordinates[1],
+        longitude: p.geometry.coordinates[0],
+        address_full: `${p.properties.StreetNumber} ${p.properties.StreetName}`,
+      };
+    });
+    parking.push(...cambridge);
+
     markerGroup = L.featureGroup([]).addTo(map);
     sorted = parking.sort((a, b) => {
         let da = haversine(a.latitude, a.longitude, map.getCenter().lat, map.getCenter().lng);
@@ -161,7 +171,8 @@ map.on('moveend', async () => {
         return da - db;
     });
 
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 100 && i < sorted.length; i++) {
+        console.log(sorted[i])
         const b = sorted[i];
         let latlng = L.latLng(b.latitude, b.longitude);
         L.marker(latlng).bindPopup(renderParking(b)).addTo(markerGroup);
