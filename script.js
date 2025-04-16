@@ -201,6 +201,10 @@ function toggleBox(contentId) {
         selectedContent.classList.add('active');
         popupBox.classList.remove('hidden');
     }
+
+
+
+ 
 }
 
 async function getBenches(bbox) {
