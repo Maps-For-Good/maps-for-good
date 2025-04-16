@@ -56,13 +56,18 @@ function renderBathroom(fields) {
 }
 
 let benchIcon = L.icon({
-    iconUrl: 'icons/bench.png',
-   // shadowUrl: 'icons/bench.png',
+    iconUrl: 'icons/BenchPin.png',
 
-    iconSize:     [58, 58], // size of the icon
-    shadowSize:   [50, 64], // size of the shadow
+    iconSize:     [110, 90], // size of the icon
     iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-    shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+
+let bathroomIcon = L.icon({
+    iconUrl: 'icons/BathroomPin.png',
+
+    iconSize:     [110, 90], // size of the icon
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
     popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
 });
 
@@ -82,7 +87,7 @@ fetch('bathrooms.json').then((r) => r.json()).then(async markers => {
 
     for (const key in markers) {
         let latlng = L.latLng(markers[key].latitude, markers[key].longitude);
-        L.marker(latlng).bindPopup(renderBathroom(markers[key])).addTo(markerGroup);
+        L.marker(latlng, {icon: bathroomIcon}).bindPopup(renderBathroom(markers[key])).addTo(markerGroup);
     }
     setInterval(() => {
         let sorted = Object.keys(markers).sort((a, b) => {
