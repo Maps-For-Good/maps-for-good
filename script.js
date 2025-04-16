@@ -68,7 +68,6 @@ let benchIcon = L.icon({
 
 function renderBench(fields) {
     const googleMapsUrl = getMapsLink(fields);
-    console.log(fields)
     
     return `Bench
     <div>
@@ -77,19 +76,32 @@ function renderBench(fields) {
     `;
 }
 
+function renderParking(fields) {
+    const googleMapsUrl = getMapsLink(fields);
+    
+    return `Handicap Parking Spot
+    <div>
+        ${fields.address_full}
+    </div>
+    `;
+}
+
+
 fetch('bathrooms.json').then((r) => r.json()).then(async markers => {
     let markerGroup = L.featureGroup([]).addTo(map);
 
-    for (const key in markers) {
-        let latlng = L.latLng(markers[key].latitude, markers[key].longitude);
-        L.marker(latlng).bindPopup(renderBathroom(markers[key])).addTo(markerGroup);
-    }
     setInterval(() => {
         let sorted = Object.keys(markers).sort((a, b) => {
             let da = haversine(markers[a].latitude, markers[a].longitude, map.getCenter().lat, map.getCenter().lng);
             let db = haversine(markers[b].latitude, markers[b].longitude, map.getCenter().lat, map.getCenter().lng);
             return da - db;
         });
+        for (let i = 0; i < 100; i++) {
+            const key = sorted[i];
+            let latlng = L.latLng(markers[key].latitude, markers[key].longitude);
+            L.marker(latlng).bindPopup(renderBathroom(markers[key])).addTo(markerGroup);
+        }
+        
         const grid = document.querySelector('.footer-scroll-grid');
         while (grid.firstChild) {
             grid.removeChild(grid.lastChild);
@@ -125,7 +137,7 @@ function onMapClick(e) {
 map.on('click', onMapClick);
 map.on('moveend', async () => {
     let bounds = map.getBounds();
-    let bbox = [bounds._southWest.lat, bounds._southWest.lng, bounds._northEast.lat, bounds._northEast.lng];
+    let bbox = [bounds.getSouthWest().lat, bounds.getSouthWest().lng, bounds.getNorthEast().lat, bounds.getNorthEast().lng];
     const benches = await getBenches(bbox);
     let markerGroup = L.featureGroup([]).addTo(map);
     let sorted = benches.sort((a, b) => {
@@ -136,8 +148,23 @@ map.on('moveend', async () => {
 
     for (let i = 0; i < 100; i++) {
         const b = sorted[i];
+        if (!b) { continue; }
         let latlng = L.latLng(b.lat, b.lon);
         L.marker(latlng, {icon: benchIcon}).bindPopup(renderBench(b)).addTo(markerGroup);
+    }
+
+    const parking = (await (await fetch('handicap-parking.json')).json()).features.map(p => p.attributes);
+    markerGroup = L.featureGroup([]).addTo(map);
+    sorted = parking.sort((a, b) => {
+        let da = haversine(a.latitude, a.longitude, map.getCenter().lat, map.getCenter().lng);
+        let db = haversine(b.latitude, b.longitude, map.getCenter().lat, map.getCenter().lng);
+        return da - db;
+    });
+
+    for (let i = 0; i < 100; i++) {
+        const b = sorted[i];
+        let latlng = L.latLng(b.latitude, b.longitude);
+        L.marker(latlng).bindPopup(renderParking(b)).addTo(markerGroup);
     }
 });
 
