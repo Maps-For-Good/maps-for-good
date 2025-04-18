@@ -58,14 +58,36 @@ function renderBathroom(br) {
 }
 
 let benchIcon = L.icon({
-    iconUrl: 'icons/bench.png',
-   // shadowUrl: 'icons/bench.png',
+    iconUrl: 'icons/BenchPin.png',
 
-    iconSize:     [58, 58], // size of the icon
-    shadowSize:   [50, 64], // size of the shadow
+    iconSize:     [110, 90], 
+    iconAnchor:   [22, 94], 
+    popupAnchor:  [-3, -76] 
+});
+
+let bathroomIcon = L.icon({
+    iconUrl: 'icons/BathroomPin.png',
+
+    iconSize:     [110, 90], // size of the icon
     iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-    shadowAnchor: [4, 62],  // the same for the shadow
     popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+
+let parkingIcon = L.icon({
+    iconUrl: 'icons/ParkingPin.png',
+
+    iconSize:     [110, 90], 
+    iconAnchor:   [22, 94], 
+    popupAnchor:  [-3, -76] 
+});
+
+
+let parkingIcon = L.icon({
+    iconUrl: 'icons/ParkingPin.png',
+
+    iconSize:     [110, 90], 
+    iconAnchor:   [22, 94], 
+    popupAnchor:  [-3, -76] 
 });
 
 function renderBench(bench) {
@@ -76,6 +98,7 @@ function renderBench(bench) {
         <strong>Backrest:</strong> ${bench.fields.backrest ?? "Maybe"}
     </div>
     `;
+    
 }
 
 function renderParking(fields) {
@@ -92,6 +115,10 @@ function renderParking(fields) {
 const markers = bathrooms;
     let markerGroup = L.featureGroup([]).addTo(map);
 
+    for (const key in markers) {
+        let latlng = L.latLng(markers[key].latitude, markers[key].longitude);
+        L.marker(latlng, {icon: bathroomIcon}).bindPopup(renderBathroom(markers[key])).addTo(markerGroup);
+    }
     setInterval(() => {
         let sorted = Object.keys(markers).sort((a, b) => {
             let da = haversine(markers[a].latitude, markers[a].longitude, map.getCenter().lat, map.getCenter().lng);
@@ -165,7 +192,7 @@ map.on('moveend', async () => {
     for (let i = 0; i < 100 && i < sorted.length; i++) {
         const b = sorted[i];
         let latlng = L.latLng(b.latitude, b.longitude);
-        L.marker(latlng).bindPopup(renderParking(b)).addTo(markerGroup);
+        L.marker(latlng, {icon: parkingIcon}). bindPopup(renderParking(b)).addTo(markerGroup);
     }
 });
 
@@ -202,10 +229,6 @@ function toggleBox(contentId) {
         selectedContent.classList.add('active');
         popupBox.classList.remove('hidden');
     }
-
-
-
- 
 }
 
 async function getBenches(bbox) {
@@ -226,3 +249,31 @@ async function getBenches(bbox) {
         };
     });
 }
+
+async function zipZoom() {
+    const zip = document.getElementById('zipSearch').value.trim();
+
+    if (!zip) {
+        alert("Please enter a ZIP code.");
+        return;
+    }
+
+    try {
+        const response = await fetch('zips.json');
+        const zipData = await response.json();
+
+        const location = zipData.find(entry => entry.zip === zip);
+
+        if (!location) {
+            alert("ZIP code not found.");
+            return;
+        }
+
+        map.setView([location.latitude, location.longitude], 13);
+    } catch (error) {
+        console.error("Error fetching ZIP code data:", error);
+        alert("An error occurred while searching for the ZIP code.");
+    }
+}
+
+document.querySelector('.zip-zoom').addEventListener('click', zipZoom);
