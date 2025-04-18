@@ -82,14 +82,6 @@ let parkingIcon = L.icon({
 });
 
 
-let parkingIcon = L.icon({
-    iconUrl: 'icons/ParkingPin.png',
-
-    iconSize:     [110, 90], 
-    iconAnchor:   [22, 94], 
-    popupAnchor:  [-3, -76] 
-});
-
 function renderBench(bench) {
     const googleMapsUrl = getMapsLink(bench);
     
@@ -128,7 +120,7 @@ const markers = bathrooms;
         for (let i = 0; i < 100; i++) {
             const key = sorted[i];
             let latlng = L.latLng(markers[key].latitude, markers[key].longitude);
-            L.marker(latlng).bindPopup(renderBathroom(markers[key])).addTo(markerGroup);
+            L.marker(latlng, {icon: bathroomIcon}).bindPopup(renderBathroom(markers[key])).addTo(markerGroup);
         }
         
         const grid = document.querySelector('.footer-scroll-grid');
