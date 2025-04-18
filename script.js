@@ -188,7 +188,7 @@ map.on('moveend', async () => {
     for (let i = 0; i < 100 && i < sorted.length; i++) {
         const b = sorted[i];
         const latlng = L.latLng(b.latitude, b.longitude);
-        L.marker(latlng)
+        L.marker(latlng, {icon: parkingIcon})
             .bindPopup(renderParking(b))
             .addTo(parkingGroup);
     }
