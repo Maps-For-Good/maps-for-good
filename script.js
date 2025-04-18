@@ -1,3 +1,5 @@
+import bathrooms from './data/bathrooms/bathrooms.js';
+import parking from './data/handicap-parking/handicap-parking.js'
 let map = L.map('map').setView([42.3, -71.1], 13);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -36,21 +38,21 @@ function error() {
 
 getLocation();
 
-function getMapsLink(locationFields) {
-    let query = encodeURIComponent(`${locationFields.latitude}, ${locationFields.longitude} ${locationFields.name}`);
+function getMapsLink(location) {
+    let query = encodeURIComponent(`${location.latitude}, ${location.longitude} ${location.fields.name ?? ""}`);
     return `https://www.google.com/maps/search/?api=1&query=${query}`;
 }
 
-function renderBathroom(fields) {
-    const googleMapsUrl = getMapsLink(fields);
+function renderBathroom(br) {
+    const googleMapsUrl = getMapsLink(br);
 
     return `
-            <h3>${fields.name}</h3>
+            <h3>${br.fields.name}</h3>
             <a href="${googleMapsUrl}" target="_blank">
                 Open in Google Maps
             </a>
             <div>
-                <strong>Hours:</strong> ${fields.hours}
+                <strong>Hours:</strong> ${br.fields.hours}
             </div>
         `;
 }
@@ -66,12 +68,12 @@ let benchIcon = L.icon({
     popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
 });
 
-function renderBench(fields) {
-    const googleMapsUrl = getMapsLink(fields);
+function renderBench(bench) {
+    const googleMapsUrl = getMapsLink(bench);
     
     return `Bench
     <div>
-        <strong>Backrest:</strong> ${fields.tags.backrest ?? "Maybe"}
+        <strong>Backrest:</strong> ${bench.fields.backrest ?? "Maybe"}
     </div>
     `;
 }
@@ -81,13 +83,13 @@ function renderParking(fields) {
     
     return `Handicap Parking Spot
     <div>
-        ${fields.address_full}
+        ${fields.address}
     </div>
     `;
 }
 
 
-fetch('bathrooms.json').then((r) => r.json()).then(async markers => {
+const markers = bathrooms;
     let markerGroup = L.featureGroup([]).addTo(map);
 
     setInterval(() => {
@@ -99,7 +101,7 @@ fetch('bathrooms.json').then((r) => r.json()).then(async markers => {
         for (let i = 0; i < 100; i++) {
             const key = sorted[i];
             let latlng = L.latLng(markers[key].latitude, markers[key].longitude);
-            //L.marker(latlng).bindPopup(renderBathroom(markers[key])).addTo(markerGroup);
+            L.marker(latlng).bindPopup(renderBathroom(markers[key])).addTo(markerGroup);
         }
         
         const grid = document.querySelector('.footer-scroll-grid');
@@ -112,19 +114,18 @@ fetch('bathrooms.json').then((r) => r.json()).then(async markers => {
             entry.setAttribute('target', '_blank');
             const title = document.createElement('h4');
             const desc = document.createElement('p');
-            title.textContent = markers[key].name;
+            title.textContent = markers[key].fields.name;
 
             let dist = haversine(markers[key].latitude, markers[key].longitude, map.getCenter().lat, map.getCenter().lng);
             let str = document.createElement('strong');
             str.textContent = `${dist.toFixed(1)} miles away. `;
-            desc.textContent = `${markers[key].address}, ${markers[key].zip}.`
+            desc.textContent = `${markers[key].fields.address}, ${markers[key].fields.zip}.`
             desc.prepend(str);
             entry.className = 'footer-item';
             entry.appendChild(title); entry.appendChild(desc);
             grid.appendChild(entry);
         }
     }, 1000);
-});
 
 function onMapClick(e) {
     return;
@@ -142,27 +143,17 @@ map.on('moveend', async () => {
     const benches = await getBenches(bbox);
     let markerGroup = L.featureGroup([]).addTo(map);
     let sorted = benches.sort((a, b) => {
-        let da = haversine(a.lat, a.lon, map.getCenter().lat, map.getCenter().lng);
-        let db = haversine(b.lat, b.lon, map.getCenter().lat, map.getCenter().lng);
+        let da = haversine(a.latitude, a.longitude, map.getCenter().lat, map.getCenter().lng);
+        let db = haversine(b.latitude, b.longitude, map.getCenter().lat, map.getCenter().lng);
         return da - db;
     });
 
     for (let i = 0; i < 100; i++) {
         const b = sorted[i];
         if (!b) { continue; }
-        let latlng = L.latLng(b.lat, b.lon);
+        let latlng = L.latLng(b.latitude, b.longitude);
         L.marker(latlng, {icon: benchIcon}).bindPopup(renderBench(b)).addTo(markerGroup);
     }
-
-    let parking = (await (await fetch('handicap-parking.json')).json()).features.map(p => p.attributes);
-    const cambridge = (await (await fetch('handicap-parking-cambridge.json')).json()).features.map(p => {
-      return {
-        latitude: p.geometry.coordinates[1],
-        longitude: p.geometry.coordinates[0],
-        address_full: `${p.properties.StreetNumber} ${p.properties.StreetName}`,
-      };
-    });
-    parking.push(...cambridge);
 
     markerGroup = L.featureGroup([]).addTo(map);
     sorted = parking.sort((a, b) => {
@@ -172,7 +163,6 @@ map.on('moveend', async () => {
     });
 
     for (let i = 0; i < 100 && i < sorted.length; i++) {
-        console.log(sorted[i])
         const b = sorted[i];
         let latlng = L.latLng(b.latitude, b.longitude);
         L.marker(latlng).bindPopup(renderParking(b)).addTo(markerGroup);
@@ -226,5 +216,13 @@ async function getBenches(bbox) {
         method: 'POST',
         body: query,
     })).json();
-    return resp.elements;
+    return resp.elements.map((bench) => {
+        return {
+          latitude: bench.lat,
+          longitude: bench.lon,
+          fields: {
+              backrest: bench.tags.backrest,
+          }
+        };
+    });
 }
