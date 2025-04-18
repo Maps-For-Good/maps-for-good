@@ -1,0 +1,2762 @@
+{
+    "objectIdFieldName" : "ObjectId", 
+    "uniqueIdField" : 
+    {
+      "name" : "ObjectId", 
+      "isSystemMaintained" : true
+    }, 
+    "globalIdFieldName" : "", 
+    "geometryType" : "esriGeometryPoint", 
+    "spatialReference" : {
+      "wkid" : 102100, 
+      "latestWkid" : 3857
+    }, 
+    "fields" : [
+      {
+        "name" : "address_full", 
+        "type" : "esriFieldTypeString", 
+        "alias" : "address_full", 
+        "sqlType" : "sqlTypeNVarchar", 
+        "length" : 4000, 
+        "domain" : null, 
+        "defaultValue" : null
+      }, 
+      {
+        "name" : "address_street_number", 
+        "type" : "esriFieldTypeString", 
+        "alias" : "address_street_number", 
+        "sqlType" : "sqlTypeNVarchar", 
+        "length" : 4000, 
+        "domain" : null, 
+        "defaultValue" : null
+      }, 
+      {
+        "name" : "address_street_name", 
+        "type" : "esriFieldTypeString", 
+        "alias" : "address_street_name", 
+        "sqlType" : "sqlTypeNVarchar", 
+        "length" : 4000, 
+        "domain" : null, 
+        "defaultValue" : null
+      }, 
+      {
+        "name" : "commercial_area", 
+        "type" : "esriFieldTypeString", 
+        "alias" : "commercial_area", 
+        "sqlType" : "sqlTypeNVarchar", 
+        "length" : 4000, 
+        "domain" : null, 
+        "defaultValue" : null
+      }, 
+      {
+        "name" : "zipcode", 
+        "type" : "esriFieldTypeSmallInteger", 
+        "alias" : "zipcode", 
+        "sqlType" : "sqlTypeSmallInt", 
+        "domain" : null, 
+        "defaultValue" : null
+      }, 
+      {
+        "name" : "number_of_ap_spaces", 
+        "type" : "esriFieldTypeSmallInteger", 
+        "alias" : "number_of_ap_spaces", 
+        "sqlType" : "sqlTypeSmallInt", 
+        "domain" : null, 
+        "defaultValue" : null
+      }, 
+      {
+        "name" : "year_space_last_confirmed", 
+        "type" : "esriFieldTypeSmallInteger", 
+        "alias" : "year_space_last_confirmed", 
+        "sqlType" : "sqlTypeSmallInt", 
+        "domain" : null, 
+        "defaultValue" : null
+      }, 
+      {
+        "name" : "latitude", 
+        "type" : "esriFieldTypeSingle", 
+        "alias" : "latitude", 
+        "sqlType" : "sqlTypeReal", 
+        "domain" : null, 
+        "defaultValue" : null
+      }, 
+      {
+        "name" : "longitude", 
+        "type" : "esriFieldTypeSingle", 
+        "alias" : "longitude", 
+        "sqlType" : "sqlTypeReal", 
+        "domain" : null, 
+        "defaultValue" : null
+      }, 
+      {
+        "name" : "ObjectId", 
+        "type" : "esriFieldTypeOID", 
+        "alias" : "ObjectId", 
+        "sqlType" : "sqlTypeInteger", 
+        "domain" : null, 
+        "defaultValue" : null
+      }
+    ], 
+    "features" : [
+      {
+        "attributes" : {
+          "address_full" : "1 Sleeper st, 02210", 
+          "address_street_number" : "1", 
+          "address_street_name" : "Sleeper st", 
+          "commercial_area" : "Seaport", 
+          "zipcode" : 2210, 
+          "number_of_ap_spaces" : 3, 
+          "year_space_last_confirmed" : 2022, 
+          "latitude" : 42.35276, 
+          "longitude" : -71.04864, 
+          "ObjectId" : 1
+        }, 
+        "geometry" : 
+        {
+          "x" : -7909098.2037156271, 
+          "y" : 5213969.13101253
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : " New Sudbury Street, 02201", 
+          "address_street_number" : null, 
+          "address_street_name" : "New Sudbury Street", 
+          "commercial_area" : "Government Center", 
+          "zipcode" : 2201, 
+          "number_of_ap_spaces" : 3, 
+          "year_space_last_confirmed" : 2024, 
+          "latitude" : 42.36174, 
+          "longitude" : -71.05979, 
+          "ObjectId" : 2
+        }, 
+        "geometry" : 
+        {
+          "x" : -7910340.195274407, 
+          "y" : 5215321.4606060525
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "84 Central Street, 02109", 
+          "address_street_number" : "84", 
+          "address_street_name" : "Central Street", 
+          "commercial_area" : "Faneuil Hall", 
+          "zipcode" : 2109, 
+          "number_of_ap_spaces" : 1, 
+          "year_space_last_confirmed" : 2020, 
+          "latitude" : 42.35919, 
+          "longitude" : -71.05294, 
+          "ObjectId" : 3
+        }, 
+        "geometry" : 
+        {
+          "x" : -7909577.31612483, 
+          "y" : 5214936.8924636105
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "43 Hawkins Street, 02114", 
+          "address_street_number" : "43", 
+          "address_street_name" : "Hawkins Street", 
+          "commercial_area" : "Faneuil Hall", 
+          "zipcode" : 2114, 
+          "number_of_ap_spaces" : 4, 
+          "year_space_last_confirmed" : 2020, 
+          "latitude" : 42.36221, 
+          "longitude" : -71.06099, 
+          "ObjectId" : 4
+        }, 
+        "geometry" : 
+        {
+          "x" : -7910473.133010312, 
+          "y" : 5215392.5020413147
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "10 Somerset Street, 02108", 
+          "address_street_number" : "10", 
+          "address_street_name" : "Somerset Street", 
+          "commercial_area" : "Beacon Hill", 
+          "zipcode" : 2108, 
+          "number_of_ap_spaces" : 6, 
+          "year_space_last_confirmed" : 2020, 
+          "latitude" : 42.35882, 
+          "longitude" : -71.06159, 
+          "ObjectId" : 5
+        }, 
+        "geometry" : 
+        {
+          "x" : -7910540.4890946066, 
+          "y" : 5214881.6935213143
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "20 Ashburton Place, 02108", 
+          "address_street_number" : "20", 
+          "address_street_name" : "Ashburton Place", 
+          "commercial_area" : "Beacon Hill", 
+          "zipcode" : 2108, 
+          "number_of_ap_spaces" : 5, 
+          "year_space_last_confirmed" : 2020, 
+          "latitude" : 42.359, 
+          "longitude" : -71.06258, 
+          "ObjectId" : 6
+        }, 
+        "geometry" : 
+        {
+          "x" : -7910649.8515887521, 
+          "y" : 5214908.713710594
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "8 Ashburton Place, 02108", 
+          "address_street_number" : "8", 
+          "address_street_name" : "Ashburton Place", 
+          "commercial_area" : "Beacon Hill", 
+          "zipcode" : 2108, 
+          "number_of_ap_spaces" : 2, 
+          "year_space_last_confirmed" : 2020, 
+          "latitude" : 42.35908, 
+          "longitude" : -71.06182, 
+          "ObjectId" : 7
+        }, 
+        "geometry" : 
+        {
+          "x" : -7910565.9578809049, 
+          "y" : 5214919.9912276622
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "35 Bowdoin Street, 02114", 
+          "address_street_number" : "35", 
+          "address_street_name" : "Bowdoin Street", 
+          "commercial_area" : "Beacon Hill", 
+          "zipcode" : 2114, 
+          "number_of_ap_spaces" : 1, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.36004, 
+          "longitude" : -71.06319, 
+          "ObjectId" : 8
+        }, 
+        "geometry" : 
+        {
+          "x" : -7910718.6147514107, 
+          "y" : 5215065.7143471278
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "65 Joy Street, 02114", 
+          "address_street_number" : "65", 
+          "address_street_name" : "Joy Street", 
+          "commercial_area" : "Beacon Hill", 
+          "zipcode" : 2114, 
+          "number_of_ap_spaces" : 2, 
+          "year_space_last_confirmed" : 2021, 
+          "latitude" : 42.3605, 
+          "longitude" : -71.06503, 
+          "ObjectId" : 9
+        }, 
+        "geometry" : 
+        {
+          "x" : -7910923.6429895516, 
+          "y" : 5215134.35850221
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "84 Joy Street, 02114", 
+          "address_street_number" : "84", 
+          "address_street_name" : "Joy Street", 
+          "commercial_area" : "Beacon Hill", 
+          "zipcode" : 2114, 
+          "number_of_ap_spaces" : 1, 
+          "year_space_last_confirmed" : 2021, 
+          "latitude" : 42.36095, 
+          "longitude" : -71.06526, 
+          "ObjectId" : 10
+        }, 
+        "geometry" : 
+        {
+          "x" : -7910948.9459098112, 
+          "y" : 5215201.8461424308
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "19 Myrtle Street, 02114", 
+          "address_street_number" : "19", 
+          "address_street_name" : "Myrtle Street", 
+          "commercial_area" : "Beacon Hill", 
+          "zipcode" : 2114, 
+          "number_of_ap_spaces" : 2, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.35955, 
+          "longitude" : -71.06529, 
+          "ObjectId" : 11
+        }, 
+        "geometry" : 
+        {
+          "x" : -7910952.0483840182, 
+          "y" : 5214991.6141693834
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "33 Mt. Vernon Street, 02108", 
+          "address_street_number" : "33", 
+          "address_street_name" : "Mt. Vernon Street", 
+          "commercial_area" : "Beacon Hill", 
+          "zipcode" : 2108, 
+          "number_of_ap_spaces" : 1, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.35853, 
+          "longitude" : -71.06459, 
+          "ObjectId" : 12
+        }, 
+        "geometry" : 
+        {
+          "x" : -7910873.8787243888, 
+          "y" : 5214837.4740391746
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "28 Derne Street, 02114", 
+          "address_street_number" : "28", 
+          "address_street_name" : "Derne Street", 
+          "commercial_area" : "Beacon Hill", 
+          "zipcode" : 2114, 
+          "number_of_ap_spaces" : 2, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.35959, 
+          "longitude" : -71.06418, 
+          "ObjectId" : 13
+        }, 
+        "geometry" : 
+        {
+          "x" : -7910828.137545622, 
+          "y" : 5214997.8058590209
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "129 Cambridge Street, 02108", 
+          "address_street_number" : "129", 
+          "address_street_name" : "Cambridge Street", 
+          "commercial_area" : "Government Center", 
+          "zipcode" : 2108, 
+          "number_of_ap_spaces" : 1, 
+          "year_space_last_confirmed" : 2024, 
+          "latitude" : 42.36079, 
+          "longitude" : -71.06123, 
+          "ObjectId" : 14
+        }, 
+        "geometry" : 
+        {
+          "x" : -7910500.7179801324, 
+          "y" : 5215177.7372248461
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "11 Lomansey Way, 02114", 
+          "address_street_number" : "11", 
+          "address_street_name" : "Lomansey Way", 
+          "commercial_area" : "North Station", 
+          "zipcode" : 2114, 
+          "number_of_ap_spaces" : 4, 
+          "year_space_last_confirmed" : 2020, 
+          "latitude" : 42.36461, 
+          "longitude" : -71.06376, 
+          "ObjectId" : 15
+        }, 
+        "geometry" : 
+        {
+          "x" : -7910781.3243601592, 
+          "y" : 5215753.883787374
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "180 Merrimac Street, 02114", 
+          "address_street_number" : "180", 
+          "address_street_name" : "Merrimac Street", 
+          "commercial_area" : "North Station", 
+          "zipcode" : 2114, 
+          "number_of_ap_spaces" : 4, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.36366, 
+          "longitude" : -71.06272, 
+          "ObjectId" : 16
+        }, 
+        "geometry" : 
+        {
+          "x" : -7910665.5843723863, 
+          "y" : 5215611.225027089
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "17 Lancaster Street, 02114", 
+          "address_street_number" : "17", 
+          "address_street_name" : "Lancaster Street", 
+          "commercial_area" : "North Station", 
+          "zipcode" : 2114, 
+          "number_of_ap_spaces" : 2, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.36399, 
+          "longitude" : -71.06216, 
+          "ObjectId" : 17
+        }, 
+        "geometry" : 
+        {
+          "x" : -7910603.5771896243, 
+          "y" : 5215659.830821407
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "197 Friend Street, 02114", 
+          "address_street_number" : "197", 
+          "address_street_name" : "Friend Street", 
+          "commercial_area" : "North Station", 
+          "zipcode" : 2114, 
+          "number_of_ap_spaces" : 2, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.36419, 
+          "longitude" : -71.06041, 
+          "ObjectId" : 18
+        }, 
+        "geometry" : 
+        {
+          "x" : -7910408.5231778566, 
+          "y" : 5215690.9466758966
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "54 Canal Street, 02114", 
+          "address_street_number" : "54", 
+          "address_street_name" : "Canal Street", 
+          "commercial_area" : "North Station", 
+          "zipcode" : 2114, 
+          "number_of_ap_spaces" : 1, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.36347, 
+          "longitude" : -71.05946, 
+          "ObjectId" : 19
+        }, 
+        "geometry" : 
+        {
+          "x" : -7910302.5692865187, 
+          "y" : 5215581.7817463856
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "239 Medford Street, 02129", 
+          "address_street_number" : "239", 
+          "address_street_name" : "Medford Street", 
+          "commercial_area" : "North Station", 
+          "zipcode" : 2129, 
+          "number_of_ap_spaces" : 5, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.36621, 
+          "longitude" : -71.05911, 
+          "ObjectId" : 20
+        }, 
+        "geometry" : 
+        {
+          "x" : -7910263.8111794088, 
+          "y" : 5215994.0713436091
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "45 Devonshire St, 02129", 
+          "address_street_number" : "45", 
+          "address_street_name" : "Devonshire St", 
+          "commercial_area" : "Financial District", 
+          "zipcode" : 2129, 
+          "number_of_ap_spaces" : 2, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.35847, 
+          "longitude" : -71.05739, 
+          "ObjectId" : 21
+        }, 
+        "geometry" : 
+        {
+          "x" : -7910072.5086344825, 
+          "y" : 5214829.5319389589
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "40 Water Street, 02110", 
+          "address_street_number" : "40", 
+          "address_street_name" : "Water Street", 
+          "commercial_area" : "Financial District", 
+          "zipcode" : 2110, 
+          "number_of_ap_spaces" : 6, 
+          "year_space_last_confirmed" : 2018, 
+          "latitude" : 42.35778, 
+          "longitude" : -71.05699, 
+          "ObjectId" : 22
+        }, 
+        "geometry" : 
+        {
+          "x" : -7910028.4628515588, 
+          "y" : 5214725.4717589729
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "100 Arch Street, 02110", 
+          "address_street_number" : "100", 
+          "address_street_name" : "Arch Street", 
+          "commercial_area" : "Financial District", 
+          "zipcode" : 2110, 
+          "number_of_ap_spaces" : 7, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.35482, 
+          "longitude" : -71.05859, 
+          "ObjectId" : 23
+        }, 
+        "geometry" : 
+        {
+          "x" : -7910205.4029557845, 
+          "y" : 5214278.83012442
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "65 Franklin Street, 02110", 
+          "address_street_number" : "65", 
+          "address_street_name" : "Franklin Street", 
+          "commercial_area" : "Financial District", 
+          "zipcode" : 2110, 
+          "number_of_ap_spaces" : 4, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.35524, 
+          "longitude" : -71.05847, 
+          "ObjectId" : 24
+        }, 
+        "geometry" : 
+        {
+          "x" : -7910192.6446289448, 
+          "y" : 5214342.3408208285
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "225 Franklin Street, 02110", 
+          "address_street_number" : "225", 
+          "address_street_name" : "Franklin Street", 
+          "commercial_area" : "Financial District", 
+          "zipcode" : 2110, 
+          "number_of_ap_spaces" : 5, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.35624, 
+          "longitude" : -71.05445, 
+          "ObjectId" : 25
+        }, 
+        "geometry" : 
+        {
+          "x" : -7909745.0623523137, 
+          "y" : 5214492.6917894026
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "18 Province Street, 02108", 
+          "address_street_number" : "18", 
+          "address_street_name" : "Province Street", 
+          "commercial_area" : "Financial District", 
+          "zipcode" : 2108, 
+          "number_of_ap_spaces" : 6, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.35725, 
+          "longitude" : -71.05961, 
+          "ObjectId" : 26
+        }, 
+        "geometry" : 
+        {
+          "x" : -7910319.5343769165, 
+          "y" : 5214644.1026653228
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "8 Harrison Ave, 02111", 
+          "address_street_number" : "8", 
+          "address_street_name" : "Harrison Ave", 
+          "commercial_area" : "Chinatown", 
+          "zipcode" : 2111, 
+          "number_of_ap_spaces" : 9, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.35226, 
+          "longitude" : -71.06084, 
+          "ObjectId" : 27
+        }, 
+        "geometry" : 
+        {
+          "x" : -7910456.9616278857, 
+          "y" : 5213894.1416516295
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "149 Harrison Ave, 02111", 
+          "address_street_number" : "149", 
+          "address_street_name" : "Harrison Ave", 
+          "commercial_area" : "Chinatown", 
+          "zipcode" : 2111, 
+          "number_of_ap_spaces" : 6, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.34977, 
+          "longitude" : -71.06187, 
+          "ObjectId" : 28
+        }, 
+        "geometry" : 
+        {
+          "x" : -7910571.2166136494, 
+          "y" : 5213518.5937213935
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "110 Chauncy Street, 02111", 
+          "address_street_number" : "110", 
+          "address_street_name" : "Chauncy Street", 
+          "commercial_area" : "Downtown", 
+          "zipcode" : 2111, 
+          "number_of_ap_spaces" : 8, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.35285, 
+          "longitude" : -71.06066, 
+          "ObjectId" : 29
+        }, 
+        "geometry" : 
+        {
+          "x" : -7910436.749347941, 
+          "y" : 5213982.0990218278
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "11 Avenue De Lafayette, 02111", 
+          "address_street_number" : "11", 
+          "address_street_name" : "Avenue De Lafayette", 
+          "commercial_area" : "Downtown", 
+          "zipcode" : 2111, 
+          "number_of_ap_spaces" : 4, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.3529, 
+          "longitude" : -71.06052, 
+          "ObjectId" : 30
+        }, 
+        "geometry" : 
+        {
+          "x" : -7910421.2536748238, 
+          "y" : 5213989.9349677553
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "56 Bedford Street, 02111", 
+          "address_street_number" : "56", 
+          "address_street_name" : "Bedford Street", 
+          "commercial_area" : "Downtown", 
+          "zipcode" : 2111, 
+          "number_of_ap_spaces" : 3, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.35357, 
+          "longitude" : -71.05983, 
+          "ObjectId" : 31
+        }, 
+        "geometry" : 
+        {
+          "x" : -7910343.879949552, 
+          "y" : 5214090.2422763808
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "245 Summer Street, 02210", 
+          "address_street_number" : "245", 
+          "address_street_name" : "Summer Street", 
+          "commercial_area" : "South Station", 
+          "zipcode" : 2210, 
+          "number_of_ap_spaces" : 8, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.35152, 
+          "longitude" : -71.05398, 
+          "ObjectId" : 32
+        }, 
+        "geometry" : 
+        {
+          "x" : -7909692.5117602935, 
+          "y" : 5213782.3041738756
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "210 South Street, 02111", 
+          "address_street_number" : "210", 
+          "address_street_name" : "South Street", 
+          "commercial_area" : "South Station", 
+          "zipcode" : 2111, 
+          "number_of_ap_spaces" : 1, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.34988, 
+          "longitude" : -71.0573, 
+          "ObjectId" : 33
+        }, 
+        "geometry" : 
+        {
+          "x" : -7910062.2527697952, 
+          "y" : 5213534.0584946936
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "100 Boylston Street, 02116", 
+          "address_street_number" : "100", 
+          "address_street_name" : "Boylston Street", 
+          "commercial_area" : "Copley", 
+          "zipcode" : 2116, 
+          "number_of_ap_spaces" : 3, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.35207, 
+          "longitude" : -71.06534, 
+          "ObjectId" : 34
+        }, 
+        "geometry" : 
+        {
+          "x" : -7910956.9085929869, 
+          "y" : 5213864.196083202
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "130 Boylston Street, 02116", 
+          "address_street_number" : "130", 
+          "address_street_name" : "Boylston Street", 
+          "commercial_area" : "Copley", 
+          "zipcode" : 2116, 
+          "number_of_ap_spaces" : 3, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.35232, 
+          "longitude" : -71.06599, 
+          "ObjectId" : 35
+        }, 
+        "geometry" : 
+        {
+          "x" : -7911030.105610963, 
+          "y" : 5213901.8389433241
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "145 Pinckney Street, 02114", 
+          "address_street_number" : "145", 
+          "address_street_name" : "Pinckney Street", 
+          "commercial_area" : "Copley", 
+          "zipcode" : 2114, 
+          "number_of_ap_spaces" : 1, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.3591, 
+          "longitude" : -71.07148, 
+          "ObjectId" : 36
+        }, 
+        "geometry" : 
+        {
+          "x" : -7911640.9479395971, 
+          "y" : 5214922.8460113658
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "5 Commonwealth Ave, 02116", 
+          "address_street_number" : "5", 
+          "address_street_name" : "Commonwealth Ave", 
+          "commercial_area" : "Copley", 
+          "zipcode" : 2116, 
+          "number_of_ap_spaces" : 2, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.35393, 
+          "longitude" : -71.07248, 
+          "ObjectId" : 37
+        }, 
+        "geometry" : 
+        {
+          "x" : -7911752.2607512213, 
+          "y" : 5214145.1006860733
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "86 Newbury Street, 02116", 
+          "address_street_number" : "86", 
+          "address_street_name" : "Newbury Street", 
+          "commercial_area" : "Copley", 
+          "zipcode" : 2116, 
+          "number_of_ap_spaces" : 3, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.35159, 
+          "longitude" : -71.0746, 
+          "ObjectId" : 38
+        }, 
+        "geometry" : 
+        {
+          "x" : -7911988.5141065335, 
+          "y" : 5213792.3632566817
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "109 Newbury Street, 02116", 
+          "address_street_number" : "109", 
+          "address_street_name" : "Newbury Street", 
+          "commercial_area" : "Copley", 
+          "zipcode" : 2116, 
+          "number_of_ap_spaces" : 3, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.3516, 
+          "longitude" : -71.07591, 
+          "ObjectId" : 39
+        }, 
+        "geometry" : 
+        {
+          "x" : -7912134.698861842, 
+          "y" : 5213793.7068786146
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "700 Boylston Street, 02116", 
+          "address_street_number" : "700", 
+          "address_street_name" : "Boylston Street", 
+          "commercial_area" : "Copley", 
+          "zipcode" : 2116, 
+          "number_of_ap_spaces" : 10, 
+          "year_space_last_confirmed" : 2024, 
+          "latitude" : 42.34954, 
+          "longitude" : -71.07916, 
+          "ObjectId" : 40
+        }, 
+        "geometry" : 
+        {
+          "x" : -7912496.4538110727, 
+          "y" : 5213484.2555983141
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "755 Boylston Street, 02116", 
+          "address_street_number" : "755", 
+          "address_street_name" : "Boylston Street", 
+          "commercial_area" : "Copley", 
+          "zipcode" : 2116, 
+          "number_of_ap_spaces" : 1, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.34936, 
+          "longitude" : -71.08098, 
+          "ObjectId" : 41
+        }, 
+        "geometry" : 
+        {
+          "x" : -7912698.2526707882, 
+          "y" : 5213456.7725370228
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "927 Boylston Street, 02115", 
+          "address_street_number" : "927", 
+          "address_street_name" : "Boylston Street", 
+          "commercial_area" : "Copley", 
+          "zipcode" : 2115, 
+          "number_of_ap_spaces" : 1, 
+          "year_space_last_confirmed" : 2025, 
+          "latitude" : 42.34809, 
+          "longitude" : -71.08508, 
+          "ObjectId" : 42
+        }, 
+        "geometry" : 
+        {
+          "x" : -7913154.3508884665, 
+          "y" : 5213264.604212244
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "352 Boylston Street, 02115", 
+          "address_street_number" : "352", 
+          "address_street_name" : "Boylston Street", 
+          "commercial_area" : "Copley", 
+          "zipcode" : 2115, 
+          "number_of_ap_spaces" : 2, 
+          "year_space_last_confirmed" : 2022, 
+          "latitude" : 42.35152, 
+          "longitude" : -71.07132, 
+          "ObjectId" : 43
+        }, 
+        "geometry" : 
+        {
+          "x" : -7911622.7071278356, 
+          "y" : 5213781.5480108494
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "300 Newbury Street, 02115", 
+          "address_street_number" : "300", 
+          "address_street_name" : "Newbury Street", 
+          "commercial_area" : "Copley", 
+          "zipcode" : 2115, 
+          "number_of_ap_spaces" : 1, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.3488, 
+          "longitude" : -71.08495, 
+          "ObjectId" : 44
+        }, 
+        "geometry" : 
+        {
+          "x" : -7913140.46600838, 
+          "y" : 5213372.2361889277
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "160 Commonwealth Ave, 02116", 
+          "address_street_number" : "160", 
+          "address_street_name" : "Commonwealth Ave", 
+          "commercial_area" : "Copley", 
+          "zipcode" : 2116, 
+          "number_of_ap_spaces" : 2, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.35137, 
+          "longitude" : -71.0787, 
+          "ObjectId" : 45
+        }, 
+        "geometry" : 
+        {
+          "x" : -7912443.9555392154, 
+          "y" : 5213759.1312690675
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "337 Commonwealth Ave, 02115", 
+          "address_street_number" : "337", 
+          "address_street_name" : "Commonwealth Ave", 
+          "commercial_area" : "Copley", 
+          "zipcode" : 2115, 
+          "number_of_ap_spaces" : 1, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.3497, 
+          "longitude" : -71.08765, 
+          "ObjectId" : 46
+        }, 
+        "geometry" : 
+        {
+          "x" : -7913440.9440307086, 
+          "y" : 5213508.226146698
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "258 Marlborough Street, 02116", 
+          "address_street_number" : "258", 
+          "address_street_name" : "Marlborough Street", 
+          "commercial_area" : "Copley", 
+          "zipcode" : 2116, 
+          "number_of_ap_spaces" : 1, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.35162, 
+          "longitude" : -71.08248, 
+          "ObjectId" : 47
+        }, 
+        "geometry" : 
+        {
+          "x" : -7912865.978860762, 
+          "y" : 5213797.6082034688
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "334 Beacon Street, 02116", 
+          "address_street_number" : "334", 
+          "address_street_name" : "Beacon Street", 
+          "commercial_area" : "Copley", 
+          "zipcode" : 2116, 
+          "number_of_ap_spaces" : 1, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.35266, 
+          "longitude" : -71.0838, 
+          "ObjectId" : 48
+        }, 
+        "geometry" : 
+        {
+          "x" : -7913012.2727091722, 
+          "y" : 5213953.7995917629
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "8 Fairfield Street, 02116", 
+          "address_street_number" : "8", 
+          "address_street_name" : "Fairfield Street", 
+          "commercial_area" : "Copley", 
+          "zipcode" : 2116, 
+          "number_of_ap_spaces" : 1, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.35205, 
+          "longitude" : -71.08314, 
+          "ObjectId" : 49
+        }, 
+        "geometry" : 
+        {
+          "x" : -7912938.2474741843, 
+          "y" : 5213861.6956023965
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "130 Clarendon St, 02116", 
+          "address_street_number" : "130", 
+          "address_street_name" : "Clarendon St", 
+          "commercial_area" : "Copley / Back Bay", 
+          "zipcode" : 2116, 
+          "number_of_ap_spaces" : 2, 
+          "year_space_last_confirmed" : 2022, 
+          "latitude" : 42.3499, 
+          "longitude" : -71.07506, 
+          "ObjectId" : 50
+        }, 
+        "geometry" : 
+        {
+          "x" : -7912039.4316416215, 
+          "y" : 5213536.8450787188
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "90 St. James Ave, 02116", 
+          "address_street_number" : "90", 
+          "address_street_name" : "St. James Ave", 
+          "commercial_area" : "Copley / Back Bay", 
+          "zipcode" : 2116, 
+          "number_of_ap_spaces" : 3, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.34985, 
+          "longitude" : -71.07307, 
+          "ObjectId" : 51
+        }, 
+        "geometry" : 
+        {
+          "x" : -7911818.1540974062, 
+          "y" : 5213529.7204628168
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "380 Stuart Street, 02116", 
+          "address_street_number" : "380", 
+          "address_street_name" : "Stuart Street", 
+          "commercial_area" : "Copley / Back Bay", 
+          "zipcode" : 2116, 
+          "number_of_ap_spaces" : 7, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.34916, 
+          "longitude" : -71.07314, 
+          "ObjectId" : 52
+        }, 
+        "geometry" : 
+        {
+          "x" : -7911826.41066404, 
+          "y" : 5213426.9789763475
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "385 Stuart Street, 02116", 
+          "address_street_number" : "385", 
+          "address_street_name" : "Stuart Street", 
+          "commercial_area" : "Copley / Back Bay", 
+          "zipcode" : 2116, 
+          "number_of_ap_spaces" : 7, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.34944, 
+          "longitude" : -71.0733, 
+          "ObjectId" : 53
+        }, 
+        "geometry" : 
+        {
+          "x" : -7911843.4536780808, 
+          "y" : 5213468.6116624912
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "185 Dartmouth Street, 02116", 
+          "address_street_number" : "185", 
+          "address_street_name" : "Dartmouth Street", 
+          "commercial_area" : "Copley / Back Bay", 
+          "zipcode" : 2116, 
+          "number_of_ap_spaces" : 1, 
+          "year_space_last_confirmed" : 2024, 
+          "latitude" : 42.34858, 
+          "longitude" : -71.07625, 
+          "ObjectId" : 54
+        }, 
+        "geometry" : 
+        {
+          "x" : -7912171.35637016, 
+          "y" : 5213338.9092771634
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "41 Belvidere Street, 02115", 
+          "address_street_number" : "41", 
+          "address_street_name" : "Belvidere Street", 
+          "commercial_area" : "Copley / Back Bay", 
+          "zipcode" : 2115, 
+          "number_of_ap_spaces" : 2, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.34609, 
+          "longitude" : -71.08586, 
+          "ObjectId" : 55
+        }, 
+        "geometry" : 
+        {
+          "x" : -7913241.85246101, 
+          "y" : 5212964.1921826256
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "183 Mass Ave, 02115", 
+          "address_street_number" : "183", 
+          "address_street_name" : "Mass Ave", 
+          "commercial_area" : "Copley / Back Bay", 
+          "zipcode" : 2115, 
+          "number_of_ap_spaces" : 1, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.34556, 
+          "longitude" : -71.08714, 
+          "ObjectId" : 56
+        }, 
+        "geometry" : 
+        {
+          "x" : -7913384.9314025259, 
+          "y" : 5212884.4799369192
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "21 Burlington Ave, 02215", 
+          "address_street_number" : "21", 
+          "address_street_name" : "Burlington Ave", 
+          "commercial_area" : "Fenway", 
+          "zipcode" : 2215, 
+          "number_of_ap_spaces" : 2, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.34644, 
+          "longitude" : -71.10138, 
+          "ObjectId" : 57
+        }, 
+        "geometry" : 
+        {
+          "x" : -7914969.4830907406, 
+          "y" : 5213016.6311689708
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "23 Burlington Ave, 02215", 
+          "address_street_number" : "23", 
+          "address_street_name" : "Burlington Ave", 
+          "commercial_area" : "Fenway", 
+          "zipcode" : 2215, 
+          "number_of_ap_spaces" : 2, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.34635, 
+          "longitude" : -71.1015, 
+          "ObjectId" : 58
+        }, 
+        "geometry" : 
+        {
+          "x" : -7914983.1453318447, 
+          "y" : 5213002.9550726172
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "91 Bay State Road, 02215", 
+          "address_street_number" : "91", 
+          "address_street_name" : "Bay State Road", 
+          "commercial_area" : "Fenway", 
+          "zipcode" : 2215, 
+          "number_of_ap_spaces" : 2, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.35045, 
+          "longitude" : -71.09699, 
+          "ObjectId" : 59
+        }, 
+        "geometry" : 
+        {
+          "x" : -7914480.946373445, 
+          "y" : 5213620.68398485
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "21 Kenmore Street, 02215", 
+          "address_street_number" : "21", 
+          "address_street_name" : "Kenmore Street", 
+          "commercial_area" : "Fenway", 
+          "zipcode" : 2215, 
+          "number_of_ap_spaces" : 8, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.34822, 
+          "longitude" : -71.09495, 
+          "ObjectId" : 60
+        }, 
+        "geometry" : 
+        {
+          "x" : -7914253.0531118922, 
+          "y" : 5213285.4277065555
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "56 Gainsborough Street, 02115", 
+          "address_street_number" : "56", 
+          "address_street_name" : "Gainsborough Street", 
+          "commercial_area" : "Fenway", 
+          "zipcode" : 2115, 
+          "number_of_ap_spaces" : 1, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.34183, 
+          "longitude" : -71.08736, 
+          "ObjectId" : 61
+        }, 
+        "geometry" : 
+        {
+          "x" : -7913408.03798923, 
+          "y" : 5212322.4134855308
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "23 St Stephen Street, 02115", 
+          "address_street_number" : "23", 
+          "address_street_name" : "St Stephen Street", 
+          "commercial_area" : "Fenway", 
+          "zipcode" : 2115, 
+          "number_of_ap_spaces" : 8, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.34294, 
+          "longitude" : -71.08655, 
+          "ObjectId" : 62
+        }, 
+        "geometry" : 
+        {
+          "x" : -7913318.648438124, 
+          "y" : 5212489.3581519974
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "200 Seaport Blvd, 02210", 
+          "address_street_number" : "200", 
+          "address_street_name" : "Seaport Blvd", 
+          "commercial_area" : "Seaport", 
+          "zipcode" : 2210, 
+          "number_of_ap_spaces" : 1, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.35138, 
+          "longitude" : -71.04049, 
+          "ObjectId" : 63
+        }, 
+        "geometry" : 
+        {
+          "x" : -7908191.272692184, 
+          "y" : 5213761.0397478379
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "270 Tremont Street, 02116", 
+          "address_street_number" : "270", 
+          "address_street_name" : "Tremont Street", 
+          "commercial_area" : "Theatre District", 
+          "zipcode" : 2116, 
+          "number_of_ap_spaces" : 3, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.3503, 
+          "longitude" : -71.06499, 
+          "ObjectId" : 64
+        }, 
+        "geometry" : 
+        {
+          "x" : -7910918.9441938465, 
+          "y" : 5213598.4257824635
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "115 Stuart Street, 02116", 
+          "address_street_number" : "115", 
+          "address_street_name" : "Stuart Street", 
+          "commercial_area" : "Theatre District", 
+          "zipcode" : 2116, 
+          "number_of_ap_spaces" : 2, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.35135, 
+          "longitude" : -71.06534, 
+          "ObjectId" : 65
+        }, 
+        "geometry" : 
+        {
+          "x" : -7910957.2536834087, 
+          "y" : 5213755.3911338048
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "1234 Columbus Ave., 02119", 
+          "address_street_number" : "1234", 
+          "address_street_name" : "Columbus Ave.", 
+          "commercial_area" : "Roxbury Crossing", 
+          "zipcode" : 2119, 
+          "number_of_ap_spaces" : 10, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.33023, 
+          "longitude" : -71.09523, 
+          "ObjectId" : 66
+        }, 
+        "geometry" : 
+        {
+          "x" : -7914284.5676597357, 
+          "y" : 5210575.415987175
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "328 Warren Street, 02119", 
+          "address_street_number" : "328", 
+          "address_street_name" : "Warren Street", 
+          "commercial_area" : "Roxbury", 
+          "zipcode" : 2119, 
+          "number_of_ap_spaces" : 1, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.31955, 
+          "longitude" : -71.08121, 
+          "ObjectId" : 67
+        }, 
+        "geometry" : 
+        {
+          "x" : -7912724.9738013586, 
+          "y" : 5208967.4325659806
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "203 Blue Hill Ave, 02119", 
+          "address_street_number" : "203", 
+          "address_street_name" : "Blue Hill Ave", 
+          "commercial_area" : "Roxbury", 
+          "zipcode" : 2119, 
+          "number_of_ap_spaces" : 1, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.31768, 
+          "longitude" : -71.07824, 
+          "ObjectId" : 68
+        }, 
+        "geometry" : 
+        {
+          "x" : -7912393.2984917341, 
+          "y" : 5208685.154926423
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "1234 Columbus Ave, 02119", 
+          "address_street_number" : "1234", 
+          "address_street_name" : "Columbus Ave", 
+          "commercial_area" : "Roxbury", 
+          "zipcode" : 2119, 
+          "number_of_ap_spaces" : 10, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.32852, 
+          "longitude" : -71.09644, 
+          "ObjectId" : 69
+        }, 
+        "geometry" : 
+        {
+          "x" : -7914418.9302851241, 
+          "y" : 5210317.9683956541
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "88 East Newton Street, 02118", 
+          "address_street_number" : "88", 
+          "address_street_name" : "East Newton Street", 
+          "commercial_area" : "South End / BMC", 
+          "zipcode" : 2118, 
+          "number_of_ap_spaces" : 4, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.33702, 
+          "longitude" : -71.07056, 
+          "ObjectId" : 70
+        }, 
+        "geometry" : 
+        {
+          "x" : -7911538.2045023749, 
+          "y" : 5211597.1547289435
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "732 Harrison Ave, 02118", 
+          "address_street_number" : "732", 
+          "address_street_name" : "Harrison Ave", 
+          "commercial_area" : "South End / BMC", 
+          "zipcode" : 2118, 
+          "number_of_ap_spaces" : 4, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.33745, 
+          "longitude" : -71.07153, 
+          "ObjectId" : 71
+        }, 
+        "geometry" : 
+        {
+          "x" : -7911646.4883106556, 
+          "y" : 5211662.7181404755
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "731 Harrison Ave, 02118", 
+          "address_street_number" : "731", 
+          "address_street_name" : "Harrison Ave", 
+          "commercial_area" : "South End / BMC", 
+          "zipcode" : 2118, 
+          "number_of_ap_spaces" : 2, 
+          "year_space_last_confirmed" : 2021, 
+          "latitude" : 42.33805, 
+          "longitude" : -71.07168, 
+          "ObjectId" : 72
+        }, 
+        "geometry" : 
+        {
+          "x" : -7911663.086046733, 
+          "y" : 5211753.624573512
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "72 High Street, 02110", 
+          "address_street_number" : "72", 
+          "address_street_name" : "High Street", 
+          "commercial_area" : "Financial District", 
+          "zipcode" : 2110, 
+          "number_of_ap_spaces" : 3, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.35409, 
+          "longitude" : -71.08098, 
+          "ObjectId" : 73
+        }, 
+        "geometry" : 
+        {
+          "x" : -7912698.2526707882, 
+          "y" : 5214168.8153197067
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "263 Summer Street, 02210", 
+          "address_street_number" : "263", 
+          "address_street_name" : "Summer Street", 
+          "commercial_area" : "South Station", 
+          "zipcode" : 2210, 
+          "number_of_ap_spaces" : 3, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.35033, 
+          "longitude" : -71.05066, 
+          "ObjectId" : 74
+        }, 
+        "geometry" : 
+        {
+          "x" : -7909323.23495307, 
+          "y" : 5213602.467110171
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "1 Federal Street, 02110", 
+          "address_street_number" : "1", 
+          "address_street_name" : "Federal Street", 
+          "commercial_area" : "Financial District", 
+          "zipcode" : 2110, 
+          "number_of_ap_spaces" : 12, 
+          "year_space_last_confirmed" : 2018, 
+          "latitude" : 42.35592, 
+          "longitude" : -71.05692, 
+          "ObjectId" : 75
+        }, 
+        "geometry" : 
+        {
+          "x" : -7910020.8975789659, 
+          "y" : 5214445.0862157736
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "1 Hayward Place, ", 
+          "address_street_number" : "1", 
+          "address_street_name" : "Hayward Place", 
+          "commercial_area" : "Downtown", 
+          "zipcode" : null, 
+          "number_of_ap_spaces" : 10, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.35311, 
+          "longitude" : -71.06255, 
+          "ObjectId" : 76
+        }, 
+        "geometry" : 
+        {
+          "x" : -7910647.1509779049, 
+          "y" : 5214021.2908670334
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "1 Bedford Street, ", 
+          "address_street_number" : "1", 
+          "address_street_name" : "Bedford Street", 
+          "commercial_area" : "Downtown", 
+          "zipcode" : null, 
+          "number_of_ap_spaces" : 4, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.35364, 
+          "longitude" : -71.06027, 
+          "ObjectId" : 77
+        }, 
+        "geometry" : 
+        {
+          "x" : -7910392.9796373565, 
+          "y" : 5214100.6225392511
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "10 Post Office Square, ", 
+          "address_street_number" : "10", 
+          "address_street_name" : "Post Office Square", 
+          "commercial_area" : "Downtown", 
+          "zipcode" : null, 
+          "number_of_ap_spaces" : 6, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.35737, 
+          "longitude" : -71.05579, 
+          "ObjectId" : 78
+        }, 
+        "geometry" : 
+        {
+          "x" : -7909893.6627405733, 
+          "y" : 5214662.9813655848
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "29 Harrison Ave Ext., 02210", 
+          "address_street_number" : "29", 
+          "address_street_name" : "Harrison Ave Ext.", 
+          "commercial_area" : "Downtown", 
+          "zipcode" : 2210, 
+          "number_of_ap_spaces" : 16, 
+          "year_space_last_confirmed" : 2020, 
+          "latitude" : 42.35311, 
+          "longitude" : -71.06142, 
+          "ObjectId" : 79
+        }, 
+        "geometry" : 
+        {
+          "x" : -7910521.6538367635, 
+          "y" : 5214021.2155500865
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "52 Charles Street South, 02116", 
+          "address_street_number" : "52", 
+          "address_street_name" : "Charles Street South", 
+          "commercial_area" : "Theatre District", 
+          "zipcode" : 2116, 
+          "number_of_ap_spaces" : 2, 
+          "year_space_last_confirmed" : 2020, 
+          "latitude" : 42.35119, 
+          "longitude" : -71.06695, 
+          "ObjectId" : 80
+        }, 
+        "geometry" : 
+        {
+          "x" : -7911136.8532102695, 
+          "y" : 5213732.3644052856
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "75 Park Plaza, ", 
+          "address_street_number" : "75", 
+          "address_street_name" : "Park Plaza", 
+          "commercial_area" : "Theatre District", 
+          "zipcode" : null, 
+          "number_of_ap_spaces" : 2, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.35163, 
+          "longitude" : -71.0698, 
+          "ObjectId" : 81
+        }, 
+        "geometry" : 
+        {
+          "x" : -7911453.8644033708, 
+          "y" : 5213799.13860779
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "270 Northern Ave, 02210", 
+          "address_street_number" : "270", 
+          "address_street_name" : "Northern Ave", 
+          "commercial_area" : "Seapoint", 
+          "zipcode" : 2210, 
+          "number_of_ap_spaces" : 1, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.34867, 
+          "longitude" : -71.03773, 
+          "ObjectId" : 82
+        }, 
+        "geometry" : 
+        {
+          "x" : -7907884.1934240526, 
+          "y" : 5213351.9125728561
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "274 Summer Street, 02210", 
+          "address_street_number" : "274", 
+          "address_street_name" : "Summer Street", 
+          "commercial_area" : "South Station", 
+          "zipcode" : 2210, 
+          "number_of_ap_spaces" : 4, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.35045, 
+          "longitude" : -71.05, 
+          "ObjectId" : 83
+        }, 
+        "geometry" : 
+        {
+          "x" : -7909249.6171474187, 
+          "y" : 5213620.3977925666
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "263 Summer Street, 02210", 
+          "address_street_number" : "263", 
+          "address_street_name" : "Summer Street", 
+          "commercial_area" : "South Station", 
+          "zipcode" : 2210, 
+          "number_of_ap_spaces" : 4, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.3502, 
+          "longitude" : -71.05077, 
+          "ObjectId" : 84
+        }, 
+        "geometry" : 
+        {
+          "x" : -7909334.7053134022, 
+          "y" : 5213583.5995621858
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "103 Atlantic Ave, 02210", 
+          "address_street_number" : "103", 
+          "address_street_name" : "Atlantic Ave", 
+          "commercial_area" : "Waterfront", 
+          "zipcode" : 2210, 
+          "number_of_ap_spaces" : 3, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.36162, 
+          "longitude" : -71.05241, 
+          "ObjectId" : 85
+        }, 
+        "geometry" : 
+        {
+          "x" : -7909518.8433359014, 
+          "y" : 5215302.6981028626
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "27 Columbus Ave, 02116", 
+          "address_street_number" : "27", 
+          "address_street_name" : "Columbus Ave", 
+          "commercial_area" : "Park Plaza", 
+          "zipcode" : 2116, 
+          "number_of_ap_spaces" : 2, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.35117, 
+          "longitude" : -71.06903, 
+          "ObjectId" : 86
+        }, 
+        "geometry" : 
+        {
+          "x" : -7911368.6092581507, 
+          "y" : 5213729.4934113333
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "59 East India Row, ", 
+          "address_street_number" : "59", 
+          "address_street_name" : "East India Row", 
+          "commercial_area" : "Waterfront", 
+          "zipcode" : null, 
+          "number_of_ap_spaces" : 3, 
+          "year_space_last_confirmed" : 2018, 
+          "latitude" : 42.35793, 
+          "longitude" : -71.05126, 
+          "ObjectId" : 87
+        }, 
+        "geometry" : 
+        {
+          "x" : -7909390.5954901436, 
+          "y" : 5214746.6193414824
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "16 Temple Place, 02111", 
+          "address_street_number" : "16", 
+          "address_street_name" : "Temple Place", 
+          "commercial_area" : "Downtown", 
+          "zipcode" : 2111, 
+          "number_of_ap_spaces" : 4, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.35545, 
+          "longitude" : -71.06222, 
+          "ObjectId" : 88
+        }, 
+        "geometry" : 
+        {
+          "x" : -7910610.0704555223, 
+          "y" : 5214372.9507154264
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "185 Massachusetts Ave, 02115", 
+          "address_street_number" : "185", 
+          "address_street_name" : "Massachusetts Ave", 
+          "commercial_area" : "Back Bay", 
+          "zipcode" : 2115, 
+          "number_of_ap_spaces" : 1, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.34547, 
+          "longitude" : -71.08723, 
+          "ObjectId" : 89
+        }, 
+        "geometry" : 
+        {
+          "x" : -7913394.5716704288, 
+          "y" : 5212871.0450163838
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "1044 Boylston Street, 02115", 
+          "address_street_number" : "1044", 
+          "address_street_name" : "Boylston Street", 
+          "commercial_area" : "Back Bay", 
+          "zipcode" : 2115, 
+          "number_of_ap_spaces" : 2, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.34702, 
+          "longitude" : -71.08781, 
+          "ObjectId" : 90
+        }, 
+        "geometry" : 
+        {
+          "x" : -7913458.2575511113, 
+          "y" : 5213103.6043743836
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "100 East Newton, 02118", 
+          "address_street_number" : "100", 
+          "address_street_name" : "East Newton", 
+          "commercial_area" : "BMC/South End", 
+          "zipcode" : 2118, 
+          "number_of_ap_spaces" : 2, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.33636, 
+          "longitude" : -71.07015, 
+          "ObjectId" : 91
+        }, 
+        "geometry" : 
+        {
+          "x" : -7911492.8896772582, 
+          "y" : 5211497.7713657478
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "147 Milk Street, 02109", 
+          "address_street_number" : "147", 
+          "address_street_name" : "Milk Street", 
+          "commercial_area" : "Financial District", 
+          "zipcode" : 2109, 
+          "number_of_ap_spaces" : 2, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.3576, 
+          "longitude" : -71.05444, 
+          "ObjectId" : 92
+        }, 
+        "geometry" : 
+        {
+          "x" : -7909743.2222411307, 
+          "y" : 5214697.2077678377
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "40 Broad Street, 02109", 
+          "address_street_number" : "40", 
+          "address_street_name" : "Broad Street", 
+          "commercial_area" : "Financial District", 
+          "zipcode" : 2109, 
+          "number_of_ap_spaces" : 1, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.35851, 
+          "longitude" : -71.05399, 
+          "ObjectId" : 93
+        }, 
+        "geometry" : 
+        {
+          "x" : -7909693.1585265361, 
+          "y" : 5214833.9986162744
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "145 Dartmouth Street, 02116", 
+          "address_street_number" : "145", 
+          "address_street_name" : "Dartmouth Street", 
+          "commercial_area" : "Back Bay", 
+          "zipcode" : 2116, 
+          "number_of_ap_spaces" : 2, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.34752, 
+          "longitude" : -71.07493, 
+          "ObjectId" : 94
+        }, 
+        "geometry" : 
+        {
+          "x" : -7912025.2384065455, 
+          "y" : 5213179.1447700048
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "260 Columbus Ave., 02116", 
+          "address_street_number" : "260", 
+          "address_street_name" : "Columbus Ave.", 
+          "commercial_area" : "Back Bay", 
+          "zipcode" : 2116, 
+          "number_of_ap_spaces" : 2, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.34732, 
+          "longitude" : -71.0734, 
+          "ObjectId" : 95
+        }, 
+        "geometry" : 
+        {
+          "x" : -7911855.0231127581, 
+          "y" : 5213149.1562768994
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "1 Schroder Plaza, 02119", 
+          "address_street_number" : "1", 
+          "address_street_name" : "Schroder Plaza", 
+          "commercial_area" : "Roxbury Crossing", 
+          "zipcode" : 2119, 
+          "number_of_ap_spaces" : 10, 
+          "year_space_last_confirmed" : 2018, 
+          "latitude" : 42.3343, 
+          "longitude" : -71.09053, 
+          "ObjectId" : 96
+        }, 
+        "geometry" : 
+        {
+          "x" : -7913761.4183731684, 
+          "y" : 5211188.8393428605
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "18 St. Stephen’s Street, 02115", 
+          "address_street_number" : "18", 
+          "address_street_name" : "St. Stephen’s Street", 
+          "commercial_area" : "Symphony Hall", 
+          "zipcode" : 2115, 
+          "number_of_ap_spaces" : 4, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.34312, 
+          "longitude" : -71.08579, 
+          "ObjectId" : 97
+        }, 
+        "geometry" : 
+        {
+          "x" : -7913234.407413465, 
+          "y" : 5212516.63206982
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "125 Nashua Street, 02119", 
+          "address_street_number" : "125", 
+          "address_street_name" : "Nashua Street", 
+          "commercial_area" : "North Station", 
+          "zipcode" : 2119, 
+          "number_of_ap_spaces" : 4, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.36802, 
+          "longitude" : -71.06505, 
+          "ObjectId" : 98
+        }, 
+        "geometry" : 
+        {
+          "x" : -7910925.3461777614, 
+          "y" : 5216267.7331842585
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "200 Portland Street, 02114", 
+          "address_street_number" : "200", 
+          "address_street_name" : "Portland Street", 
+          "commercial_area" : "North Station", 
+          "zipcode" : 2114, 
+          "number_of_ap_spaces" : 2, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.36458, 
+          "longitude" : -71.06226, 
+          "ObjectId" : 99
+        }, 
+        "geometry" : 
+        {
+          "x" : -7910615.2546042083, 
+          "y" : 5215748.720620349
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "33 Blossom Street, 02114", 
+          "address_street_number" : "33", 
+          "address_street_name" : "Blossom Street", 
+          "commercial_area" : "MGH", 
+          "zipcode" : 2114, 
+          "number_of_ap_spaces" : 4, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.36254, 
+          "longitude" : -71.06644, 
+          "ObjectId" : 100
+        }, 
+        "geometry" : 
+        {
+          "x" : -7911079.1975064026, 
+          "y" : 5215441.2965396727
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "----- Blossom Court, 02114", 
+          "address_street_number" : "-----", 
+          "address_street_name" : "Blossom Court", 
+          "commercial_area" : "MGH", 
+          "zipcode" : 2114, 
+          "number_of_ap_spaces" : 1, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.36439, 
+          "longitude" : -71.06732, 
+          "ObjectId" : 101
+        }, 
+        "geometry" : 
+        {
+          "x" : -7911178.4533039788, 
+          "y" : 5215720.0392562067
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "174 Ispwich Street, 02215", 
+          "address_street_number" : "174", 
+          "address_street_name" : "Ispwich Street", 
+          "commercial_area" : "Fenway", 
+          "zipcode" : 2215, 
+          "number_of_ap_spaces" : 6, 
+          "year_space_last_confirmed" : 2017, 
+          "latitude" : 42.34621, 
+          "longitude" : -71.09501, 
+          "ObjectId" : 102
+        }, 
+        "geometry" : 
+        {
+          "x" : -7914259.9248640593, 
+          "y" : 5212982.2105205562
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "110 Huntington Ave, 02116", 
+          "address_street_number" : "110", 
+          "address_street_name" : "Huntington Ave", 
+          "commercial_area" : "Back Bay", 
+          "zipcode" : 2116, 
+          "number_of_ap_spaces" : 3, 
+          "year_space_last_confirmed" : 2018, 
+          "latitude" : 42.3464, 
+          "longitude" : -71.07821, 
+          "ObjectId" : 103
+        }, 
+        "geometry" : 
+        {
+          "x" : -7912390.3173557715, 
+          "y" : 5213010.1847246168
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "2 6th Street, 02129", 
+          "address_street_number" : "2", 
+          "address_street_name" : "6th Street", 
+          "commercial_area" : "Charlestown", 
+          "zipcode" : 2129, 
+          "number_of_ap_spaces" : 1, 
+          "year_space_last_confirmed" : 2021, 
+          "latitude" : 42.37488, 
+          "longitude" : -71.0547, 
+          "ObjectId" : 104
+        }, 
+        "geometry" : 
+        {
+          "x" : -7909773.6380656008, 
+          "y" : 5217301.4768206254
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "49 First Ave, 02129", 
+          "address_street_number" : "49", 
+          "address_street_name" : "First Ave", 
+          "commercial_area" : "Charlestown", 
+          "zipcode" : 2129, 
+          "number_of_ap_spaces" : 2, 
+          "year_space_last_confirmed" : 2021, 
+          "latitude" : 42.37489, 
+          "longitude" : -71.05448, 
+          "ObjectId" : 105
+        }, 
+        "geometry" : 
+        {
+          "x" : -7909748.5989725366, 
+          "y" : 5217302.5888841376
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "36 First Ave, 02129", 
+          "address_street_number" : "36", 
+          "address_street_name" : "First Ave", 
+          "commercial_area" : "Charlestown", 
+          "zipcode" : 2129, 
+          "number_of_ap_spaces" : 3, 
+          "year_space_last_confirmed" : 2021, 
+          "latitude" : 42.37494, 
+          "longitude" : -71.05402, 
+          "ObjectId" : 106
+        }, 
+        "geometry" : 
+        {
+          "x" : -7909696.4936584793, 
+          "y" : 5217310.3823735453
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "100 First Ave, 02129", 
+          "address_street_number" : "100", 
+          "address_street_name" : "First Ave", 
+          "commercial_area" : "Charlestown", 
+          "zipcode" : 2129, 
+          "number_of_ap_spaces" : 4, 
+          "year_space_last_confirmed" : 2021, 
+          "latitude" : 42.37571, 
+          "longitude" : -71.05364, 
+          "ObjectId" : 107
+        }, 
+        "geometry" : 
+        {
+          "x" : -7909655.0382801089, 
+          "y" : 5217425.3159915293
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "19 Deerfield Street, 02215", 
+          "address_street_number" : "19", 
+          "address_street_name" : "Deerfield Street", 
+          "commercial_area" : "Brighton", 
+          "zipcode" : 2215, 
+          "number_of_ap_spaces" : 2, 
+          "year_space_last_confirmed" : 2019, 
+          "latitude" : 42.34973, 
+          "longitude" : -71.09731, 
+          "ObjectId" : 108
+        }, 
+        "geometry" : 
+        {
+          "x" : -7914517.0806801561, 
+          "y" : 5213511.9059340069
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "98 Court Square, 02108", 
+          "address_street_number" : "98", 
+          "address_street_name" : "Court Square", 
+          "commercial_area" : "Government Center", 
+          "zipcode" : 2108, 
+          "number_of_ap_spaces" : 3, 
+          "year_space_last_confirmed" : 2022, 
+          "latitude" : 42.35911, 
+          "longitude" : -71.05894, 
+          "ObjectId" : 109
+        }, 
+        "geometry" : 
+        {
+          "x" : -7910245.774082317, 
+          "y" : 5214925.0198657084
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "704 Centre Street, 02130", 
+          "address_street_number" : "704", 
+          "address_street_name" : "Centre Street", 
+          "commercial_area" : "Jamaica Plain", 
+          "zipcode" : 2130, 
+          "number_of_ap_spaces" : 3, 
+          "year_space_last_confirmed" : 2022, 
+          "latitude" : 42.31153, 
+          "longitude" : -71.11435, 
+          "ObjectId" : 110
+        }, 
+        "geometry" : 
+        {
+          "x" : -7916413.4349224968, 
+          "y" : 5207759.6487027071
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "1961 Centre St, 02132", 
+          "address_street_number" : "1961", 
+          "address_street_name" : "Centre St", 
+          "commercial_area" : "West Roxbury", 
+          "zipcode" : 2132, 
+          "number_of_ap_spaces" : 1, 
+          "year_space_last_confirmed" : 2024, 
+          "latitude" : 42.28362, 
+          "longitude" : -71.1571, 
+          "ObjectId" : 111
+        }, 
+        "geometry" : 
+        {
+          "x" : -7921172.47228452, 
+          "y" : 5203559.029481682
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "1921 Centre St, 02132", 
+          "address_street_number" : "1921", 
+          "address_street_name" : "Centre St", 
+          "commercial_area" : "West Roxbury", 
+          "zipcode" : 2132, 
+          "number_of_ap_spaces" : 2, 
+          "year_space_last_confirmed" : 2024, 
+          "latitude" : 42.28444, 
+          "longitude" : -71.1569, 
+          "ObjectId" : 112
+        }, 
+        "geometry" : 
+        {
+          "x" : -7921149.3178304341, 
+          "y" : 5203683.3165604826
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "1905 Centre St, 02132", 
+          "address_street_number" : "1905", 
+          "address_street_name" : "Centre St", 
+          "commercial_area" : "West Roxbury", 
+          "zipcode" : 2132, 
+          "number_of_ap_spaces" : 1, 
+          "year_space_last_confirmed" : 2024, 
+          "latitude" : 42.28507, 
+          "longitude" : -71.15664, 
+          "ObjectId" : 113
+        }, 
+        "geometry" : 
+        {
+          "x" : -7921120.4126114547, 
+          "y" : 5203777.3951382991
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "1870 Centre St, 02132", 
+          "address_street_number" : "1870", 
+          "address_street_name" : "Centre St", 
+          "commercial_area" : "West Roxbury", 
+          "zipcode" : 2132, 
+          "number_of_ap_spaces" : 1, 
+          "year_space_last_confirmed" : 2024, 
+          "latitude" : 42.28592, 
+          "longitude" : -71.15529, 
+          "ObjectId" : 114
+        }, 
+        "geometry" : 
+        {
+          "x" : -7920970.7613672027, 
+          "y" : 5203905.863718194
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "1832 Centre St, 02132", 
+          "address_street_number" : "1832", 
+          "address_street_name" : "Centre St", 
+          "commercial_area" : "West Roxbury", 
+          "zipcode" : 2132, 
+          "number_of_ap_spaces" : 2, 
+          "year_space_last_confirmed" : 2024, 
+          "latitude" : 42.28677, 
+          "longitude" : -71.15367, 
+          "ObjectId" : 115
+        }, 
+        "geometry" : 
+        {
+          "x" : -7920790.7577505885, 
+          "y" : 5204033.0143719306
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "1823 Centre St, 02132", 
+          "address_street_number" : "1823", 
+          "address_street_name" : "Centre St", 
+          "commercial_area" : "West Roxbury", 
+          "zipcode" : 2132, 
+          "number_of_ap_spaces" : 1, 
+          "year_space_last_confirmed" : 2024, 
+          "latitude" : 42.28697, 
+          "longitude" : -71.15366, 
+          "ObjectId" : 116
+        }, 
+        "geometry" : 
+        {
+          "x" : -7920788.8553004907, 
+          "y" : 5204064.0664759055
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "1710 Centre St, 02132", 
+          "address_street_number" : "1710", 
+          "address_street_name" : "Centre St", 
+          "commercial_area" : "West Roxbury", 
+          "zipcode" : 2132, 
+          "number_of_ap_spaces" : 1, 
+          "year_space_last_confirmed" : 2024, 
+          "latitude" : 42.2871, 
+          "longitude" : -71.14889, 
+          "ObjectId" : 117
+        }, 
+        "geometry" : 
+        {
+          "x" : -7920257.7811793741, 
+          "y" : 5204082.9165791385
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "1708 Centre St, 02132", 
+          "address_street_number" : "1708", 
+          "address_street_name" : "Centre St", 
+          "commercial_area" : "West Roxbury", 
+          "zipcode" : 2132, 
+          "number_of_ap_spaces" : 2, 
+          "year_space_last_confirmed" : 2024, 
+          "latitude" : 42.28708, 
+          "longitude" : -71.14833, 
+          "ObjectId" : 118
+        }, 
+        "geometry" : 
+        {
+          "x" : -7920195.86639179, 
+          "y" : 5204080.4141644593
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "2 Boylston Street, 02116", 
+          "address_street_number" : "2", 
+          "address_street_name" : "Boylston Street", 
+          "commercial_area" : "Chinatown", 
+          "zipcode" : 2116, 
+          "number_of_ap_spaces" : 1, 
+          "year_space_last_confirmed" : 2022, 
+          "latitude" : 42.35228, 
+          "longitude" : -71.06335, 
+          "ObjectId" : 119
+        }, 
+        "geometry" : 
+        {
+          "x" : -7910735.268147232, 
+          "y" : 5213895.7729949243
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "690 Washington Street, 02124", 
+          "address_street_number" : "690", 
+          "address_street_name" : "Washington Street", 
+          "commercial_area" : "Dorchester", 
+          "zipcode" : 2124, 
+          "number_of_ap_spaces" : 1, 
+          "year_space_last_confirmed" : 2022, 
+          "latitude" : 42.28777, 
+          "longitude" : -71.07114, 
+          "ObjectId" : 120
+        }, 
+        "geometry" : 
+        {
+          "x" : -7911602.5583000034, 
+          "y" : 5204184.3935871944
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "20 Chesnut Hill Ave, 02135", 
+          "address_street_number" : "20", 
+          "address_street_name" : "Chesnut Hill Ave", 
+          "commercial_area" : "Brighton", 
+          "zipcode" : 2135, 
+          "number_of_ap_spaces" : 2, 
+          "year_space_last_confirmed" : 2022, 
+          "latitude" : 42.34808, 
+          "longitude" : -71.15389, 
+          "ObjectId" : 121
+        }, 
+        "geometry" : 
+        {
+          "x" : -7920815.4784699092, 
+          "y" : 5213264.2698317328
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "433 Centre Street, 02130", 
+          "address_street_number" : "433", 
+          "address_street_name" : "Centre Street", 
+          "commercial_area" : "Jamaica Plain", 
+          "zipcode" : 2130, 
+          "number_of_ap_spaces" : 1, 
+          "year_space_last_confirmed" : 2022, 
+          "latitude" : 42.32066, 
+          "longitude" : -71.11087, 
+          "ObjectId" : 122
+        }, 
+        "geometry" : 
+        {
+          "x" : -7916026.1722251456, 
+          "y" : 5209133.5382253965
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "344 Bremen Street, 02128", 
+          "address_street_number" : "344", 
+          "address_street_name" : "Bremen Street", 
+          "commercial_area" : "East Boston", 
+          "zipcode" : 2128, 
+          "number_of_ap_spaces" : 1, 
+          "year_space_last_confirmed" : 2022, 
+          "latitude" : 42.37761, 
+          "longitude" : -71.02868, 
+          "ObjectId" : 123
+        }, 
+        "geometry" : 
+        {
+          "x" : -7906876.2666793931, 
+          "y" : 5217711.7467136243
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "1520 Dorchester Ave, 02122", 
+          "address_street_number" : "1520", 
+          "address_street_name" : "Dorchester Ave", 
+          "commercial_area" : "Dorchester", 
+          "zipcode" : 2122, 
+          "number_of_ap_spaces" : 1, 
+          "year_space_last_confirmed" : 2020, 
+          "latitude" : 42.2989, 
+          "longitude" : -71.0605, 
+          "ObjectId" : 124
+        }, 
+        "geometry" : 
+        {
+          "x" : -7910418.5107625695, 
+          "y" : 5205859.7751999246
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "49 Geneva Ave, 02121", 
+          "address_street_number" : "49", 
+          "address_street_name" : "Geneva Ave", 
+          "commercial_area" : "Dorchester", 
+          "zipcode" : 2121, 
+          "number_of_ap_spaces" : 2, 
+          "year_space_last_confirmed" : 2022, 
+          "latitude" : 42.30783, 
+          "longitude" : -71.08078, 
+          "ObjectId" : 125
+        }, 
+        "geometry" : 
+        {
+          "x" : -7912675.9698483162, 
+          "y" : 5207203.2991570281
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "300 North Harvard Street, 02134", 
+          "address_street_number" : "300", 
+          "address_street_name" : "North Harvard Street", 
+          "commercial_area" : "Allston", 
+          "zipcode" : 2134, 
+          "number_of_ap_spaces" : 2, 
+          "year_space_last_confirmed" : 2022, 
+          "latitude" : 42.35994, 
+          "longitude" : -71.1282, 
+          "ObjectId" : 126
+        }, 
+        "geometry" : 
+        {
+          "x" : -7917955.2276811032, 
+          "y" : 5215049.8342898833
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "61 South Street, 02130", 
+          "address_street_number" : "61", 
+          "address_street_name" : "South Street", 
+          "commercial_area" : "Jamaica Plain", 
+          "zipcode" : 2130, 
+          "number_of_ap_spaces" : 1, 
+          "year_space_last_confirmed" : 2022, 
+          "latitude" : 42.30776, 
+          "longitude" : -71.11555, 
+          "ObjectId" : 127
+        }, 
+        "geometry" : 
+        {
+          "x" : -7916546.2568861321, 
+          "y" : 5207192.0142670879
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "1497 Tremont Street, 02120", 
+          "address_street_number" : "1497", 
+          "address_street_name" : "Tremont Street", 
+          "commercial_area" : "Roxbury", 
+          "zipcode" : 2120, 
+          "number_of_ap_spaces" : 2, 
+          "year_space_last_confirmed" : 2022, 
+          "latitude" : 42.33232, 
+          "longitude" : -71.09925, 
+          "ObjectId" : 128
+        }, 
+        "geometry" : 
+        {
+          "x" : -7914732.5284226388, 
+          "y" : 5210890.842267246
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "4230 Washington Street, 02131", 
+          "address_street_number" : "4230", 
+          "address_street_name" : "Washington Street", 
+          "commercial_area" : "Roslindale", 
+          "zipcode" : 2131, 
+          "number_of_ap_spaces" : 1, 
+          "year_space_last_confirmed" : 2022, 
+          "latitude" : 42.28635, 
+          "longitude" : -71.12836, 
+          "ObjectId" : 129
+        }, 
+        "geometry" : 
+        {
+          "x" : -7917972.4755230062, 
+          "y" : 5203970.105432367
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "151 Cambridge Street, 02114", 
+          "address_street_number" : "151", 
+          "address_street_name" : "Cambridge Street", 
+          "commercial_area" : "Downtown", 
+          "zipcode" : 2114, 
+          "number_of_ap_spaces" : 2, 
+          "year_space_last_confirmed" : 2022, 
+          "latitude" : 42.3613, 
+          "longitude" : -71.06497, 
+          "ObjectId" : 130
+        }, 
+        "geometry" : 
+        {
+          "x" : -7910916.5307872863, 
+          "y" : 5215255.2526679439
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "5 Mildred Ave, 02126", 
+          "address_street_number" : "5", 
+          "address_street_name" : "Mildred Ave", 
+          "commercial_area" : "Mattapan", 
+          "zipcode" : 2126, 
+          "number_of_ap_spaces" : 1, 
+          "year_space_last_confirmed" : 2019, 
+          "latitude" : 42.27717, 
+          "longitude" : -71.09071, 
+          "ObjectId" : 131
+        }, 
+        "geometry" : 
+        {
+          "x" : -7913780.8914916934, 
+          "y" : 5202588.8879048852
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "100 Hanover St, 02108", 
+          "address_street_number" : "100", 
+          "address_street_name" : "Hanover St", 
+          "commercial_area" : "Government Center", 
+          "zipcode" : 2108, 
+          "number_of_ap_spaces" : 3, 
+          "year_space_last_confirmed" : 2023, 
+          "latitude" : 42.36194, 
+          "longitude" : -71.05696, 
+          "ObjectId" : 132
+        }, 
+        "geometry" : 
+        {
+          "x" : -7910024.9351368956, 
+          "y" : 5215351.6382737029
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "33 Richmond st, 02124", 
+          "address_street_number" : "33", 
+          "address_street_name" : "Richmond st", 
+          "commercial_area" : "Dorchester", 
+          "zipcode" : 2124, 
+          "number_of_ap_spaces" : 1, 
+          "year_space_last_confirmed" : 2023, 
+          "latitude" : 42.2738, 
+          "longitude" : -71.06819, 
+          "ObjectId" : 133
+        }, 
+        "geometry" : 
+        {
+          "x" : -7911275.16767758, 
+          "y" : 5202082.6055773087
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "646 East Broadway, 02127", 
+          "address_street_number" : "646", 
+          "address_street_name" : "East Broadway", 
+          "commercial_area" : "South Boston", 
+          "zipcode" : 2127, 
+          "number_of_ap_spaces" : 1, 
+          "year_space_last_confirmed" : 2023, 
+          "latitude" : 42.33566, 
+          "longitude" : -71.0386, 
+          "ObjectId" : 134
+        }, 
+        "geometry" : 
+        {
+          "x" : -7907981.2740387777, 
+          "y" : 5211392.2855466651
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "20 Chestnut Hill Ave, 02135", 
+          "address_street_number" : "20", 
+          "address_street_name" : "Chestnut Hill Ave", 
+          "commercial_area" : "Brighton", 
+          "zipcode" : 2135, 
+          "number_of_ap_spaces" : 1, 
+          "year_space_last_confirmed" : 2024, 
+          "latitude" : 42.34803, 
+          "longitude" : -71.15391, 
+          "ObjectId" : 135
+        }, 
+        "geometry" : 
+        {
+          "x" : -7920816.5838724533, 
+          "y" : 5213256.211566221
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "91 Hemenway st, 02115", 
+          "address_street_number" : "91", 
+          "address_street_name" : "Hemenway st", 
+          "commercial_area" : "Westland gate", 
+          "zipcode" : 2115, 
+          "number_of_ap_spaces" : 2, 
+          "year_space_last_confirmed" : 2024, 
+          "latitude" : 42.34417, 
+          "longitude" : -71.08989, 
+          "ObjectId" : 136
+        }, 
+        "geometry" : 
+        {
+          "x" : -7913690.0213913592, 
+          "y" : 5212674.9801842244
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "40 Maverick sq, 02128", 
+          "address_street_number" : "40", 
+          "address_street_name" : "Maverick sq", 
+          "commercial_area" : "East Boston", 
+          "zipcode" : 2128, 
+          "number_of_ap_spaces" : 1, 
+          "year_space_last_confirmed" : 2024, 
+          "latitude" : 42.37003, 
+          "longitude" : -71.03902, 
+          "ObjectId" : 137
+        }, 
+        "geometry" : 
+        {
+          "x" : -7908028.2007701229, 
+          "y" : 5216570.0174808148
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "263 Sumner st, 02201", 
+          "address_street_number" : "263", 
+          "address_street_name" : "Sumner st", 
+          "commercial_area" : "Boston", 
+          "zipcode" : 2201, 
+          "number_of_ap_spaces" : 4, 
+          "year_space_last_confirmed" : 2024, 
+          "latitude" : 42.35035, 
+          "longitude" : -71.05067, 
+          "ObjectId" : 138
+        }, 
+        "geometry" : 
+        {
+          "x" : -7909324.0709624477, 
+          "y" : 5213605.9616625439
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "1906 Dorchester Ave, 02124", 
+          "address_street_number" : "1906", 
+          "address_street_name" : "Dorchester Ave", 
+          "commercial_area" : "Dorchester", 
+          "zipcode" : 2124, 
+          "number_of_ap_spaces" : 1, 
+          "year_space_last_confirmed" : 2024, 
+          "latitude" : 42.28455, 
+          "longitude" : -71.06457, 
+          "ObjectId" : 139
+        }, 
+        "geometry" : 
+        {
+          "x" : -7910871.5232039625, 
+          "y" : 5203699.8682314586
+        }
+      }, 
+      {
+        "attributes" : {
+          "address_full" : "1939 Dorchester ave, 02124", 
+          "address_street_number" : "1939", 
+          "address_street_name" : "Dorchester ave", 
+          "commercial_area" : "Dorchester", 
+          "zipcode" : 2124, 
+          "number_of_ap_spaces" : 1, 
+          "year_space_last_confirmed" : 2024, 
+          "latitude" : 42.28448, 
+          "longitude" : -71.06473, 
+          "ObjectId" : 140
+        }, 
+        "geometry" : 
+        {
+          "x" : -7910889.1116835084, 
+          "y" : 5203689.4858162859
+        }
+      }
+    ]
+  }
