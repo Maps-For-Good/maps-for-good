@@ -105,11 +105,11 @@ function renderParking(fields) {
 
 
 const markers = bathrooms;
-    let markerGroup = L.featureGroup([]).addTo(map);
+    let bathroomGroup = L.featureGroup([]).addTo(map);
 
     for (const key in markers) {
         let latlng = L.latLng(markers[key].latitude, markers[key].longitude);
-        L.marker(latlng, {icon: bathroomIcon}).bindPopup(renderBathroom(markers[key])).addTo(markerGroup);
+        L.marker(latlng, {icon: bathroomIcon}).bindPopup(renderBathroom(markers[key])).addTo(bathroomGroup);
     }
     setInterval(() => {
         bathroomGroup.clearLayers();
@@ -123,7 +123,7 @@ const markers = bathrooms;
         for (let i = 0; i < 15 && i < sorted.length; i++) {
             const key = sorted[i];
             let latlng = L.latLng(markers[key].latitude, markers[key].longitude);
-            L.marker(latlng, {icon: bathroomIcon}).bindPopup(renderBathroom(markers[key])).addTo(markerGroup);
+            L.marker(latlng, {icon: bathroomIcon}).bindPopup(renderBathroom(markers[key])).addTo(bathroomGroup);
         }
 
         const grid = document.querySelector('.footer-scroll-grid');
@@ -178,7 +178,7 @@ map.on('moveend', async () => {
         L.marker(latlng, {icon: benchIcon}).bindPopup(renderBench(b)).addTo(markerGroup);
     }
 
-    markerGroup = L.featureGroup([]).addTo(map);
+    let parkingGroup = L.featureGroup([]).addTo(map);
     sorted = parking.sort((a, b) => {
         let da = haversine(a.latitude, a.longitude, map.getCenter().lat, map.getCenter().lng);
         let db = haversine(b.latitude, b.longitude, map.getCenter().lat, map.getCenter().lng);
