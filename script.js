@@ -58,9 +58,9 @@ function renderBathroom(fields) {
 let benchIcon = L.icon({
     iconUrl: 'icons/BenchPin.png',
 
-    iconSize:     [110, 90], // size of the icon
-    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+    iconSize:     [110, 90], 
+    iconAnchor:   [22, 94], 
+    popupAnchor:  [-3, -76] 
 });
 
 let bathroomIcon = L.icon({
@@ -71,6 +71,14 @@ let bathroomIcon = L.icon({
     popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
 });
 
+let parkingIcon = L.icon({
+    iconUrl: 'icons/ParkingPin.png',
+
+    iconSize:     [110, 90], 
+    iconAnchor:   [22, 94], 
+    popupAnchor:  [-3, -76] 
+});
+
 function renderBench(fields) {
     const googleMapsUrl = getMapsLink(fields);
     
@@ -79,6 +87,7 @@ function renderBench(fields) {
         <strong>Backrest:</strong> ${fields.tags.backrest ?? "Maybe"}
     </div>
     `;
+    
 }
 
 function renderParking(fields) {
@@ -184,7 +193,7 @@ map.on('moveend', async () => {
         console.log(sorted[i])
         const b = sorted[i];
         let latlng = L.latLng(b.latitude, b.longitude);
-        L.marker(latlng).bindPopup(renderParking(b)).addTo(markerGroup);
+        L.marker(latlng, {icon: parkingIcon}). bindPopup(renderParking(b)).addTo(markerGroup);
     }
 });
 
