@@ -9,7 +9,7 @@ h1 {
     font-family: 'Helvetica Neue', sans-serif;
     font-size: min(10vw, 3em);
     color: rgb(79, 170, 209);
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
 p {
@@ -28,7 +28,7 @@ h3 {
 .desc {
     text-align: center;
     font-family: 'Helvetica Neue', sans-serif;
-    font-size: 1.5em;
+    font-size: 1.2em;
     color: rgb(79, 170, 209);
 }
 
