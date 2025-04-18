@@ -41,6 +41,11 @@ function getMapsLink(locationFields) {
     return `https://www.google.com/maps/search/?api=1&query=${query}`;
 }
 
+let markers = {};
+let bathroomGroup = L.featureGroup([]).addTo(map);
+let benchGroup = L.featureGroup([]).addTo(map);
+let parkingGroup = L.featureGroup([]).addTo(map);
+
 function renderBathroom(fields) {
     const googleMapsUrl = getMapsLink(fields);
 
@@ -93,29 +98,27 @@ function renderParking(fields) {
 
 
 fetch('bathrooms.json').then((r) => r.json()).then(async markers => {
-    let markerGroup = L.featureGroup([]).addTo(map);
-
-    for (const key in markers) {
-        let latlng = L.latLng(markers[key].latitude, markers[key].longitude);
-        L.marker(latlng, {icon: bathroomIcon}).bindPopup(renderBathroom(markers[key])).addTo(markerGroup);
-    }
     setInterval(() => {
+        bathroomGroup.clearLayers();
+
         let sorted = Object.keys(markers).sort((a, b) => {
             let da = haversine(markers[a].latitude, markers[a].longitude, map.getCenter().lat, map.getCenter().lng);
             let db = haversine(markers[b].latitude, markers[b].longitude, map.getCenter().lat, map.getCenter().lng);
             return da - db;
         });
-        for (let i = 0; i < 100; i++) {
+
+        for (let i = 0; i < 15 && i < sorted.length; i++) {
             const key = sorted[i];
             let latlng = L.latLng(markers[key].latitude, markers[key].longitude);
-            //L.marker(latlng).bindPopup(renderBathroom(markers[key])).addTo(markerGroup);
+            L.marker(latlng, {icon: bathroomIcon}).bindPopup(renderBathroom(markers[key])).addTo(bathroomGroup);
         }
-        
+
         const grid = document.querySelector('.footer-scroll-grid');
         while (grid.firstChild) {
             grid.removeChild(grid.lastChild);
         }
-        for (const key of sorted) {
+        for (let i = 0; i < 15 && i < sorted.length; i++) {
+            const key = sorted[i];
             const entry = document.createElement('a');
             entry.href = getMapsLink(markers[key]);
             entry.setAttribute('target', '_blank');
@@ -156,12 +159,14 @@ map.on('moveend', async () => {
         return da - db;
     });
 
-    for (let i = 0; i < 100; i++) {
-        const b = sorted[i];
-        if (!b) { continue; }
-        let latlng = L.latLng(b.lat, b.lon);
-        L.marker(latlng, {icon: benchIcon}).bindPopup(renderBench(b)).addTo(markerGroup);
-    }
+    benchGroup.clearLayers();
+for (let i = 0; i < 10 && i < sorted.length; i++) {
+    const b = sorted[i];
+    const latlng = L.latLng(b.lat, b.lon);
+    L.marker(latlng, {icon: benchIcon})
+        .bindPopup(renderBench(b))
+        .addTo(benchGroup);
+}
 
     let parking = (await (await fetch('handicap-parking.json')).json()).features.map(p => p.attributes);
     const cambridge = (await (await fetch('handicap-parking-cambridge.json')).json()).features.map(p => {
@@ -180,11 +185,13 @@ map.on('moveend', async () => {
         return da - db;
     });
 
-    for (let i = 0; i < 100 && i < sorted.length; i++) {
-        console.log(sorted[i])
+    parkingGroup.clearLayers();
+    for (let i = 0; i < 10 && i < sorted.length; i++) {
         const b = sorted[i];
-        let latlng = L.latLng(b.latitude, b.longitude);
-        L.marker(latlng).bindPopup(renderParking(b)).addTo(markerGroup);
+        const latlng = L.latLng(b.latitude, b.longitude);
+        L.marker(latlng)
+            .bindPopup(renderParking(b))
+            .addTo(parkingGroup);
     }
 });
 
