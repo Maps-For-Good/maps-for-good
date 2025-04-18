@@ -221,10 +221,6 @@ function toggleBox(contentId) {
         selectedContent.classList.add('active');
         popupBox.classList.remove('hidden');
     }
-
-
-
- 
 }
 
 async function getBenches(bbox) {
@@ -236,4 +232,30 @@ async function getBenches(bbox) {
         body: query,
     })).json();
     return resp.elements;
+}
+
+async function zipZoom() {
+    const zip = document.getElementById('zipSearch').value.trim();
+
+    if (!zip) {
+        alert("Please enter a ZIP code.");
+        return;
+    }
+
+    try {
+        const response = await fetch('zips.json');
+        const zipData = await response.json();
+
+        const location = zipData.find(entry => entry.zip === zip);
+
+        if (!location) {
+            alert("ZIP code not found.");
+            return;
+        }
+
+        map.setView([location.latitude, location.longitude], 13);
+    } catch (error) {
+        console.error("Error fetching ZIP code data:", error);
+        alert("An error occurred while searching for the ZIP code.");
+    }
 }
