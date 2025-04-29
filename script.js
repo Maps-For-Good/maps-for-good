@@ -57,6 +57,24 @@ function renderBathroom(br) {
         `;
 }
 
+function clusterIcon (type) {
+    return (cluster) => new L.DivIcon({
+        html: '<div><span>' + cluster.getChildCount() + ' <span aria-label="markers"></span>' + '</span></div>',
+        className: `marker-cluster marker-cluster-${type}`,
+        iconSize: new L.Point(40, 40)
+    });
+}
+const bathroomCg = L.markerClusterGroup({
+    iconCreateFunction: clusterIcon('bathroom'),
+    
+});
+const benchCg = L.markerClusterGroup({ 
+    iconCreateFunction: clusterIcon('bench'),
+});
+const parkingCg = L.markerClusterGroup( {
+    iconCreateFunction: clusterIcon('parking'),
+});
+
 let benchIcon = L.icon({
     iconUrl: 'icons/BenchPin.png',
 
@@ -105,14 +123,12 @@ function renderParking(fields) {
 
 
 const markers = bathrooms;
-    let bathroomGroup = L.featureGroup([]).addTo(map);
-
     for (const key in markers) {
         let latlng = L.latLng(markers[key].latitude, markers[key].longitude);
-        L.marker(latlng, {icon: bathroomIcon}).bindPopup(renderBathroom(markers[key])).addTo(bathroomGroup);
+        bathroomCg.addLayer(L.marker(latlng, {icon: bathroomIcon}).bindPopup(renderBathroom(markers[key])));
     }
     setInterval(() => {
-        bathroomGroup.clearLayers();
+        bathroomCg.clearLayers();
 
         let sorted = Object.keys(markers).sort((a, b) => {
             let da = haversine(markers[a].latitude, markers[a].longitude, map.getCenter().lat, map.getCenter().lng);
@@ -120,17 +136,17 @@ const markers = bathrooms;
             return da - db;
         });
 
-        for (let i = 0; i < 15 && i < sorted.length; i++) {
+        for (let i = 0; i < 10000 && i < sorted.length; i++) {
             const key = sorted[i];
             let latlng = L.latLng(markers[key].latitude, markers[key].longitude);
-            L.marker(latlng, {icon: bathroomIcon}).bindPopup(renderBathroom(markers[key])).addTo(bathroomGroup);
+            bathroomCg.addLayer(L.marker(latlng, {icon: bathroomIcon}).bindPopup(renderBathroom(markers[key])));
         }
 
         const grid = document.querySelector('.footer-scroll-grid');
         while (grid.firstChild) {
             grid.removeChild(grid.lastChild);
         }
-        for (let i = 0; i < 15 && i < sorted.length; i++) {
+        for (let i = 0; i < 10000 && i < sorted.length; i++) {
             const key = sorted[i];
             const entry = document.createElement('a');
             entry.href = getMapsLink(markers[key]);
@@ -148,7 +164,7 @@ const markers = bathrooms;
             entry.appendChild(title); entry.appendChild(desc);
             grid.appendChild(entry);
         }
-    }, 1000);
+    }, 10000000000);
 
 function onMapClick(e) {
     return;
@@ -158,41 +174,48 @@ function onMapClick(e) {
         .bindPopup(say)
         .openPopup();
 }
-
+let doit = true;
 map.on('click', onMapClick);
 map.on('moveend', async () => {
+    if (!doit) return;
+    doit = false;
+    benchCg.clearLayers();
+    parkingCg.clearLayers();
     let bounds = map.getBounds();
     let bbox = [bounds.getSouthWest().lat, bounds.getSouthWest().lng, bounds.getNorthEast().lat, bounds.getNorthEast().lng];
     const benches = await getBenches(bbox);
-    let markerGroup = L.featureGroup([]).addTo(map);
     let sorted = benches.sort((a, b) => {
         let da = haversine(a.latitude, a.longitude, map.getCenter().lat, map.getCenter().lng);
         let db = haversine(b.latitude, b.longitude, map.getCenter().lat, map.getCenter().lng);
         return da - db;
     });
 
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 10000; i++) {
         const b = sorted[i];
         if (!b) { continue; }
         let latlng = L.latLng(b.latitude, b.longitude);
-        L.marker(latlng, {icon: benchIcon}).bindPopup(renderBench(b)).addTo(markerGroup);
+        benchCg.addLayer(L.marker(latlng, {icon: benchIcon}).bindPopup(renderBench(b)));
     }
 
-    let parkingGroup = L.featureGroup([]).addTo(map);
     sorted = parking.sort((a, b) => {
         let da = haversine(a.latitude, a.longitude, map.getCenter().lat, map.getCenter().lng);
         let db = haversine(b.latitude, b.longitude, map.getCenter().lat, map.getCenter().lng);
         return da - db;
     });
 
-    for (let i = 0; i < 100 && i < sorted.length; i++) {
+    for (let i = 0; i < 10000 && i < sorted.length; i++) {
         const b = sorted[i];
         const latlng = L.latLng(b.latitude, b.longitude);
-        L.marker(latlng, {icon: parkingIcon})
+        parkingCg.addLayer(L.marker(latlng, {icon: parkingIcon})
             .bindPopup(renderParking(b))
-            .addTo(parkingGroup);
+        );
     }
 });
+
+map.addLayer(bathroomCg);
+map.addLayer(parkingCg);
+map.addLayer(benchCg);
+
 
 function toggleAbout() {
     var x = document.getElementById("abt");

@@ -12,6 +12,9 @@
     <link rel="manifest" href="./manifest.json">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css">
 </head>
 
 <body>
@@ -57,6 +60,7 @@
         navigator.serviceWorker.register('/sw.js', { scope: '/' });
       }
     </script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
   <script src="script.js" type="module"></script>
 
   <footer>
