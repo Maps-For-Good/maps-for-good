@@ -79,24 +79,24 @@ let benchIcon = L.icon({
     iconUrl: 'icons/BenchPin.png',
 
     iconSize:     [110, 90], 
-    iconAnchor:   [22, 94], 
-    popupAnchor:  [-3, -76] 
+    iconAnchor:   [55, 45], 
+    popupAnchor:  [0, 0] 
 });
 
 let bathroomIcon = L.icon({
     iconUrl: 'icons/BathroomPin.png',
 
     iconSize:     [110, 90], // size of the icon
-    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+    iconAnchor:   [55, 45], 
+    popupAnchor:  [0, 0] 
 });
 
 let parkingIcon = L.icon({
     iconUrl: 'icons/ParkingPin.png',
 
     iconSize:     [110, 90], 
-    iconAnchor:   [22, 94], 
-    popupAnchor:  [-3, -76] 
+    iconAnchor:   [55, 45], 
+    popupAnchor:  [0, 0] 
 });
 
 
