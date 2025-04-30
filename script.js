@@ -111,12 +111,12 @@ function renderBench(bench) {
     
 }
 
-function renderParking(fields) {
-    const googleMapsUrl = getMapsLink(fields);
+function renderParking(parking) {
+    const googleMapsUrl = getMapsLink(parking);
     
     return `Handicap Parking Spot
     <div>
-        ${fields.address}
+        ${parking.fields.address}
     </div>
     `;
 }
@@ -127,20 +127,13 @@ const markers = bathrooms;
         let latlng = L.latLng(markers[key].latitude, markers[key].longitude);
         bathroomCg.addLayer(L.marker(latlng, {icon: bathroomIcon}).bindPopup(renderBathroom(markers[key])));
     }
+    
     setInterval(() => {
-        bathroomCg.clearLayers();
-
         let sorted = Object.keys(markers).sort((a, b) => {
             let da = haversine(markers[a].latitude, markers[a].longitude, map.getCenter().lat, map.getCenter().lng);
             let db = haversine(markers[b].latitude, markers[b].longitude, map.getCenter().lat, map.getCenter().lng);
             return da - db;
         });
-
-        for (let i = 0; i < 10000 && i < sorted.length; i++) {
-            const key = sorted[i];
-            let latlng = L.latLng(markers[key].latitude, markers[key].longitude);
-            bathroomCg.addLayer(L.marker(latlng, {icon: bathroomIcon}).bindPopup(renderBathroom(markers[key])));
-        }
 
         const grid = document.querySelector('.footer-scroll-grid');
         while (grid.firstChild) {
@@ -164,7 +157,7 @@ const markers = bathrooms;
             entry.appendChild(title); entry.appendChild(desc);
             grid.appendChild(entry);
         }
-    }, 10000000000);
+    }, 1000);
 
 function onMapClick(e) {
     return;
@@ -174,28 +167,36 @@ function onMapClick(e) {
         .bindPopup(say)
         .openPopup();
 }
-let doit = true;
 map.on('click', onMapClick);
+
+let bounds = map.getBounds();
+let bbox = [41.51507, -73.50825, 42.89785, -69.92896];
+const benches = await getBenches(bbox);
+for (let i = 0; i < parking.length; i++) {
+    const p = parking[i];
+    let latlng = L.latLng(p.latitude, p.longitude);
+    parkingCg.addLayer(L.marker(latlng, {icon: parkingIcon}).bindPopup(renderParking(p)));
+}
+
+for (let i = 0; i < benches.length; i++) {
+    const b = benches[i];
+    const latlng = L.latLng(b.latitude, b.longitude);
+    benchCg.addLayer(L.marker(latlng, {icon: benchIcon})
+        .bindPopup(renderBench(b))
+    );
+}
+
+
+
 map.on('moveend', async () => {
-    if (!doit) return;
-    doit = false;
-    benchCg.clearLayers();
-    parkingCg.clearLayers();
-    let bounds = map.getBounds();
-    let bbox = [bounds.getSouthWest().lat, bounds.getSouthWest().lng, bounds.getNorthEast().lat, bounds.getNorthEast().lng];
-    const benches = await getBenches(bbox);
+    return;
     let sorted = benches.sort((a, b) => {
         let da = haversine(a.latitude, a.longitude, map.getCenter().lat, map.getCenter().lng);
         let db = haversine(b.latitude, b.longitude, map.getCenter().lat, map.getCenter().lng);
         return da - db;
     });
 
-    for (let i = 0; i < 10000; i++) {
-        const b = sorted[i];
-        if (!b) { continue; }
-        let latlng = L.latLng(b.latitude, b.longitude);
-        benchCg.addLayer(L.marker(latlng, {icon: benchIcon}).bindPopup(renderBench(b)));
-    }
+
 
     sorted = parking.sort((a, b) => {
         let da = haversine(a.latitude, a.longitude, map.getCenter().lat, map.getCenter().lng);
@@ -203,13 +204,6 @@ map.on('moveend', async () => {
         return da - db;
     });
 
-    for (let i = 0; i < 10000 && i < sorted.length; i++) {
-        const b = sorted[i];
-        const latlng = L.latLng(b.latitude, b.longitude);
-        parkingCg.addLayer(L.marker(latlng, {icon: parkingIcon})
-            .bindPopup(renderParking(b))
-        );
-    }
 });
 
 map.addLayer(bathroomCg);
