@@ -155,3 +155,13 @@ footer {
     margin-left: 5px;
 }
 
+.marker-cluster-bathroom div {
+  background-color: rgba(187, 39, 26, 0.8);
+}
+.marker-cluster-parking div {
+    background-color: rgba(121, 157, 229, 0.8);
+  }
+
+.marker-cluster-bench div {
+    background-color: rgba(120, 166, 90, 0.8);
+  }

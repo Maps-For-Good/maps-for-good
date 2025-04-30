@@ -57,28 +57,46 @@ function renderBathroom(br) {
         `;
 }
 
+function clusterIcon (type) {
+    return (cluster) => new L.DivIcon({
+        html: '<div><span>' + cluster.getChildCount() + ' <span aria-label="markers"></span>' + '</span></div>',
+        className: `marker-cluster marker-cluster-${type}`,
+        iconSize: new L.Point(40, 40)
+    });
+}
+const bathroomCg = L.markerClusterGroup({
+    iconCreateFunction: clusterIcon('bathroom'),
+    
+});
+const benchCg = L.markerClusterGroup({ 
+    iconCreateFunction: clusterIcon('bench'),
+});
+const parkingCg = L.markerClusterGroup( {
+    iconCreateFunction: clusterIcon('parking'),
+});
+
 let benchIcon = L.icon({
     iconUrl: 'icons/BenchPin.png',
 
     iconSize:     [110, 90], 
-    iconAnchor:   [22, 94], 
-    popupAnchor:  [-3, -76] 
+    iconAnchor:   [55, 45], 
+    popupAnchor:  [0, 0] 
 });
 
 let bathroomIcon = L.icon({
     iconUrl: 'icons/BathroomPin.png',
 
     iconSize:     [110, 90], // size of the icon
-    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+    iconAnchor:   [55, 45], 
+    popupAnchor:  [0, 0] 
 });
 
 let parkingIcon = L.icon({
     iconUrl: 'icons/ParkingPin.png',
 
     iconSize:     [110, 90], 
-    iconAnchor:   [22, 94], 
-    popupAnchor:  [-3, -76] 
+    iconAnchor:   [55, 45], 
+    popupAnchor:  [0, 0] 
 });
 
 
@@ -93,44 +111,35 @@ function renderBench(bench) {
     
 }
 
-function renderParking(fields) {
-    const googleMapsUrl = getMapsLink(fields);
+function renderParking(parking) {
+    const googleMapsUrl = getMapsLink(parking);
     
     return `Handicap Parking Spot
     <div>
-        ${fields.address}
+        ${parking.fields.address}
     </div>
     `;
 }
 
 
 const markers = bathrooms;
-    let bathroomGroup = L.featureGroup([]).addTo(map);
-
     for (const key in markers) {
         let latlng = L.latLng(markers[key].latitude, markers[key].longitude);
-        L.marker(latlng, {icon: bathroomIcon}).bindPopup(renderBathroom(markers[key])).addTo(bathroomGroup);
+        bathroomCg.addLayer(L.marker(latlng, {icon: bathroomIcon}).bindPopup(renderBathroom(markers[key])));
     }
+    
     setInterval(() => {
-        bathroomGroup.clearLayers();
-
         let sorted = Object.keys(markers).sort((a, b) => {
             let da = haversine(markers[a].latitude, markers[a].longitude, map.getCenter().lat, map.getCenter().lng);
             let db = haversine(markers[b].latitude, markers[b].longitude, map.getCenter().lat, map.getCenter().lng);
             return da - db;
         });
 
-        for (let i = 0; i < 15 && i < sorted.length; i++) {
-            const key = sorted[i];
-            let latlng = L.latLng(markers[key].latitude, markers[key].longitude);
-            L.marker(latlng, {icon: bathroomIcon}).bindPopup(renderBathroom(markers[key])).addTo(bathroomGroup);
-        }
-
         const grid = document.querySelector('.footer-scroll-grid');
         while (grid.firstChild) {
             grid.removeChild(grid.lastChild);
         }
-        for (let i = 0; i < 15 && i < sorted.length; i++) {
+        for (let i = 0; i < 10000 && i < sorted.length; i++) {
             const key = sorted[i];
             const entry = document.createElement('a');
             entry.href = getMapsLink(markers[key]);
@@ -158,41 +167,49 @@ function onMapClick(e) {
         .bindPopup(say)
         .openPopup();
 }
-
 map.on('click', onMapClick);
+
+let bounds = map.getBounds();
+let bbox = [41.51507, -73.50825, 42.89785, -69.92896];
+const benches = await getBenches(bbox);
+for (let i = 0; i < parking.length; i++) {
+    const p = parking[i];
+    let latlng = L.latLng(p.latitude, p.longitude);
+    parkingCg.addLayer(L.marker(latlng, {icon: parkingIcon}).bindPopup(renderParking(p)));
+}
+
+for (let i = 0; i < benches.length; i++) {
+    const b = benches[i];
+    const latlng = L.latLng(b.latitude, b.longitude);
+    benchCg.addLayer(L.marker(latlng, {icon: benchIcon})
+        .bindPopup(renderBench(b))
+    );
+}
+
+
+
 map.on('moveend', async () => {
-    let bounds = map.getBounds();
-    let bbox = [bounds.getSouthWest().lat, bounds.getSouthWest().lng, bounds.getNorthEast().lat, bounds.getNorthEast().lng];
-    const benches = await getBenches(bbox);
-    let markerGroup = L.featureGroup([]).addTo(map);
+    return;
     let sorted = benches.sort((a, b) => {
         let da = haversine(a.latitude, a.longitude, map.getCenter().lat, map.getCenter().lng);
         let db = haversine(b.latitude, b.longitude, map.getCenter().lat, map.getCenter().lng);
         return da - db;
     });
 
-    for (let i = 0; i < 100; i++) {
-        const b = sorted[i];
-        if (!b) { continue; }
-        let latlng = L.latLng(b.latitude, b.longitude);
-        L.marker(latlng, {icon: benchIcon}).bindPopup(renderBench(b)).addTo(markerGroup);
-    }
 
-    let parkingGroup = L.featureGroup([]).addTo(map);
+
     sorted = parking.sort((a, b) => {
         let da = haversine(a.latitude, a.longitude, map.getCenter().lat, map.getCenter().lng);
         let db = haversine(b.latitude, b.longitude, map.getCenter().lat, map.getCenter().lng);
         return da - db;
     });
 
-    for (let i = 0; i < 100 && i < sorted.length; i++) {
-        const b = sorted[i];
-        const latlng = L.latLng(b.latitude, b.longitude);
-        L.marker(latlng, {icon: parkingIcon})
-            .bindPopup(renderParking(b))
-            .addTo(parkingGroup);
-    }
 });
+
+map.addLayer(bathroomCg);
+map.addLayer(parkingCg);
+map.addLayer(benchCg);
+
 
 function toggleAbout() {
     var x = document.getElementById("abt");
