@@ -1,5 +1,15 @@
 [
     {
+        "name": "Ashfield Lake",
+        "address": "141 Buckland Rd, Ashfield, MA 01330",
+        "zip": "01330",
+        "latitude": 42.5318,
+        "longitude": 72.8017,
+        "hours": "11:30 AM - 1:00 AM",
+        "remarks": "Opens at 3:00 PM on Tuesdays, restroom located near the beach",
+        "dist": 5260.7037099185045
+    },
+    {
         "name": "Capuano Field (Glen Field)",
         "address": "150 Glen Street, Somerville MA",
         "zip": "02145",
