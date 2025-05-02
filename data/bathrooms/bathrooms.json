@@ -1,5 +1,108 @@
 [
     {
+        "name": "Erving Town Hall",
+        "address": "12 E Main St, Erving, MA 01344",
+        "zip": "01344",
+        "latitude": 42.5999924,
+        "longitude": -72.398501,
+        "hours": "10 AM - 5 PM",
+        "remarks": "Closed Fri-Sat"
+    },
+    {
+        "name": "Erving State Forest",
+        "address": "Erving State Forest, Erving, MA 01344",
+        "zip": "01344",
+        "latitude": 42.5879,
+        "longitude": -72.452291,
+        "hours": "Sunrise to Sunset",
+        "remarks": "Wheelchair Accessible Stalls"
+    },
+    {
+        "name": "Deerfield Community Center",
+        "address": "37 Old Main St, Deerfield, MA 01342",
+        "zip": "01342",
+        "latitude": 42.5422823,
+        "longitude": -72.6066499,
+        "hours": "9:30 AM - 4:30 PM",
+        "remarks": "Closed Mon-Thur, Wheelchair Accessible Stall"
+    },
+    {
+        "name": "Deerfield Community Center",
+        "address": "16 Memorial St, Deerfield, MA 01342",
+        "zip": "01342",
+        "latitude": 42.5438179,
+        "longitude": -72.6041367,
+        "hours": "7:00 AM - 3:00 PM",
+        "remarks": "Wheelchair Accessible Stalls"
+    },
+    {
+        "name": "Conway Town Hall",
+        "address": "55 Main Rd, Conway, MA 01341",
+        "zip": "01341",
+        "latitude": 42.509092,
+        "longitude": -72.698263,
+        "hours": "",
+        "remarks": ""
+    },
+    {
+        "name": "Colrain Town Hall",
+        "address": "55 Main Rd, Colrain, MA 01340",
+        "zip": "01340",
+        "latitude": 42.6738302,
+        "longitude": -72.7069482,
+        "hours": "Monday & Wednesday 9 AM - 3 PM, Tuesday & Thursday 9:00 AM - 4:00 PM",
+        "remarks": ""
+    },
+    {
+        "name": "Shelburne Falls Trolley Museum",
+        "address": "14 Depot St, Shelburne Falls, MA 01370",
+        "zip": "01370",
+        "latitude": 42.600534,
+        "longitude": -72.739901,
+        "hours": "11 AM - 5 PM",
+        "remarks": "Open from May 25 to October 26"
+    },
+    {
+        "name": "McCusker's Market",
+        "address": "3 State St, Shelburne Falls, MA 01370",
+        "zip": "01370",
+        "latitude": 42.603553,
+        "longitude": -72.741661,
+        "hours": "8 AM - 8 PM",
+        "remarks": "Has baby changing station",
+        "dist": 5260.7037099185045
+    },
+    {
+        "name": "Public Porta-Potty",
+        "address": "State St &, Bridge St, Buckland, MA",
+        "zip": "01337",
+        "latitude": 42.671338,
+        "longitude": -72.741061,
+        "hours": "Open 24 hours",
+        "remarks": "",
+        "dist": 5260.7037099185045
+    },
+    {
+        "name": "Bernardston Town Hall",
+        "address": "38 Church St, Bernardston, MA 01337",
+        "zip": "01337",
+        "latitude": 42.671338,
+        "longitude": -72.550591,
+        "hours": "",
+        "remarks": "",
+        "dist": 5260.7037099185045
+    },
+    {
+        "name": "Sunoco",
+        "address": "50 Church St, Bernardston, MA 01337",
+        "zip": "01337",
+        "latitude": 42.671307,
+        "longitude": -72.549745,
+        "hours": "6:00 AM - 9:00 AM",
+        "remarks": "",
+        "dist": 5260.7037099185045
+    },
+    {
         "name": "Ashfield Lake",
         "address": "141 Buckland Rd, Ashfield, MA 01330",
         "zip": "01330",
