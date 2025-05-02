@@ -1,5 +1,23 @@
 [
     {
+        "name": "Gill Public Library",
+        "address": "332 Main Rd, Gill, MA 01354",
+        "zip": "01354",
+        "latitude": 42.641078,
+        "longitude": -72.4987013,
+        "hours": "Tuesday 2:00 PM - 6:00 PM, Wednesday 3:30 PM - 7:30 PM, Thursday 2:00 PM - 8:00 PM, Saturday 10:00 PM - 2:00 PM",
+        "remarks": "Closed Friday"
+    },
+    {
+        "name": "Gill Town Hall",
+        "address": "325 Main Rd, Gill, MA 01354",
+        "zip": "01354",
+        "latitude": 42.6412225,
+        "longitude": -72.4997841,
+        "hours": "Mon 9AM - 6:30 PM, Tues-Thurs 9AM - 4:30 PM",
+        "remarks": "Closed Friday"
+    },
+    {
         "name": "Erving Town Hall",
         "address": "12 E Main St, Erving, MA 01344",
         "zip": "01344",
@@ -107,7 +125,7 @@
         "address": "141 Buckland Rd, Ashfield, MA 01330",
         "zip": "01330",
         "latitude": 42.5318,
-        "longitude": 72.8017,
+        "longitude": -72.8017,
         "hours": "11:30 AM - 1:00 AM",
         "remarks": "Opens at 3:00 PM on Tuesdays, restroom located near the beach",
         "dist": 5260.7037099185045
