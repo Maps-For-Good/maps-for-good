@@ -1,5 +1,140 @@
 [
     {
+        "name": "Dickinson Memorial Library",
+        "address": "69 Main Street Northfield, MA 01360",
+        "zip": "01360",
+        "latitude": 42.6937318,
+        "longitude": -72.4560043, 
+        "hours": "Tues & Thurs 1:00 PM - 7:00 PM, Wed & Fri 10:00 AM - 5:00 PM, Sat 10:00 AM - 3:00 PM", 
+        "remarks": "" 
+    },
+    {
+        "name": "New Salem Public Library",
+        "address": "23 S Main St, New Salem, MA 01355",
+        "zip": "01355",
+        "latitude": 42.5002561,
+        "longitude": -72.3310391, 
+        "hours": "Tuesday 12:00 PM - 8:00 PM, Thursday 10:00 AM - 6:00 PM, Saturday 10:00 AM - 2:00 PM", 
+        "remarks": "" 
+    },
+    {
+        "name": "New Salem Town Clerk",
+        "address": "24 S Main St, New Salem, MA 01355",
+        "zip": "01355",
+        "latitude": 42.5002298,
+        "longitude": -72.3316826, 
+        "hours": "Mon 8:00 AM - 4:00 PM, Wed 8:00 PM - 4:00 PM", 
+        "remarks": ""   
+    },
+    {
+        "name": "Montague Town Hall",
+        "address": "1 Avenue A, Turners Falls, MA 01376",
+        "zip": "01376",
+        "latitude": 42.6093462,
+        "longitude": -72.5547207, 
+        "hours": "Mon-Thurs 8:30 AM - 5:30 AM, Closed Fri-Sun",
+        "remarks": ""   
+    },
+    {
+        "name": "Montague Libraries - Millers Falls Branch",
+        "address": "23 Bridge St, Millers Falls, MA 01349",
+        "zip": "01349",
+        "latitude": 42.5783398,
+        "longitude": -72.4942129,
+        "hours": "Tues & Thurs 1:00 PM - 7:00 PM",
+        "remarks": "One of three branches, closed on Sunday"
+    },
+    {
+        "name": "Montague Libraries - (Main) Turners Falls Branch",
+        "address": "201 Avenue A, Turners Falls, MA 01376",
+        "zip": "01376",
+        "latitude": 42.6051894,
+        "longitude": -72.5593764,
+        "hours": "Mon-Weds 10:00 AM - 7:00 PM, Thurs-Sat 10:00 AM - 5:00 PM",
+        "remarks": "One of three branches, closed on Sunday"
+    },
+    {
+        "name": "Montague Libraries - Center Branch",
+        "address": "17 Center St, Montague, MA 01351",
+        "zip": "01351",
+        "latitude": 42.535641,
+        "longitude": -72.5327522,
+        "hours": "Monday 2:00 -7:00 PM, Friday 10:00 AM - 1:00 PM",
+        "remarks": "One of three branches"
+    },
+    {
+        "name": "Leyden Public Library",
+        "address": "849 Greenfield Rd, Leyden, MA 01301",
+        "zip": "01301",
+        "latitude": 42.7037399,
+        "longitude": -72.6295931,
+        "hours": "Mon-Thurs 8:00 AM - 3:30 PM",
+        "remarks": ""
+    },
+    {
+        "name": "Leyden Town Offices",
+        "address": "7 Brattleboro Rd, Leyden, MA 01301",
+        "zip": "01301",
+        "latitude": 42.6915009,
+        "longitude": -72.6275575,
+        "hours": "Mon-Thurs 8:00 AM - 3:30 PM",
+        "remarks": ""
+    },
+    {
+        "name": "Leverett Town Hall",
+        "address": "9 Montague Rd, Leverett, MA 01054",
+        "zip": "01054",
+        "latitude": 42.452496,
+        "longitude": -72.5007348,
+        "hours": "Mon, Tues, Thurs, Fri 9:00 AM - 4:00 PM, Wednesday 9:30 AM - 1:30",
+        "remarks": ""
+    },
+    {
+        "name": "Leverett Public Library",
+        "address": "75 Montague Rd, Leverett, MA 01054",
+        "zip": "01054",
+        "latitude": 42.4611553,
+        "longitude": -72.4977482,
+        "hours": "Tuesday 3:00 PM - 8:00 PM, Wednesday 10:00 AM - 3:00 PM, Thursday 1:00 PM - 6:00 PM, Saturday 10:00 AM - 3:00 PM",
+        "remarks": "Wheelchair Accessible Stalls"
+    },
+    {
+        "name": "Heath Public Library",
+        "address": "18 Jacobs Rd, Charlemont, MA 01339",
+        "zip": "01339",
+        "latitude": 42.70291,
+        "longitude": -72.829429,
+        "hours": "Monday 2:00 - 7:00 PM, Wednesday 12:00 PM - 7:00 PM, Saturday 9:30 AM - 1:30 PM",
+        "remarks": ""
+    },
+    {
+        "name": "Heath Town Hall",
+        "address": "1 E Main St, Heath, MA 01346",
+        "zip": "01346",
+        "latitude": 42.6738198,
+        "longitude": -72.8217268,
+        "hours": "",
+        "remarks": ""
+    },
+    {
+        "name": "Main Street Town Center",
+        "address": "14 Court Square, Greenfield, MA 01301",
+        "zip": "01301",
+        "latitude": 42.5875156,
+        "longitude": -72.6012737,
+        "hours": "Mon-Fri 8:30 AM - 5:00 PM",
+        "remarks": ""
+    },
+    {
+        "name": "Main Street Bar & Grille",
+        "address": "94 Main Street, Greenfield, MA 01301",
+        "zip": "01301",
+        "latitude": 42.5877429,
+        "longitude": -72.6057891,
+        "hours": "Weds-Sat 11:30 AM - 9:00 PM, Sunday 11:30 AM - 8:00 PM",
+        "remarks": "Closed Monday and Tuesday, Trans Friendly"
+    },
+    {
         "name": "Gill Public Library",
         "address": "332 Main Rd, Gill, MA 01354",
         "zip": "01354",
