@@ -1,5 +1,41 @@
 [
     {
+        "name": "Lake Wyola State Park",
+        "address": "94 Lakeview Road, Shutesbury, MA 01072",
+        "zip": "01072",
+        "latitude": 42.5039403,
+        "longitude": -72.4352691, 
+        "hours": "9:00 AM - 7:30 PM", 
+        "remarks": "Wheelchair Accessible Stalls" 
+    },
+    {
+        "name": "Orange Public Library",
+        "address": "49 E Main St, Orange, MA 01364",
+        "zip": "01364",
+        "latitude": 42.5911892,
+        "longitude": -72.3072292, 
+        "hours": "Tues & Mon 10:00 AM - 6:00 PM, Weds & Thurs 1:00 PM - 8:00 PM", 
+        "remarks": "" 
+    },
+    {
+        "name": "Orange Town Hall",
+        "address": "6 Prospect St, Orange, MA 01364",
+        "zip": "01364",
+        "latitude": 42.5917585,
+        "longitude": -72.3099726, 
+        "hours": "Tues & Thurs 8:00 AM - 12:30 PM & 1:00 PM - 4:30 PM, Weds 8:00 AM - 12:00 PM & 1:00 PM - 7:00 PM, Mon 8:00 AM - 12:30 PM & 1:00 PM - 4:30 PM", 
+        "remarks": "" 
+    },
+    {
+        "name": "Home Depot",
+        "address": "264 Mohawk Trail, Greenfield, MA 01301",
+        "zip": "01301",
+        "latitude": 42.275737892387106,
+        "longitude": -71.79972449505398, 
+        "hours": "Mon-Sat 6:00 AM - 9:00 PM, Sun 6:00 AM - 8:00 PM", 
+        "remarks": "" 
+    },
+    {
         "name": "Dickinson Memorial Library",
         "address": "69 Main Street Northfield, MA 01360",
         "zip": "01360",
