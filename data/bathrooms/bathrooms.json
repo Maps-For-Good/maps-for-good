@@ -1,5 +1,320 @@
 [
     {
+        "name": "Williamsburg Town Office",
+        "address": "141 Main Street, Haydenville, MA 01039",
+        "zip": "01039",
+        "latitude": 42.3913,
+        "longitude": -72.7299, 
+        "hours": "", 
+        "remarks": "" 
+        },
+    {
+        "name": "Williamsburg Town Office",
+        "address": "141 Main Street, Haydenville, MA 01039",
+        "zip": "01039",
+        "latitude": 42.3913,
+        "longitude": -72.7299, 
+        "hours": "", 
+        "remarks": "" 
+        },
+    {
+        "name": "Meekins Library",
+        "address": "2 Williams Street, Williamsburg, MA 01096",
+        "zip": "01096",
+        "latitude": 42.3912,
+        "longitude": -72.7298, 
+        "hours": "Tuesday: 10 AM-6 PM; Wednesday: 1-7 PM; Thursday: 3-6 PM; Saturday: 9 AM-2 PM", 
+        "remarks": "" 
+        },
+    {
+        "name": "Westhampton Town Hall",
+        "address": "1 South Road, Westhampton, MA 01027",
+        "zip": "01027",
+        "latitude": 42.3246,
+        "longitude": -72.7744, 
+        "hours": "", 
+        "remarks": "" 
+        },
+    {
+        "name": "Westhampton Public Library",
+        "address": "1 North Road, Westhampton, MA 01027",
+        "zip": "01027",
+        "latitude": 42.3245,
+        "longitude": -72.7743, 
+        "hours": "Monday: 2-8 PM; Tuesday: 9 AM-12 PM & 1-5 PM; Wednesday: 9 AM-12 PM & 1-5 PM; Thursday: 2-8 PM; Saturday: 10 AM-1 PM", 
+        "remarks": "" 
+        },
+    {
+        "name": "Pelham Town Offices (Rhodes Building)",
+        "address": "351 Amherst Road, Pelham, MA 01002",
+        "zip": "01002",
+        "latitude": 42.3919,
+        "longitude": -72.4641, 
+        "hours": "Monday-Thursday: 8:00 AM-3:30 PM", 
+        "remarks": "" 
+        },
+    {
+        "name": "Pelham Library",
+        "address": "2 South Valley Road, Pelham, MA 01002",
+        "zip": "01002",
+        "latitude": 42.3918,
+        "longitude": -72.4640, 
+        "hours": "Monday: 2-7 PM; Tuesday: 2:30-7 PM; Wednesday: 1-7 PM; Thursday: 2:30-7 PM; Friday: 10 AM-12 PM; Saturday: 10 AM-2 PM", 
+        "remarks": "" 
+        },
+    {
+        "name": "Northampton City Hall",
+        "address": "210 Main Street, Northampton, MA 01060",
+        "zip": "01060",
+        "latitude": 42.3196,
+        "longitude": -72.6312, 
+        "hours": "Monday-Friday: 8:30 AM-4:30 PM", 
+        "remarks": "" 
+        },
+    {
+        "name": "Forbes Library",
+        "address": "20 West Street, Northampton, MA 01060",
+        "zip": "01060",
+        "latitude": 42.3167667,
+        "longitude": -72.635669, 
+        "hours": "Monday-Thursday: 10 AM-8 PM; Friday-Saturday: 10 AM-6 PM", 
+        "remarks": "" 
+        },
+    {
+        "name": "Hatfield Public Library",
+        "address": "39 Main Street, Hatfield, MA 01038",
+        "zip": "01038",
+        "latitude": 42.3702,
+        "longitude": -72.6051, 
+        "hours": "Monday: 2-7 PM; Tuesday: 10 AM-5 PM; Wednesday: 2-8 PM; Thursday: 10 AM-5 PM; Friday: 2-7 PM; Saturday: 10 AM-3 PM", 
+        "remarks": "" 
+        },
+    {
+        "name": "Hatfield Town Hall",
+        "address": "59 Main Street, Hatfield, MA 01038",
+        "zip": "01038",
+        "latitude": 42.3703,
+        "longitude": -72.6052, 
+        "hours": "", 
+        "remarks": "" 
+        },
+    {
+        "name": "Hadley Town Hall",
+        "address": "100 Middle Street, Hadley, MA 01035",
+        "zip": "01035",
+        "latitude": 42.3433,
+        "longitude": -72.5882, 
+        "hours": "", 
+        "remarks": "" 
+        },
+    {
+        "name": "Hadley Public Library",
+        "address": "50 Middle Street, Hadley, MA 01035",
+        "zip": "01035",
+        "latitude": 42.3436,
+        "longitude": -72.5881, 
+        "hours": "Monday: 2-7 PM; Tuesday: 10 AM-5 PM; Wednesday: 2-8 PM; Thursday: 10 AM-5 PM; Friday: 2-7 PM; Saturday: 10 AM-3 PM", 
+        "remarks": "" 
+        },
+    {
+        "name": "Goshen Town Hall",
+        "address": "42 Main St, Goshen, MA 01032",
+        "zip": "01032",
+        "latitude": 42.4414819,
+        "longitude": -72.799881, 
+        "hours": "", 
+        "remarks": "" 
+        },
+    {
+        "name": "Goshen Free Library",
+        "address": "42 Main St, Goshen, MA 01032",
+        "zip": "01032",
+        "latitude": 42.4414819,
+        "longitude": -72.799881, 
+        "hours": "Thurs/Sat 10:00 AM - 2:00 PM, Wednesday 2:00 PM - 6:00 PM", 
+        "remarks": "" 
+        },
+    {
+        "name": "Chesterfield Library",
+        "address": "408 Main Rd, Chesterfield, MA 01012",
+        "zip": "01012",
+        "latitude": 42.3920612,
+        "longitude": -72.8411277, 
+        "hours": "Monday 2:00 PM - 7:00 PM, Wednesday 10:00 AM - 4:00 PM, Saturday 9:00 AM - 1:00 PM", 
+        "remarks": "" 
+        },
+    {
+        "name": "Chesterfield Town Hall",
+        "address": "422 Main Rd, Chesterfield, MA 01012",
+        "zip": "01012",
+        "latitude": 42.39248,
+        "longitude": -72.8436508, 
+        "hours": "", 
+        "remarks": "" 
+        },
+    {
+        "name": "Amherst Police Station",
+        "address": "111 Main Street, Amherst, MA 01002",
+        "zip": "01002",
+        "latitude": 42.3755092,
+        "longitude": -72.5173203, 
+        "hours": "24/7, 7 days a week", 
+        "remarks": "" 
+        },
+    {
+        "name": "Community Field",
+        "address": "21 Mattoon Street, Amherst, MA 01002",
+        "zip": "01002",
+        "latitude": 42.3807898,
+        "longitude": -72.5125697, 
+        "hours": "Sunrise to Sunset", 
+        "remarks": "April through September" 
+        },
+    {
+        "name": "Mill River Recreation Area",
+        "address": "95 Montague Road, Amherst, MA 01002",
+        "zip": "01002",
+        "latitude": 42.346978,
+        "longitude": -72.526799, 
+        "hours": "Sunrise to Sunset", 
+        "remarks": "April through September" 
+        },
+    {
+        "name": "Groff Park",
+        "address": "72 Mill Lane, Amherst, MA 01002",
+        "zip": "01002",
+        "latitude": 42.3558031,
+        "longitude": -72.5199558, 
+        "hours": "Sunrise to Sunset", 
+        "remarks": "April through September" 
+        },
+    {
+        "name": "North Amherst Library",
+        "address": "8 Montague Road, Amherst, MA 01002",
+        "zip": "01002",
+        "latitude": 42.330704,
+        "longitude": -72.452029, 
+        "hours": "Monday 3:30 p.m. - 7:30 p.m, Tuesday 10:00 a.m. - 2:00 p.m, Wednesday 3:30 p.m. - 7:30 p.m, Friday 10:00 a.m. - 2:00 p.m, Saturday 10:00 a.m. - 2:00 p.m.", 
+        "remarks": "" 
+        },
+    {
+        "name": "Munson Memorial Library",
+        "address": "1046 S East Street, Amherst, MA 01002",
+        "zip": "01002",
+        "latitude": 42.3407744,
+        "longitude": -72.5033292, 
+        "hours": "Monday 3:30 p.m.- 7:30 p.m, Tuesday, 10:00 a.m. - 2:00 p.m, Wednesday, 3:30 p.m. - 7:30 p.m, Friday 10:00 a.m. - 2:00 p.m, Saturday 10:00 a.m. - 2:00 p.m.", 
+        "remarks": "" 
+        },
+    {
+        "name": "Bangs Community Center",
+        "address": "70 Boltwood Walk, Amherst, MA 01002",
+        "zip": "01002",
+        "latitude": 42.3768779,
+        "longitude": -72.5184028, 
+        "hours": "Monday - Friday from 8 am to 4 pm", 
+        "remarks": "" 
+        },
+    {
+        "name": "Amherst Town Hall",
+        "address": "4 Boltwood Ave, Amherst, MA 01002",
+        "zip": "01002",
+        "latitude": 42.3754636,
+        "longitude": -72.5187146, 
+        "hours": "Monday - Friday from 8 am to 4:30 pm", 
+        "remarks": "" 
+        },
+    {
+    "name": "Jones Library",
+    "address": "43 Amity St, Amherst, MA 01002",
+    "zip": "01002",
+    "latitude": 42.3762426,
+    "longitude": -72.5208921, 
+    "hours": "Mon-Thurs 9:00 AM - 8:15 PM, Fri/Sat 9:00 AM - 5:15 PM, Sunday 1:00 PM - 5:15 PM", 
+    "remarks": "" 
+    },
+    {
+        "name": "Whately Public Library",
+        "address": "202 Chestnut Plain Rd, Whately, MA 01093",
+        "zip": "01093",
+        "latitude": 42.4413717,
+        "longitude": -72.6345198, 
+        "hours": "Monday 10:00 AM - 5:00 PM, Tues/Weds 1:00 PM - 8:00 PM", 
+        "remarks": "" 
+        },
+    {
+        "name": "Whately Town Hall & Community Center",
+        "address": "194 Chestnut Plain Rd, Whately, MA 01093",
+        "zip": "01093",
+        "latitude": 42.4405393,
+        "longitude": -72.6344692, 
+        "hours": "Mon-Thurs 8:00 AM - 4:00 PM", 
+        "remarks": "" 
+        },
+    {
+        "name": "Wendell Town Hall",
+        "address": "6 Center St, Wendell, MA 01379",
+        "zip": "01379",
+        "latitude": 42.5475965,
+        "longitude": -72.3963985, 
+        "hours": "", 
+        "remarks": "" 
+        },
+    {
+        "name": "Wendell Public Library",
+        "address": "7 Wendell Depot Rd, Wendell, MA 01379",
+        "zip": "01379",
+        "latitude": 42.5495172,
+        "longitude": -72.397528, 
+        "hours": "Tuesday 2:00 PM - 7:00 PM, Wednesday 10:00 AM - 5:00 PM, Friday 1:00 PM - 5:00 PM, Saturday 10:00 AM - 3:00 PM", 
+        "remarks": "" 
+        },
+    {
+        "name": "Warwick Public Library",
+        "address": "4 Hotel Rd, Warwick, MA 01378",
+        "zip": "01378",
+        "latitude": 42.682975,
+        "longitude": -72.338592, 
+        "hours": "Monday 10:00 AM - 4:00 PM, Tuesday 1:00 AM - 8:00 PM, Thursday 5:00 PM - 8:00 PM, Saturday 10:00 AM - 12:30 PM", 
+        "remarks": "" 
+        },
+    {
+        "name": "Warwick Town Hall",
+        "address": "12 Athol Rd, Warwick, MA 01378",
+        "zip": "01378",
+        "latitude": 42.6823277,
+        "longitude": -72.3380819, 
+        "hours": "Monday 11:00 AM - 4:00 PM, Tuesday 10:00 AM - 2:00 PM, Wednesday 10:00 AM - 1:00 PM, Thursday 11:00 AM - 6:00 PM", 
+        "remarks": "" 
+        },
+    {
+    "name": "Sunderland Town Hall",
+    "address": "12 School St, Sunderland, MA 01375",
+    "zip": "01375",
+    "latitude": 42.467555,
+    "longitude": -72.5804788, 
+    "hours": "Monday 8:00 AM - 6:00 PM, Tuesday 8:00 AM - 4:00 PM, Wednesday 8:00 AM - 6:00 PM, Thursday 8:00 AM - 12:00 PM", 
+    "remarks": "" 
+    },
+    {
+    "name": "Sunderland Town Park",
+    "address": "42 Park Road, Sunderland, MA, 01375",
+    "zip": "01375",
+    "latitude": 42.4711609,
+    "longitude": -72.5687689, 
+    "hours": "", 
+    "remarks": "" 
+    },
+    {
+        "name": "Shutesbury Town Clerk",
+        "address": "1 Cooleyville Rd, Shutesbury, MA 01072",
+        "zip": "01072",
+        "latitude": 42.4518238,
+        "longitude": -72.4095903, 
+        "hours": "9:00 AM - 7:30 PM", 
+        "remarks": "Wheelchair Accessible Stalls" 
+    },
+    {
         "name": "Lake Wyola State Park",
         "address": "94 Lakeview Road, Shutesbury, MA 01072",
         "zip": "01072",
