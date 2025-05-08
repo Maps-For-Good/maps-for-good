@@ -1,0 +1,99 @@
+[
+    {
+      "address_full" : "Whately Park and Ride, 01373", 
+      "commercial_area" : "Whatley Park and Ride", 
+      "number_of_ap_spaces" : 54, 
+      "latitude" : 42.47013099741486, 
+      "longitude" : -72.61534618011152
+    },
+
+    {
+      "address_full" : "18 Miner St., Greenfield, MA 01301", 
+      "commercial_area" : "Greenfield Park and Ride", 
+      "number_of_ap_spaces" : 64, 
+      "latitude" : 42.5861877549139, 
+      "longitude" : -72.62011233215753
+    },
+
+    {
+      "address_full" : "Charlemont Park & Ride, Charlemont, MA 01370", 
+      "commercial_area" : "Charlemont Park and Ride", 
+      "number_of_ap_spaces" : 46, 
+      "latitude" : 42.6225479226101, 
+      "longitude" : -72.75087828045
+    },
+
+    {
+      "address_full" : "Northampton Old Ferry Road Park & Ride, 26 Old Ferry Rd, Northampton, MA 01060", 
+      "commercial_area" : "Northampton Old Ferry Road Park & Ride", 
+      "number_of_ap_spaces" : 78, 
+      "latitude" : 42.328934128357005, 
+      "longitude" : -72.62340540333516
+    },
+
+    {
+      "address_full" : "44 Midstate Drive, Auburn, MA 01501", 
+      "commercial_area" : "Auburn Park and Ride", 
+      "number_of_ap_spaces" : 162, 
+      "latitude" : 42.18756770900497, 
+      "longitude" : -71.85582478800109 
+    },
+
+    {
+      "address_full" : "Park & Ride, 519 US-20, Millbury, MA 01527", 
+      "commercial_area" : "Park & Ride", 
+      "number_of_ap_spaces" : 446, 
+      "latitude" : 42.21025705831961, 
+      "longitude" : -71.78669103217639 
+    },
+
+    {
+      "address_full" : "1504 Grafton Rd, Millbury, MA 01527", 
+      "commercial_area" : "Millbury Grafton Road Park and Ride", 
+      "number_of_ap_spaces" : 122, 
+      "latitude" : 42.22933563897169, 
+      "longitude" : -71.73953200944598 
+    },
+
+    {
+     "address_full" : "HX4F+FX, Templeton, MA 01440", 
+      "commercial_area" : "EB Parking", 
+      "number_of_ap_spaces" : "N/A", 
+      "latitude" : 42.55645444847658, 
+      "longitude" : -72.02502930429388
+  
+    },
+
+    {
+      "address_full" : "55 Crockett Rd, Upton, MA 01568", 
+      "commercial_area" : "Peppercorn Hill Parking Lot", 
+      "number_of_ap_spaces" : "N/A", 
+      "latitude" : 42.18500037461341, 
+      "longitude" : -71.5568858594187
+    },
+
+    {
+      "address_full" : "155-199 Thomas St, West Boylston, MA 01583", 
+      "commercial_area" : "Thomas Street Parking Mass Central Rail Trail", 
+      "number_of_ap_spaces" : "N/A", 
+      "latitude" : 42.38866177137339, 
+      "longitude" : -71.79513549754849
+    },
+
+    {
+      "address_full" : "40 Smith Pkwy, Westborough, MA 01581", 
+      "commercial_area" : "Westborough WBTA Parking", 
+      "number_of_ap_spaces" : "N/A", 
+      "latitude" : 42.27036315259999, 
+      "longitude" : -71.64751579308707
+    },
+
+    {
+      "address_full" : "W Princeton Rd &, West Side Trail, Westminster, MA 01473", 
+      "commercial_area" : "West Side Trail Parking", 
+      "number_of_ap_spaces" : "N/A", 
+      "latitude" : 42.49399817844287, 
+      "longitude" : -71.90587132814952
+    }
+
+]
