@@ -1,5 +1,31 @@
 [
-   
+      {
+        "name": "Union Station",
+        "address": "2 Washington Square, Worcester, MA 01604",
+        "zip": "01604",
+        "latitude": 42.2629,
+        "longitude": -71.7939,
+        "hours": "Open during train/bus station hours",
+        "remarks": "Restrooms available on the first floor"
+      },
+      {
+        "name": "Shore Park",
+        "address": "115 Shore Drive, Worcester, MA 01605",
+        "zip": "01605",
+        "latitude": 42.2952,
+        "longitude": -71.8196,
+        "hours": "Open during beach season",
+        "remarks": "Renovated bathhouse with public restrooms"
+      },
+      {
+        "name": "Elm Park",
+        "address": "284 Highland Street, Worcester, MA 01602",
+        "zip": "01602",
+        "latitude": 42.2666,
+        "longitude": -71.8204,
+        "hours": "Varies; often seasonal",
+        "remarks": "Restrooms available seasonally; sometimes only portable toilets"
+      },
     {
         "name": "Worcester City Hall",
         "address": "455 Main Street, Worcester, MA 01608",
