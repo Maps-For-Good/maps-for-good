@@ -1,4 +1,338 @@
 [
+   
+    {
+        "name": "Worcester City Hall",
+        "address": "455 Main Street, Worcester, MA 01608",
+        "zip": "01608",
+        "latitude": 42.2626,
+        "longitude": -71.8023,
+        "hours": "Monday-Friday: 8:30 AM-5:00 PM",
+        "remarks": ""
+      },
+    {
+        "name": "Shrewsbury Town Hall",
+        "address": "100 Maple Avenue, Shrewsbury, MA 01545",
+        "zip": "01545",
+        "latitude": 42.2959,
+        "longitude": -71.7128,
+        "hours": "Monday: 8:00 AM-4:30 PM; Tuesday: 8:00 AM-6:30 PM; Wednesday-Thursday: 8:00 AM-4:30 PM; Friday: 8:00 AM-12:00 PM",
+        "remarks": ""
+      },
+      {
+        "name": "Southborough Town House",
+        "address": "17 Common Street, Southborough, MA 01772",
+        "zip": "01772",
+        "latitude": 42.3056,
+        "longitude": -71.5244,
+        "hours": "Monday, Wednesday, Thursday: 8:00 AM-5:00 PM; Tuesday: 8:00 AM-7:00 PM; Friday: 8:00 AM-12:00 PM",
+        "remarks": ""
+      },
+      {
+        "name": "Sterling Town Hall",
+        "address": "1 Park Street, Sterling, MA 01564",
+        "zip": "01564",
+        "latitude": 42.4362,
+        "longitude": -71.7620,
+        "hours": "Monday-Thursday: 8:00 AM-5:00 PM; Friday: 8:00 AM-12:00 PM",
+        "remarks": ""
+      },
+      {
+        "name": "Sutton Town Hall",
+        "address": "4 Uxbridge Road, Sutton, MA 01590",
+        "zip": "01590",
+        "latitude": 42.1501,
+        "longitude": -71.7631,
+        "hours": "Monday, Wednesday, Thursday: 8:00 AM-4:00 PM (closed 12:00 PM-12:40 PM); Tuesday: 8:00 AM-6:00 PM; Friday: 9:00 AM-12:00 PM",
+        "remarks": ""
+      },
+      {
+        "name": "Templeton Town Hall",
+        "address": "160 Patriots Road, East Templeton, MA 01438",
+        "zip": "01438",
+        "latitude": 42.5526,
+        "longitude": -72.0598,
+        "hours": "Monday: 7:30 AM-6:30 PM; Tuesday-Thursday: 7:30 AM-4:30 PM; Friday: Closed",
+        "remarks": ""
+      },
+      {
+        "name": "Upton Town Hall",
+        "address": "1 Main Street, Upton, MA 01568",
+        "zip": "01568",
+        "latitude": 42.1737,
+        "longitude": -71.6067,
+        "hours": "Monday, Wednesday, Thursday: 8:00 AM-4:00 PM; Tuesday: 8:00 AM-6:00 PM; Friday: 8:00 AM-12:00 PM",
+        "remarks": ""
+      },
+      {
+        "name": "Uxbridge Town Hall",
+        "address": "21 South Main Street, Uxbridge, MA 01569",
+        "zip": "01569",
+        "latitude": 42.0776,
+        "longitude": -71.6290,
+        "hours": "Monday, Tuesday, Thursday: 7:30 AM-5:00 PM; Wednesday: 8:00 AM-7:00 PM; Friday: Closed",
+        "remarks": ""
+      },
+      {
+        "name": "Webster Town Hall",
+        "address": "350 Main Street, Webster, MA 01570",
+        "zip": "01570",
+        "latitude": 42.0501,
+        "longitude": -71.8825,
+        "hours": "Monday: 8:00 AM-7:00 PM; Tuesday-Thursday: 8:00 AM-4:00 PM; Friday: 8:30 AM-12:00 PM",
+        "remarks": ""
+      },
+      {
+        "name": "West Boylston Town Hall",
+        "address": "140 Worcester Street, West Boylston, MA 01583",
+        "zip": "01583",
+        "latitude": 42.3648,
+        "longitude": -71.7823,
+        "hours": "Monday, Tuesday, Thursday, Friday: 8:00 AM-4:00 PM; Wednesday: 8:00 AM-7:00 PM",
+        "remarks": ""
+      },
+      {
+        "name": "Westborough Town Hall",
+        "address": "34 West Main Street, Westborough, MA 01581",
+        "zip": "01581",
+        "latitude": 42.2695,
+        "longitude": -71.6162,
+        "hours": "Monday, Wednesday, Thursday: 8:00 AM-5:00 PM; Tuesday: 8:00 AM-8:00 PM; Friday: 7:30 AM-12:00 PM",
+        "remarks": ""
+      },
+      {
+        "name": "Westminster Town Hall",
+        "address": "11 South Street, Westminster, MA 01473",
+        "zip": "01473",
+        "latitude": 42.5456,
+        "longitude": -71.9103,
+        "hours": "Monday: 7:00 AM-7:00 PM; Tuesday-Thursday: 7:30 AM-4:30 PM; Friday: Closed",
+        "remarks": ""
+      },
+    {
+        "name": "Northborough Town Hall",
+        "address": "63 Main Street, Northborough, MA 01532",
+        "zip": "01532",
+        "latitude": 42.3195,
+        "longitude": -71.6410,
+        "hours": "Monday, Wednesday, Thursday: 8:00 AM-4:00 PM; Tuesday: 8:00 AM-7:00 PM; Friday: 7:00 AM-12:00 PM",
+        "remarks": ""
+      },
+      {
+        "name": "Northbridge Town Hall",
+        "address": "1 Hope Street, Whitinsville, MA 01588",
+        "zip": "01588",
+        "latitude": 42.1106,
+        "longitude": -71.6667,
+        "hours": "Monday: 8:30 AM-7:00 PM; Tuesday-Thursday: 8:30 AM-4:30 PM; Friday: 8:30 AM-1:00 PM",
+        "remarks": ""
+      },
+      {
+        "name": "Oakham Town Hall",
+        "address": "2 Coldbrook Road, Unit 1, Oakham, MA 01068",
+        "zip": "01068",
+        "latitude": 42.3533,
+        "longitude": -72.0425,
+        "hours": "Monday: 6:00 PM-8:00 PM (Town Clerk); Other departments by appointment",
+        "remarks": ""
+      },
+      {
+        "name": "Petersham Town Hall",
+        "address": "3 South Main Street, Petersham, MA 01366",
+        "zip": "01366",
+        "latitude": 42.4889,
+        "longitude": -72.1861,
+        "hours": "Monday: 5:30 PM-7:00 PM (Town Clerk); Administrative Coordinator: Monday & Tuesday 9:00 AM-4:00 PM, Wednesday 9:00 AM-12:00 PM; Administrative Assistant: Thursday 8:00 AM-4:00 PM",
+        "remarks": ""
+      },
+      {
+        "name": "Paxton Town Hall",
+        "address": "697 Pleasant Street, Paxton, MA 01612",
+        "zip": "01612",
+        "latitude": 42.3045,
+        "longitude": -71.9267,
+        "hours": "Monday-Thursday: 8:00 AM-4:00 PM; Friday: Closed",
+        "remarks": ""
+      },
+      {
+        "name": "Phillipston Town Hall",
+        "address": "50 The Common, Phillipston, MA 01331",
+        "zip": "01331",
+        "latitude": 42.5383,
+        "longitude": -72.1861,
+        "hours": "Monday, Tuesday, Thursday: 8:00 AM-4:00 PM; Wednesday: 8:00 AM-6:30 PM (Closed 12:00 PM-1:30 PM)",
+        "remarks": ""
+      },
+      {
+        "name": "Princeton Town Hall",
+        "address": "6 Town Hall Drive, Princeton, MA 01541",
+        "zip": "01541",
+        "latitude": 42.4481,
+        "longitude": -71.8778,
+        "hours": "Monday-Wednesday: 8:00 AM-4:00 PM; Thursday: 8:00 AM-2:00 PM",
+        "remarks": ""
+      },
+      {
+        "name": "Royalston Town Hall",
+        "address": "13 On The Common, Royalston, MA 01368",
+        "zip": "01368",
+        "latitude": 42.6825,
+        "longitude": -72.2244,
+        "hours": "Monday-Thursday: 9:00 AM-2:00 PM",
+        "remarks": ""
+      },
+      {
+        "name": "Rutland Town Hall",
+        "address": "250 Main Street, Rutland, MA 01543",
+        "zip": "01543",
+        "latitude": 42.3745,
+        "longitude": -71.9481,
+        "hours": "Tuesday-Thursday: 10:00 AM-8:00 PM; Friday: 10:00 AM-4:00 PM; Saturday: 10:00 AM-2:00 PM (Library only); Monday & Sunday: Closed",
+        "remarks": ""
+      },
+    {
+        "name": "Hardwick Town Hall",
+        "address": "307 Main Street, Gilbertville, MA 01031",
+        "zip": "01031",
+        "latitude": 42.3125,
+        "longitude": -72.2036,
+        "hours": "",
+        "remarks": ""
+      },
+      {
+        "name": "Holden Town Hall",
+        "address": "1196 Main Street, Holden, MA 01520",
+        "zip": "01520",
+        "latitude": 42.3516,
+        "longitude": -71.8573,
+        "hours": "",
+        "remarks": ""
+      },
+      {
+        "name": "Hubbardston Town Hall",
+        "address": "48 Gardner Road, Hubbardston, MA 01452",
+        "zip": "01452",
+        "latitude": 42.4756,
+        "longitude": -72.0003,
+        "hours": "Monday: 9:00 AM-6:00 PM; Tuesday-Thursday: 9:00 AM-4:00 PM; Friday: Closed",
+        "remarks": ""
+      },
+      {
+        "name": "Leicester Town Hall",
+        "address": "3 Washburn Square, Leicester, MA 01524",
+        "zip": "01524",
+        "latitude": 42.2467,
+        "longitude": -71.9061,
+        "hours": "Monday, Wednesday, Thursday: 8:00 AM-5:00 PM; Tuesday: 8:00 AM-7:00 PM; Friday: Closed",
+        "remarks": ""
+      },
+      {
+        "name": "Leominster City Hall",
+        "address": "25 West Street, Leominster, MA 01453",
+        "zip": "01453",
+        "latitude": 42.5251,
+        "longitude": -71.7601,
+        "hours": "Monday-Wednesday, Friday: 8:30 AM-4:00 PM; Thursday: 8:30 AM-5:30 PM",
+        "remarks": ""
+      },
+      {
+        "name": "Millbury Town Hall",
+        "address": "127 Elm Street, Millbury, MA 01527",
+        "zip": "01527",
+        "latitude": 42.1928,
+        "longitude": -71.7623,
+        "hours": "Monday, Wednesday, Thursday: 8:00 AM-4:00 PM; Tuesday: 8:00 AM-7:00 PM; Friday: 8:00 AM-12:00 PM",
+        "remarks": ""
+      },
+    {
+        "name": "Ashland Town Hall",
+        "address": "101 Main Street, Ashland, MA 01721",
+        "zip": "01721",
+        "latitude": 42.2615,
+        "longitude": -71.4638,
+        "hours": "Monday-Thursday: 8:00 AM-3:30 PM; Wednesday: 8:00 AM-7:00 PM; Friday: Closed",
+        "remarks": ""
+      },
+      {
+        "name": "Holliston Town Hall",
+        "address": "703 Washington Street, Holliston, MA 01746",
+        "zip": "01746",
+        "latitude": 42.2001,
+        "longitude": -71.4245,
+        "hours": "Monday, Wednesday, Thursday: 8:30 AM-4:30 PM; Tuesday: 8:30 AM-7:00 PM; Friday: 8:30 AM-1:00 PM",
+        "remarks": ""
+      },
+      {
+        "name": "Hopkinton Town Hall",
+        "address": "18 Main Street, Hopkinton, MA 01748",
+        "zip": "01748",
+        "latitude": 42.2286,
+        "longitude": -71.5225,
+        "hours": "Monday, Wednesday, Thursday: 8:00 AM-4:30 PM; Tuesday: 8:00 AM-7:00 PM; Friday: 8:00 AM-2:00 PM",
+        "remarks": ""
+      },
+      {
+        "name": "Medway Town Hall",
+        "address": "155 Village Street, Medway, MA 02053",
+        "zip": "02053",
+        "latitude": 42.1417,
+        "longitude": -71.3967,
+        "hours": "Monday: 7:30 AM-5:30 PM; Tuesday-Thursday: 7:30 AM-4:30 PM; Friday: 7:30 AM-12:30 PM",
+        "remarks": ""
+      },
+      {
+        "name": "Athol Town Hall",
+        "address": "584 Main Street, Athol, MA 01331",
+        "zip": "01331",
+        "latitude": 42.5956,
+        "longitude": -72.2297,
+        "hours": "Monday, Wednesday, Thursday: 8:00 AM-5:00 PM; Tuesday: 8:00 AM-8:00 PM; Friday: Closed",
+        "remarks": ""
+      },
+      {
+        "name": "Auburn Town Hall",
+        "address": "104 Central Street, Auburn, MA 01501",
+        "zip": "01501",
+        "latitude": 42.1945,
+        "longitude": -71.8350,
+        "hours": "Monday: 8:00 AM-7:00 PM; Tuesday-Thursday: 8:00 AM-4:00 PM; Friday: 8:00 AM-1:00 PM",
+        "remarks": ""
+      },
+      {
+        "name": "Barre Town Hall",
+        "address": "40 West Street, Barre, MA 01005",
+        "zip": "01005",
+        "latitude": 42.4226,
+        "longitude": -72.1050,
+        "hours": "Monday: By appointment; Tuesday-Thursday: 9:00 AM-4:00 PM; Friday: Closed",
+        "remarks": "Located in the Henry Woods Building"
+      },
+      {
+        "name": "Boylston Town Hall",
+        "address": "221 Main Street, Boylston, MA 01505",
+        "zip": "01505",
+        "latitude": 42.3645,
+        "longitude": -71.7320,
+        "hours": "Monday-Thursday: 8:00 AM-2:00 PM; Monday Night: 6:00 PM-8:00 PM; Friday: Closed",
+        "remarks": ""
+      },
+      {
+        "name": "Douglas Town Hall",
+        "address": "29 Depot Street, Douglas, MA 01516",
+        "zip": "01516",
+        "latitude": 42.0515,
+        "longitude": -71.7330,
+        "hours": "Monday, Wednesday, Thursday: 8:30 AM-1:00 PM, 1:30 PM-4:00 PM; Tuesday: 8:30 AM-6:00 PM",
+        "remarks": ""
+      },
+      {
+        "name": "Grafton Town Hall",
+        "address": "30 Providence Road, Grafton, MA 01519",
+        "zip": "01519",
+        "latitude": 42.2070,
+        "longitude": -71.6850,
+        "hours": "Monday, Wednesday, Thursday: 8:30 AM-4:30 PM; Tuesday: 8:30 AM-7:00 PM; Friday: 8:30 AM-1:00 PM",
+        "remarks": ""
+      },
     {
         "name": "Williamsburg Town Office",
         "address": "141 Main Street, Haydenville, MA 01039",
