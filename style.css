@@ -165,3 +165,37 @@ footer {
 .marker-cluster-bench div {
     background-color: rgba(120, 166, 90, 0.8);
   }
+
+.reaction-container {
+    display: flex;
+    align-items: center;
+    gap: 1.6em;
+    margin-top: 1em;
+}
+
+.reaction {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+}
+
+.reaction-icon {
+    width: 1.2em; 
+    height: 1.2em;
+}
+
+.reaction-checkbox {
+    display: none;  /* Hide the checkbox */
+}
+
+.reaction-checkbox + label {
+    cursor: pointer;
+}
+
+.reaction-checkbox:checked + label img {
+    filter: invert(38%) sepia(52%) saturate(400%) hue-rotate(180deg) brightness(90%);
+}
+
+.reaction span {
+    margin-left: 0.5em;
+}
