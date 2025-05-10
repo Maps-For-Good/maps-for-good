@@ -1,4 +1,4 @@
-import bathrooms from './data/bathrooms/bathrooms.js';
+import bathrooms_ from './data/bathrooms/bathrooms.js';
 import parking from './data/handicap-parking/handicap-parking.js'
 let map = L.map('map').setView([42.3, -71.1], 13);
 
@@ -45,8 +45,22 @@ function getMapsLink(location) {
 
 function renderBathroom(br) {
     const googleMapsUrl = getMapsLink(br);
-
+    if (br.fields.osm) {
+        return `
+            <h3>Bathroom</h3>
+            <a href="${googleMapsUrl}" target="_blank">
+                Open in Google Maps
+            </a>
+            <div>
+                <strong>Wheelchair:</strong> ${br.fields.wheelchair ?? 'unknown'}
+            </div>
+            <div>
+                <strong>Unisex:</strong> ${br.fields.unisex ?? 'unknown'}
+            </div>
+        `;
+    } else {
     return `
+            <h3>Bathroom</h3>
             <h3>${br.fields.name}</h3>
             <a href="${googleMapsUrl}" target="_blank">
                 Open in Google Maps
@@ -55,9 +69,10 @@ function renderBathroom(br) {
                 <strong>Hours:</strong> ${br.fields.hours}
             </div>
         `;
+    }
 }
 
-function clusterIcon (type) {
+function clusterIcon(type) {
     return (cluster) => new L.DivIcon({
         html: '<div><span>' + cluster.getChildCount() + ' <span aria-label="markers"></span>' + '</span></div>',
         className: `marker-cluster marker-cluster-${type}`,
@@ -66,98 +81,103 @@ function clusterIcon (type) {
 }
 const bathroomCg = L.markerClusterGroup({
     iconCreateFunction: clusterIcon('bathroom'),
-    
+
 });
-const benchCg = L.markerClusterGroup({ 
+const benchCg = L.markerClusterGroup({
     iconCreateFunction: clusterIcon('bench'),
 });
-const parkingCg = L.markerClusterGroup( {
+const parkingCg = L.markerClusterGroup({
     iconCreateFunction: clusterIcon('parking'),
 });
 
 let benchIcon = L.icon({
     iconUrl: 'icons/BenchPin.png',
 
-    iconSize:     [110, 90], 
-    iconAnchor:   [55, 45], 
-    popupAnchor:  [0, 0] 
+    iconSize: [110, 90],
+    iconAnchor: [55, 45],
+    popupAnchor: [0, 0]
 });
 
 let bathroomIcon = L.icon({
     iconUrl: 'icons/BathroomPin.png',
 
-    iconSize:     [110, 90], // size of the icon
-    iconAnchor:   [55, 45], 
-    popupAnchor:  [0, 0] 
+    iconSize: [110, 90], // size of the icon
+    iconAnchor: [55, 45],
+    popupAnchor: [0, 0]
 });
 
 let parkingIcon = L.icon({
     iconUrl: 'icons/ParkingPin.png',
 
-    iconSize:     [110, 90], 
-    iconAnchor:   [55, 45], 
-    popupAnchor:  [0, 0] 
+    iconSize: [110, 90],
+    iconAnchor: [55, 45],
+    popupAnchor: [0, 0]
 });
 
 
 function renderBench(bench) {
     const googleMapsUrl = getMapsLink(bench);
-    
+
     return `Bench
     <div>
         <strong>Backrest:</strong> ${bench.fields.backrest ?? "Maybe"}
     </div>
     `;
-    
+
 }
 
 function renderParking(parking) {
     const googleMapsUrl = getMapsLink(parking);
-    
+
     return `Handicap Parking Spot
     <div>
         ${parking.fields.address}
     </div>
     `;
 }
+let bounds = map.getBounds();
+let bbox = [41.51507, -73.50825, 42.89785, -69.92896];
+const bathrooms = bathrooms_.concat(await getBathrooms(bbox));
+let markers = [];
+for (const b of bathrooms) {
+    let latlng = L.latLng(b.latitude, b.longitude);
+    markers.push(L.marker(latlng, { icon: bathroomIcon }).bindPopup(renderBathroom(b)));
+}
+bathroomCg.addLayers(markers);
 
+setInterval(() => {
+    // The sorting is faster on subsequent runs bc the array is already nearly sorted
+    let sorted = bathrooms.sort((a, b) => {
+        let da = haversine(a.latitude, a.longitude, map.getCenter().lat, map.getCenter().lng);
+        let db = haversine(b.latitude, b.longitude, map.getCenter().lat, map.getCenter().lng);
+        return da - db;
+    });
 
-const markers = bathrooms;
-    for (const key in markers) {
-        let latlng = L.latLng(markers[key].latitude, markers[key].longitude);
-        bathroomCg.addLayer(L.marker(latlng, {icon: bathroomIcon}).bindPopup(renderBathroom(markers[key])));
+    const grid = document.querySelector('.footer-scroll-grid');
+    while (grid.firstChild) {
+        grid.removeChild(grid.lastChild);
     }
-    
-    setInterval(() => {
-        let sorted = Object.keys(markers).sort((a, b) => {
-            let da = haversine(markers[a].latitude, markers[a].longitude, map.getCenter().lat, map.getCenter().lng);
-            let db = haversine(markers[b].latitude, markers[b].longitude, map.getCenter().lat, map.getCenter().lng);
-            return da - db;
-        });
+    for (let i = 0; i < sorted.length; i++) {
+        const entry = document.createElement('a');
+        entry.href = getMapsLink(sorted[i]);
+        entry.setAttribute('target', '_blank');
+        const title = document.createElement('h4');
+        const desc = document.createElement('p');
+        title.textContent = sorted[i].fields.name ?? 'Bathroom';
 
-        const grid = document.querySelector('.footer-scroll-grid');
-        while (grid.firstChild) {
-            grid.removeChild(grid.lastChild);
+        let dist = haversine(sorted[i].latitude, sorted[i].longitude, map.getCenter().lat, map.getCenter().lng);
+        let str = document.createElement('strong');
+        str.textContent = `${dist.toFixed(1)} miles away. `;
+        if (sorted[i].fields.address != undefined) {
+            desc.textContent = `${sorted[i].fields.address}, ${sorted[i].fields.zip}.`;
         }
-        for (let i = 0; i < 10000 && i < sorted.length; i++) {
-            const key = sorted[i];
-            const entry = document.createElement('a');
-            entry.href = getMapsLink(markers[key]);
-            entry.setAttribute('target', '_blank');
-            const title = document.createElement('h4');
-            const desc = document.createElement('p');
-            title.textContent = markers[key].fields.name;
 
-            let dist = haversine(markers[key].latitude, markers[key].longitude, map.getCenter().lat, map.getCenter().lng);
-            let str = document.createElement('strong');
-            str.textContent = `${dist.toFixed(1)} miles away. `;
-            desc.textContent = `${markers[key].fields.address}, ${markers[key].fields.zip}.`
-            desc.prepend(str);
-            entry.className = 'footer-item';
-            entry.appendChild(title); entry.appendChild(desc);
-            grid.appendChild(entry);
-        }
-    }, 1000);
+        desc.prepend(str);
+        entry.className = 'footer-item';
+        entry.appendChild(title); entry.appendChild(desc);
+        grid.appendChild(entry);
+    }
+}, 1000);
 
 function onMapClick(e) {
     return;
@@ -169,23 +189,24 @@ function onMapClick(e) {
 }
 map.on('click', onMapClick);
 
-let bounds = map.getBounds();
-let bbox = [41.51507, -73.50825, 42.89785, -69.92896];
+
 const benches = await getBenches(bbox);
+markers = [];
 for (let i = 0; i < parking.length; i++) {
     const p = parking[i];
     let latlng = L.latLng(p.latitude, p.longitude);
-    parkingCg.addLayer(L.marker(latlng, {icon: parkingIcon}).bindPopup(renderParking(p)));
+    markers.push(L.marker(latlng, { icon: parkingIcon }).bindPopup(renderParking(p)));
 }
+parkingCg.addLayers(markers);
 
+markers = [];
 for (let i = 0; i < benches.length; i++) {
     const b = benches[i];
     const latlng = L.latLng(b.latitude, b.longitude);
-    benchCg.addLayer(L.marker(latlng, {icon: benchIcon})
-        .bindPopup(renderBench(b))
-    );
+    markers.push(L.marker(latlng, { icon: benchIcon })
+        .bindPopup(renderBench(b)));
 }
-
+benchCg.addLayers(markers);
 
 
 map.on('moveend', async () => {
@@ -256,11 +277,33 @@ async function getBenches(bbox) {
     })).json();
     return resp.elements.map((bench) => {
         return {
-          latitude: bench.lat,
-          longitude: bench.lon,
-          fields: {
-              backrest: bench.tags.backrest,
-          }
+            latitude: bench.lat,
+            longitude: bench.lon,
+            fields: {
+                backrest: bench.tags.backrest,
+            }
+        };
+    });
+}
+
+async function getBathrooms(bbox) {
+    // Source: openstreetmap.org
+    const query = `[out:json][timeout:25]; (node["amenity"="toilets"](${bbox[0]},${bbox[1]},${bbox[2]},${bbox[3]});); out body;`;
+
+    let resp = await (await fetch('https://overpass-api.de/api/interpreter', {
+        method: 'POST',
+        body: query,
+    })).json();
+    resp.elements = resp.elements.filter((bathroom) => bathroom.tags.access != "no" && bathroom.tags.fee != "yes");
+    return resp.elements.map((bathroom) => {
+        return {
+            latitude: bathroom.lat,
+            longitude: bathroom.lon,
+            fields: {
+              unisex: bathroom.tags.unisex,
+              wheelchair: bathroom.tags.wheelchair,
+              osm: true,
+            },
         };
     });
 }
