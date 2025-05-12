@@ -1,13 +1,17 @@
+//import data 
 import bathrooms_ from './data/bathrooms/bathrooms.js';;
 import parking from './data/handicap-parking/handicap-parking.js';
 import MurmurHash3 from 'https://cdn.skypack.dev/imurmurhash';
 import {getLikesById, incrementLikes, incrementDislikes, decrementLikes, decrementDislikes } from './firebase.js';
 let map = L.map('map').setView([42.3, -71.1], 13);
 
+//initialize leaflet map
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
+
+//haversine formula to calculate distances between coords
 function haversine(lat1, long1, lat2, long2) {
     // https://en.wikipedia.org/wiki/Haversine_formula
     function hav(theta) {
@@ -21,7 +25,7 @@ function haversine(lat1, long1, lat2, long2) {
         hav(dlat) + (1 - hav(dlat) - hav(2 * latm)) * hav(dlong)
     ));
 }
-
+//centers map to user location
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(success, error);
@@ -40,11 +44,13 @@ function error() {
 
 getLocation();
 
+//make gmap link 
 function getMapsLink(location) {
     let query = encodeURIComponent(`${location.latitude}, ${location.longitude} ${location.fields.name ?? ""}`);
     return `https://www.google.com/maps/search/?api=1&query=${query}`;
 }
 
+//likes/dislikes on popup 
 function addELs(marker, id) {
     marker.getPopup().getElement().querySelector('.like-checkbox').addEventListener('change', (e) => {
         console.log('a')
@@ -69,6 +75,7 @@ function addELs(marker, id) {
 
 }
 
+//ui like/dislike
 function addReactionBox(am, marker) {
     const id = getId(am);
     async function addReactions(id, marker) {
@@ -107,6 +114,7 @@ function addReactionBox(am, marker) {
 
 }
 
+//render amenity content 
 function renderBathroom(br, marker) {
     addReactionBox(br, marker);
     const googleMapsUrl = getMapsLink(br);
@@ -138,6 +146,7 @@ function renderBathroom(br, marker) {
     
 }
 
+//create cluster groups 
 function clusterIcon(type) {
     return (cluster) => new L.DivIcon({
         html: '<div><span>' + cluster.getChildCount() + ' <span aria-label="markers"></span>' + '</span></div>',
@@ -156,6 +165,7 @@ const parkingCg = L.markerClusterGroup({
     iconCreateFunction: clusterIcon('parking'),
 });
 
+//sets custom icon to each amenity 
 let benchIcon = L.icon({
     iconUrl: 'icons/BenchPin.png',
 
@@ -219,6 +229,8 @@ for (const b of bathrooms) {
 }
 bathroomCg.addLayers(markers);
 
+
+//sorts nearby amenities and updates ui every second
 setInterval(() => {
     // The sorting is faster on subsequent runs bc the array is already nearly sorted
     let sorted = bathrooms.sort((a, b) => {
@@ -253,6 +265,7 @@ setInterval(() => {
     }
 }, 1000);
 
+//prompts user to create new pin (disabled)
 function onMapClick(e) {
     return;
     let say = prompt('What do you want to add?')
@@ -263,7 +276,7 @@ function onMapClick(e) {
 }
 map.on('click', onMapClick);
 
-
+//puts amenities on map
 const benches = await getBenches(bbox);
 markers = [];
 for (let i = 0; i < parking.length; i++) {

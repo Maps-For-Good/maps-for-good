@@ -9,19 +9,19 @@ h1 {
     font-family: 'Helvetica Neue', sans-serif;
     font-size: min(10vw, 3em);
     color: rgb(79, 170, 209);
-    margin-top: 15px;
+    margin-top: 8px;
 }
 
 p {
     font-family: 'Helvetica Neue', sans-serif;
-    font-size: 1.5em;
+    font-size: 1.2em;
     color: #176ba3;
 }
 
 h3 {
     text-align: center;
     font-family: 'Helvetica Neue', sans-serif;
-    font-size: 1.1em;
+    font-size: 1.0em;
 
 }
 
@@ -35,7 +35,7 @@ h3 {
 nav {
     text-align: center;
     font-family: 'Helvetica Neue', sans-serif;
-    font-size: 1.2em;
+    font-size: 1.3em;
     color: #376472;
 }
 
@@ -143,7 +143,7 @@ footer {
 }
 
 #zipSearch {
-    padding: 5px;
+    padding: 3px;
     font-size: 1.5em;
     margin-left: 10px;
     border: 2px solid rgb(133, 80, 1);
@@ -202,3 +202,4 @@ footer {
 .reaction span {
     margin-left: 0.5em;
 }
+
