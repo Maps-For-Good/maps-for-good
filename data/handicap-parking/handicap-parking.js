@@ -11,9 +11,8 @@ const cambridge = (await (await fetch('./data/handicap-parking/handicap-parking-
   return {
     latitude: p.geometry.coordinates[1],
     longitude: p.geometry.coordinates[0],
-    fields: {address: `${p.properties.StreetNumber} ${p.properties.StreetName}`},
+    fields: {address: p.properties.StreetNumber ? `${p.properties.StreetNumber} ${p.properties.StreetName}` : p.properties.StreetName},
   };
 });
 parking.push(...cambridge);
-console.log(parking)
 export default parking;
