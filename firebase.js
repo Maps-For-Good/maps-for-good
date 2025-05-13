@@ -33,6 +33,7 @@ async function get_like_ref(id) {
   const querySnapshot = await getDocs(q);
 
   if (!querySnapshot.empty) {
+    //Just create if empty
     return querySnapshot.docs[0].ref;
   } else {
     const ref = doc(likesCollection);
@@ -75,4 +76,9 @@ export async function decrementDislikes(id) {
   await updateDoc(docRef, {
     num_dislikes: increment(-1),
   });
+}
+
+export async function uploadFeature (data) {
+  const addedFeaturesCollection = collection(db, "new_features");
+  await setDoc(doc(addedFeaturesCollection), {data: JSON.stringify(data)});
 }

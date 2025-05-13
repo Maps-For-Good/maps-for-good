@@ -2,7 +2,7 @@
 import bathrooms_ from './data/bathrooms/bathrooms.js';;
 import parking from './data/handicap-parking/handicap-parking.js';
 import MurmurHash3 from 'https://cdn.skypack.dev/imurmurhash';
-import {getLikesById, incrementLikes, incrementDislikes, decrementLikes, decrementDislikes } from './firebase.js';
+import {getLikesById, incrementLikes, incrementDislikes, decrementLikes, decrementDislikes, uploadFeature } from './firebase.js';
 let map = L.map('map').setView([42.3, -71.1], 13);
 
 //initialize leaflet map
@@ -50,16 +50,30 @@ function getMapsLink(location) {
     return `https://www.google.com/maps/search/?api=1&query=${query}`;
 }
 
+let hasLiked = {};
+let hasDisliked = {};
+
 //likes/dislikes on popup 
 function addELs(marker, id) {
+    if (hasLiked[id]) {
+        const likeBox = marker.getPopup().getElement().querySelector('.like-checkbox');
+        likeBox.checked = true;
+        likeBox.nextElementSibling.nextElementSibling.textContent = Number(likeBox.nextElementSibling.nextElementSibling.textContent) + 1;
+    }
+    if (hasDisliked[id]) {
+        const dislikeBox = marker.getPopup().getElement().querySelector('.dislike-checkbox');
+        dislikeBox.checked = true;
+        dislikeBox.nextElementSibling.nextElementSibling.textContent = Number(dislikeBox.nextElementSibling.nextElementSibling.textContent) + 1;
+    }
     marker.getPopup().getElement().querySelector('.like-checkbox').addEventListener('change', (e) => {
-        console.log('a')
         if (e.target.checked) {
             e.target.nextElementSibling.nextElementSibling.textContent = Number(e.target.nextElementSibling.nextElementSibling.textContent) + 1;
             incrementLikes(id);
+            hasLiked[id] = true;
         } else {
             e.target.nextElementSibling.nextElementSibling.textContent = Number(e.target.nextElementSibling.nextElementSibling.textContent) - 1;
             decrementLikes(id);
+            hasLiked[id] = false;
         }
     });
 
@@ -67,9 +81,11 @@ function addELs(marker, id) {
         if (e.target.checked) {
             e.target.nextElementSibling.nextElementSibling.textContent = Number(e.target.nextElementSibling.nextElementSibling.textContent) + 1;
             incrementDislikes(id);
+            hasDisliked[id] = true;
         } else {
             e.target.nextElementSibling.nextElementSibling.textContent = Number(e.target.nextElementSibling.nextElementSibling.textContent) - 1;
             decrementDislikes(id);
+            hasDisliked[id] = false;
         }
     });
 
@@ -133,7 +149,6 @@ function renderBathroom(br, marker) {
         `;
     } else {
     return `
-            <h3>Bathroom</h3>
             <h3>${br.fields.name}</h3>
             <a href="${googleMapsUrl}" target="_blank">
                 Open in Google Maps
@@ -199,7 +214,11 @@ function renderBench(bench, marker) {
     const id = getId(bench);
     const googleMapsUrl = getMapsLink(bench);
 
-    return `Bench
+    return `<strong>Bench</strong>
+    <br>
+    <a href="${googleMapsUrl}" target="_blank">
+                Open in Google Maps
+            </a>
     <div>
         <strong>Backrest:</strong> ${bench.fields.backrest ?? "Maybe"}
     </div>
@@ -211,12 +230,32 @@ function renderParking(parking, marker) {
     addReactionBox(parking, marker);
     const id = getId(parking);
     const googleMapsUrl = getMapsLink(parking);
-
+     
+    if (parking.fields.name) {
+        let html = `<strong>${parking.fields.name}</strong>
+        <br>
+        <a href="${googleMapsUrl}" target="_blank">
+                    Open in Google Maps
+                </a>
+        <div>
+            ${parking.fields.address}
+        </div>
+        `;
+        if (parking.fields.ap_sp != 'N/A') {
+            html += `<div><strong>Number of spaces:</strong> ${parking.fields.ap_sp}</div>`;
+        }
+        return html;
+    } else {
     return `Handicap Parking Spot
+    <br>
+    <a href="${googleMapsUrl}" target="_blank">
+                Open in Google Maps
+            </a>
     <div>
         ${parking.fields.address}
     </div>
     `;
+    }
 }
 let bounds = map.getBounds();
 let bbox = [41.51507, -73.50825, 42.89785, -69.92896];
@@ -423,3 +462,108 @@ async function zipZoom() {
 }
 
 document.querySelector('.zip-zoom').addEventListener('click', zipZoom);
+
+let addingFeature = false;
+let instructionsViewed = false;
+
+function addFeature() {
+    if (!instructionsViewed) {
+        alert("Click on the map where you'd like to add a new feature. You'll then be prompted to enter its details.");
+        instructionsViewed = true;
+    }
+    addingFeature = true;
+    map.getContainer().style.cursor = 'crosshair';
+}
+
+map.on('click', (e) => {
+    if (!addingFeature) return;
+
+    addingFeature = false;
+    // Source: stackoverflow
+    map.getContainer().style.cursor = '';
+
+    const latlng = e.latlng;
+
+    const container = document.createElement('div');
+    container.innerHTML = `
+        <form id="featureForm">
+         <label>Type:
+            <select name="type" id="featureType">
+                <option value="bathroom">Bathroom</option>
+                <option value="bench">Bench</option>
+                <option value="parking">Parking</option>
+        </select>
+        </label>
+        <div id="commonFields"></div>
+        <div style="margin-top: 10px;">
+                <button type="submit">Submit</button>
+        </div>
+        </form>
+    `;
+
+    const popup = L.popup().setLatLng(latlng).setContent(container).openOn(map);
+    const form = container.querySelector('#featureForm');
+    const typeSelect = container.querySelector('#featureType');
+    const commonFields = container.querySelector('#commonFields');
+    function updateFormFields() {
+        const type = typeSelect.value;
+        let fields = '';
+
+        if (type === 'bathroom') {
+            fields = `
+            <label>Name: <input type="text" name="name" required /></label><br>
+            <label>Address: <input type="text" name="address" required /></label><br>
+            <label>Hours: <input type="text" name="hours" /></label><br>
+                <label>Handicap Accessible: <input type="checkbox" name="handicap" /></label>
+            `;
+        } else if (type === 'bench') {
+            fields = `
+            <label>Backrest: <input type="checkbox" name="backrest" /></label>
+            `;
+        } else if (type === 'parking') {
+            fields = `
+            <label>Name: <input type="text" name="name" required /></label><br>
+            <label>Address: <input type="text" name="address" required /></label><br>
+            <label>Available Spaces: <input type="number" name="spaces" min="0" placeholder="Leave blank for N/A" /></label>
+            `;
+        }
+
+        commonFields.innerHTML = fields;
+    }
+
+    typeSelect.addEventListener('change', updateFormFields);
+    updateFormFields();
+
+    form.addEventListener('submit', (eSubmit) => {
+        // Source: stackoverflow
+        eSubmit.preventDefault();
+
+        // Source: MDN
+        const data = new FormData(form);
+        const type = data.get('type');
+        const send = {
+            type: type,
+            latitude: latlng.lat,
+            longitude: latlng.lng
+        };
+
+        if (type === 'bathroom') {
+            send.name = data.get('name');
+            send.address = data.get('address');
+            send.hours = data.get('hours');
+            send.handicap = data.get('handicap') === 'on';
+        } else if (type === 'bench') {
+            send.backrest = data.get('backrest') === 'on';
+        } else if (type === 'parking') {
+            send.name = data.get('name');
+            send.address = data.get('address');
+            const spaces = data.get('spaces');
+            send.spaces = spaces ? Number(spaces) : 'N/A';
+        }
+        
+        uploadFeature(send);
+        alert("Feature submitted!");
+        map.closePopup();
+    });
+});
+document.querySelector('.add-feature').addEventListener('click', addFeature);

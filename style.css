@@ -106,6 +106,8 @@ footer {
     padding-right: 10px;
 }
 
+/* remove header stuff to fit on mobile screens */
+/* Todo: find some way to incorporate these features anyway */
 @media screen and (max-width: 600px) {
     .footer-scroll-grid {
         grid-template-columns: repeat(1, 1fr);
@@ -196,6 +198,7 @@ footer {
 }
 
 .reaction-checkbox:checked + label img {
+    /*too lazy to figure out how to properly change the color so just messed with filters until it worked*/
     filter: invert(38%) sepia(52%) saturate(400%) hue-rotate(180deg) brightness(90%);
 }
 
@@ -203,3 +206,6 @@ footer {
     margin-left: 0.5em;
 }
 
+#featureForm input {
+    width: 90%;
+}
