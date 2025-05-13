@@ -1,11 +1,17 @@
-import bathrooms from './data/bathrooms/bathrooms.js';
-import parking from './data/handicap-parking/handicap-parking.js'
+//import data 
+import bathrooms_ from './data/bathrooms/bathrooms.js';;
+import parking from './data/handicap-parking/handicap-parking.js';
+import MurmurHash3 from 'https://cdn.skypack.dev/imurmurhash';
+import {getLikesById, incrementLikes, incrementDislikes, decrementLikes, decrementDislikes } from './firebase.js';
 let map = L.map('map').setView([42.3, -71.1], 13);
 
+//initialize leaflet map
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
+
+//haversine formula to calculate distances between coords
 function haversine(lat1, long1, lat2, long2) {
     // https://en.wikipedia.org/wiki/Haversine_formula
     function hav(theta) {
@@ -19,7 +25,7 @@ function haversine(lat1, long1, lat2, long2) {
         hav(dlat) + (1 - hav(dlat) - hav(2 * latm)) * hav(dlong)
     ));
 }
-
+//centers map to user location
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(success, error);
@@ -38,15 +44,96 @@ function error() {
 
 getLocation();
 
+//make gmap link 
 function getMapsLink(location) {
     let query = encodeURIComponent(`${location.latitude}, ${location.longitude} ${location.fields.name ?? ""}`);
     return `https://www.google.com/maps/search/?api=1&query=${query}`;
 }
 
-function renderBathroom(br) {
-    const googleMapsUrl = getMapsLink(br);
+//likes/dislikes on popup 
+function addELs(marker, id) {
+    marker.getPopup().getElement().querySelector('.like-checkbox').addEventListener('change', (e) => {
+        console.log('a')
+        if (e.target.checked) {
+            e.target.nextElementSibling.nextElementSibling.textContent = Number(e.target.nextElementSibling.nextElementSibling.textContent) + 1;
+            incrementLikes(id);
+        } else {
+            e.target.nextElementSibling.nextElementSibling.textContent = Number(e.target.nextElementSibling.nextElementSibling.textContent) - 1;
+            decrementLikes(id);
+        }
+    });
 
+    marker.getPopup().getElement().querySelector('.dislike-checkbox').addEventListener('change', (e) => {
+        if (e.target.checked) {
+            e.target.nextElementSibling.nextElementSibling.textContent = Number(e.target.nextElementSibling.nextElementSibling.textContent) + 1;
+            incrementDislikes(id);
+        } else {
+            e.target.nextElementSibling.nextElementSibling.textContent = Number(e.target.nextElementSibling.nextElementSibling.textContent) - 1;
+            decrementDislikes(id);
+        }
+    });
+
+}
+
+//ui like/dislike
+function addReactionBox(am, marker) {
+    const id = getId(am);
+    async function addReactions(id, marker) {
+        if (marker.hasReactions) {
+            addELs(marker, id);
+            return;
+        }
+        marker.hasReactions = true;
+        const res = await getLikesById(id);
+        const likes = res.num_likes;
+        const dislikes = res.num_dislikes;
+        let reactions = `<div class="reaction-container">
+               <div class="reaction">
+               <input type="checkbox" class="reaction-checkbox like-checkbox" id="like-checkbox-${id}"/>
+                <label for="like-checkbox-${id}">
+                    <img src="icons/Like.png" alt="Like" class="reaction-icon" />
+                </label>
+               <span>${likes ?? 0}</span>
+               </div>
+               <div class="reaction">
+               <input type="checkbox" class="reaction-checkbox dislike-checkbox" id="dislike-checkbox-${id}"/>
+                <label for="dislike-checkbox-${id}">
+                    <img src="icons/Dislike.png" alt="Dislike" class="reaction-icon" />
+                </label>
+                <span>${dislikes ?? 0}</span>
+               </div>
+              </div>`;
+        const updatedContent = marker.getPopup().getContent() + reactions;
+        marker.getPopup().setContent(updatedContent);
+        addELs(marker, id);
+
+      }
+    marker.on('popupopen', function() {
+        addReactions(id, marker);  
+    });
+
+}
+
+//render amenity content 
+function renderBathroom(br, marker) {
+    addReactionBox(br, marker);
+    const googleMapsUrl = getMapsLink(br);
+    if (br.fields.osm) {
+        return `
+            <h3>Bathroom</h3>
+            <a href="${googleMapsUrl}" target="_blank">
+                Open in Google Maps
+            </a>
+            <div>
+                <strong>Wheelchair:</strong> ${br.fields.wheelchair ?? 'unknown'}
+            </div>
+            <div>
+                <strong>Unisex:</strong> ${br.fields.unisex ?? 'unknown'}
+            </div>
+        `;
+    } else {
     return `
+            <h3>Bathroom</h3>
             <h3>${br.fields.name}</h3>
             <a href="${googleMapsUrl}" target="_blank">
                 Open in Google Maps
@@ -55,9 +142,12 @@ function renderBathroom(br) {
                 <strong>Hours:</strong> ${br.fields.hours}
             </div>
         `;
+    }
+    
 }
 
-function clusterIcon (type) {
+//create cluster groups 
+function clusterIcon(type) {
     return (cluster) => new L.DivIcon({
         html: '<div><span>' + cluster.getChildCount() + ' <span aria-label="markers"></span>' + '</span></div>',
         className: `marker-cluster marker-cluster-${type}`,
@@ -66,99 +156,116 @@ function clusterIcon (type) {
 }
 const bathroomCg = L.markerClusterGroup({
     iconCreateFunction: clusterIcon('bathroom'),
-    
+
 });
-const benchCg = L.markerClusterGroup({ 
+const benchCg = L.markerClusterGroup({
     iconCreateFunction: clusterIcon('bench'),
 });
-const parkingCg = L.markerClusterGroup( {
+const parkingCg = L.markerClusterGroup({
     iconCreateFunction: clusterIcon('parking'),
 });
 
+//sets custom icon to each amenity 
 let benchIcon = L.icon({
     iconUrl: 'icons/BenchPin.png',
 
-    iconSize:     [110, 90], 
-    iconAnchor:   [55, 45], 
-    popupAnchor:  [0, 0] 
+    iconSize: [110, 90],
+    iconAnchor: [55, 45],
+    popupAnchor: [0, 0]
 });
 
 let bathroomIcon = L.icon({
     iconUrl: 'icons/BathroomPin.png',
 
-    iconSize:     [110, 90], // size of the icon
-    iconAnchor:   [55, 45], 
-    popupAnchor:  [0, 0] 
+    iconSize: [110, 90], // size of the icon
+    iconAnchor: [55, 45],
+    popupAnchor: [0, 0]
 });
 
 let parkingIcon = L.icon({
     iconUrl: 'icons/ParkingPin.png',
 
-    iconSize:     [110, 90], 
-    iconAnchor:   [55, 45], 
-    popupAnchor:  [0, 0] 
+    iconSize: [110, 90],
+    iconAnchor: [55, 45],
+    popupAnchor: [0, 0]
 });
 
+function getId(amenity) {
+    return (new MurmurHash3(JSON.stringify(amenity))).result();
+}
 
-function renderBench(bench) {
+function renderBench(bench, marker) {
+    addReactionBox(bench, marker);
+    const id = getId(bench);
     const googleMapsUrl = getMapsLink(bench);
-    
+
     return `Bench
     <div>
         <strong>Backrest:</strong> ${bench.fields.backrest ?? "Maybe"}
     </div>
     `;
-    
+
 }
 
-function renderParking(parking) {
+function renderParking(parking, marker) {
+    addReactionBox(parking, marker);
+    const id = getId(parking);
     const googleMapsUrl = getMapsLink(parking);
-    
+
     return `Handicap Parking Spot
     <div>
         ${parking.fields.address}
     </div>
     `;
 }
+let bounds = map.getBounds();
+let bbox = [41.51507, -73.50825, 42.89785, -69.92896];
+const bathrooms = bathrooms_.concat(await getBathrooms(bbox));
+let markers = [];
+for (const b of bathrooms) {
+    let latlng = L.latLng(b.latitude, b.longitude);
+    let marker = L.marker(latlng, { icon: bathroomIcon });
+    markers.push(marker.bindPopup(renderBathroom(b, marker)));
+}
+bathroomCg.addLayers(markers);
 
 
-const markers = bathrooms;
-    for (const key in markers) {
-        let latlng = L.latLng(markers[key].latitude, markers[key].longitude);
-        bathroomCg.addLayer(L.marker(latlng, {icon: bathroomIcon}).bindPopup(renderBathroom(markers[key])));
+//sorts nearby amenities and updates ui every second
+setInterval(() => {
+    // The sorting is faster on subsequent runs bc the array is already nearly sorted
+    let sorted = bathrooms.sort((a, b) => {
+        let da = haversine(a.latitude, a.longitude, map.getCenter().lat, map.getCenter().lng);
+        let db = haversine(b.latitude, b.longitude, map.getCenter().lat, map.getCenter().lng);
+        return da - db;
+    });
+
+    const grid = document.querySelector('.footer-scroll-grid');
+    while (grid.firstChild) {
+        grid.removeChild(grid.lastChild);
     }
-    
-    setInterval(() => {
-        let sorted = Object.keys(markers).sort((a, b) => {
-            let da = haversine(markers[a].latitude, markers[a].longitude, map.getCenter().lat, map.getCenter().lng);
-            let db = haversine(markers[b].latitude, markers[b].longitude, map.getCenter().lat, map.getCenter().lng);
-            return da - db;
-        });
+    for (let i = 0; i < sorted.length; i++) {
+        const entry = document.createElement('a');
+        entry.href = getMapsLink(sorted[i]);
+        entry.setAttribute('target', '_blank');
+        const title = document.createElement('h4');
+        const desc = document.createElement('p');
+        title.textContent = sorted[i].fields.name ?? 'Bathroom';
 
-        const grid = document.querySelector('.footer-scroll-grid');
-        while (grid.firstChild) {
-            grid.removeChild(grid.lastChild);
+        let dist = haversine(sorted[i].latitude, sorted[i].longitude, map.getCenter().lat, map.getCenter().lng);
+        let str = document.createElement('strong');
+        str.textContent = `${dist.toFixed(1)} miles away. `;
+        if (sorted[i].fields.address != undefined) {
+            desc.textContent = `${sorted[i].fields.address}, ${sorted[i].fields.zip}.`;
         }
-        for (let i = 0; i < 10000 && i < sorted.length; i++) {
-            const key = sorted[i];
-            const entry = document.createElement('a');
-            entry.href = getMapsLink(markers[key]);
-            entry.setAttribute('target', '_blank');
-            const title = document.createElement('h4');
-            const desc = document.createElement('p');
-            title.textContent = markers[key].fields.name;
 
-            let dist = haversine(markers[key].latitude, markers[key].longitude, map.getCenter().lat, map.getCenter().lng);
-            let str = document.createElement('strong');
-            str.textContent = `${dist.toFixed(1)} miles away. `;
-            desc.textContent = `${markers[key].fields.address}, ${markers[key].fields.zip}.`
-            desc.prepend(str);
-            entry.className = 'footer-item';
-            entry.appendChild(title); entry.appendChild(desc);
-            grid.appendChild(entry);
-        }
-    }, 1000);
+        desc.prepend(str);
+        entry.className = 'footer-item';
+        entry.appendChild(title); entry.appendChild(desc);
+        grid.appendChild(entry);
+    }
+}, 1000);
 
+//prompts user to create new pin (disabled)
 function onMapClick(e) {
     return;
     let say = prompt('What do you want to add?')
@@ -169,23 +276,25 @@ function onMapClick(e) {
 }
 map.on('click', onMapClick);
 
-let bounds = map.getBounds();
-let bbox = [41.51507, -73.50825, 42.89785, -69.92896];
+//puts amenities on map
 const benches = await getBenches(bbox);
+markers = [];
 for (let i = 0; i < parking.length; i++) {
     const p = parking[i];
     let latlng = L.latLng(p.latitude, p.longitude);
-    parkingCg.addLayer(L.marker(latlng, {icon: parkingIcon}).bindPopup(renderParking(p)));
+    const marker = L.marker(latlng, { icon: parkingIcon });
+    markers.push(marker.bindPopup(renderParking(p, marker)));
 }
-
+parkingCg.addLayers(markers);
+//add markers 
+markers = [];
 for (let i = 0; i < benches.length; i++) {
     const b = benches[i];
     const latlng = L.latLng(b.latitude, b.longitude);
-    benchCg.addLayer(L.marker(latlng, {icon: benchIcon})
-        .bindPopup(renderBench(b))
-    );
+    const marker = L.marker(latlng, { icon: benchIcon });
+    markers.push(marker.bindPopup(renderBench(b, marker)));
 }
-
+benchCg.addLayers(markers);
 
 
 map.on('moveend', async () => {
@@ -256,15 +365,37 @@ async function getBenches(bbox) {
     })).json();
     return resp.elements.map((bench) => {
         return {
-          latitude: bench.lat,
-          longitude: bench.lon,
-          fields: {
-              backrest: bench.tags.backrest,
-          }
+            latitude: bench.lat,
+            longitude: bench.lon,
+            fields: {
+                backrest: bench.tags.backrest,
+            }
         };
     });
 }
 
+async function getBathrooms(bbox) {
+    // Source: openstreetmap.org
+    const query = `[out:json][timeout:25]; (node["amenity"="toilets"](${bbox[0]},${bbox[1]},${bbox[2]},${bbox[3]});); out body;`;
+
+    let resp = await (await fetch('https://overpass-api.de/api/interpreter', {
+        method: 'POST',
+        body: query,
+    })).json();
+    resp.elements = resp.elements.filter((bathroom) => bathroom.tags.access != "no" && bathroom.tags.fee != "yes");
+    return resp.elements.map((bathroom) => {
+        return {
+            latitude: bathroom.lat,
+            longitude: bathroom.lon,
+            fields: {
+              unisex: bathroom.tags.unisex,
+              wheelchair: bathroom.tags.wheelchair,
+              osm: true,
+            },
+        };
+    });
+}
+//for zip code search
 async function zipZoom() {
     const zip = document.getElementById('zipSearch').value.trim();
 
