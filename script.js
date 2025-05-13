@@ -44,6 +44,7 @@ function toggleBox(contentId) {
         popupBox.classList.remove('hidden');
     }
 }
+// this is a dumb solution, should do it in a better way
 window.toggleBox = toggleBox;
 
 //haversine formula to calculate distances between coords
@@ -74,7 +75,7 @@ function success(position) {
 }
 
 function error() {
-    alert("Sorry, no position available.");
+   // alert("Sorry, no position available.");
 }
 
 getLocation();
