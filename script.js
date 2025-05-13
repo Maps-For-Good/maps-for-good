@@ -325,7 +325,7 @@ for (let i = 0; i < parking.length; i++) {
     markers.push(marker.bindPopup(renderParking(p, marker)));
 }
 parkingCg.addLayers(markers);
-
+//add markers 
 markers = [];
 for (let i = 0; i < benches.length; i++) {
     const b = benches[i];
@@ -434,7 +434,7 @@ async function getBathrooms(bbox) {
         };
     });
 }
-
+//for zip code search
 async function zipZoom() {
     const zip = document.getElementById('zipSearch').value.trim();
 

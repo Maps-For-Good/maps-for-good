@@ -22,20 +22,20 @@ const firebaseConfig = {
   appId: "1:443749353060:web:9f419ff0d1e939d49a8171",
   measurementId: "G-TD2TSM5WG1"
 };
-
+//initialize fb 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 const likesCollection = collection(db, "likes");
-
+//create query to find doc w given id 
 async function get_like_ref(id) {
   const q = query(likesCollection, where("id", "==", id));
   const querySnapshot = await getDocs(q);
-
+//if doc exists return ref 
   if (!querySnapshot.empty) {
     //Just create if empty
     return querySnapshot.docs[0].ref;
-  } else {
+  } else { //or create new doc
     const ref = doc(likesCollection);
     await setDoc(ref, {
       id: id,
@@ -45,19 +45,20 @@ async function get_like_ref(id) {
     return ref;
   }
 }
-
+//get likes/dislikes 
 export async function getLikesById(id) {
   const docRef = await get_like_ref(id);
   const docSnap = await getDoc(docRef);
   return docSnap.data();
 }
-
+//increment like count by 1 
 export async function incrementLikes(id) {
   const docRef = await get_like_ref(id);
   await updateDoc(docRef, {
     num_likes: increment(1),
   });
 }
+//decrement like count by 1 
 export async function incrementDislikes(id) {
   const docRef = await get_like_ref(id);
   await updateDoc(docRef, {
