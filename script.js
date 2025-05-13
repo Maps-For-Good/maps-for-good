@@ -2,7 +2,7 @@
 import bathrooms_ from './data/bathrooms/bathrooms.js';;
 import parking from './data/handicap-parking/handicap-parking.js';
 import MurmurHash3 from 'https://cdn.skypack.dev/imurmurhash';
-import {getLikesById, incrementLikes, incrementDislikes, decrementLikes, decrementDislikes, uploadFeature } from './firebase.js';
+import {getLikesById, incrementLikes, incrementDislikes, decrementLikes, decrementDislikes, uploadFeature, addAdditionalInfo } from './firebase.js';
 let map = L.map('map').setView([42.3, -71.1], 13);
 
 //initialize leaflet map
@@ -10,6 +10,41 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
+function toggleAbout() {
+    var x = document.getElementById("abt");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+
+function toggleContact() {
+    var x = document.getElementById("cont");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+
+function toggleBox(contentId) {
+    const popupBox = document.getElementById('popup-box');
+    const allContent = document.querySelectorAll('.popup-content');
+    const selectedContent = document.getElementById(contentId);
+
+    const isActive = selectedContent.classList.contains('active');
+
+    allContent.forEach(content => content.classList.remove('active'));
+
+    if (isActive) {
+        popupBox.classList.add('hidden');
+    } else {
+        selectedContent.classList.add('active');
+        popupBox.classList.remove('hidden');
+    }
+}
+window.toggleBox = toggleBox;
 
 //haversine formula to calculate distances between coords
 function haversine(lat1, long1, lat2, long2) {
@@ -264,6 +299,7 @@ let markers = [];
 for (const b of bathrooms) {
     let latlng = L.latLng(b.latitude, b.longitude);
     let marker = L.marker(latlng, { icon: bathroomIcon });
+    longPress(marker, getId(b));
     markers.push(marker.bindPopup(renderBathroom(b, marker)));
 }
 bathroomCg.addLayers(markers);
@@ -322,6 +358,7 @@ for (let i = 0; i < parking.length; i++) {
     const p = parking[i];
     let latlng = L.latLng(p.latitude, p.longitude);
     const marker = L.marker(latlng, { icon: parkingIcon });
+    longPress(marker, getId(p));
     markers.push(marker.bindPopup(renderParking(p, marker)));
 }
 parkingCg.addLayers(markers);
@@ -331,6 +368,7 @@ for (let i = 0; i < benches.length; i++) {
     const b = benches[i];
     const latlng = L.latLng(b.latitude, b.longitude);
     const marker = L.marker(latlng, { icon: benchIcon });
+    longPress(marker, getId(b));
     markers.push(marker.bindPopup(renderBench(b, marker)));
 }
 benchCg.addLayers(markers);
@@ -359,40 +397,7 @@ map.addLayer(parkingCg);
 map.addLayer(benchCg);
 
 
-function toggleAbout() {
-    var x = document.getElementById("abt");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
 
-function toggleContact() {
-    var x = document.getElementById("cont");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
-
-function toggleBox(contentId) {
-    const popupBox = document.getElementById('popup-box');
-    const allContent = document.querySelectorAll('.popup-content');
-    const selectedContent = document.getElementById(contentId);
-
-    const isActive = selectedContent.classList.contains('active');
-
-    allContent.forEach(content => content.classList.remove('active'));
-
-    if (isActive) {
-        popupBox.classList.add('hidden');
-    } else {
-        selectedContent.classList.add('active');
-        popupBox.classList.remove('hidden');
-    }
-}
 
 async function getBenches(bbox) {
     // Source: openstreetmap.org
@@ -567,3 +572,26 @@ map.on('click', (e) => {
     });
 });
 document.querySelector('.add-feature').addEventListener('click', addFeature);
+
+function longPress(marker, id) {
+    let pressTimer;
+    const dur = 800;
+    marker.on('mousedown touchstart', (e)=>{
+        pressTimer = setTimeout(() => {
+            longPressListener(id);
+        }, dur);
+    });
+
+    // Source: stackoverflow
+    marker.on('mouseup touchend', (e)=>{
+        clearTimeout(pressTimer);
+    });
+
+    marker.on('mouseout touchcancel', (e)=>{
+        clearTimeout(pressTimer);
+    });
+}
+function longPressListener(id) {
+    const input = prompt("Add more info about this feature:");
+    if (input.trim()) { addAdditionalInfo(id, input.trim()); }
+}

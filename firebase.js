@@ -83,3 +83,12 @@ export async function uploadFeature (data) {
   const addedFeaturesCollection = collection(db, "new_features");
   await setDoc(doc(addedFeaturesCollection), {data: JSON.stringify(data)});
 }
+
+
+export async function addAdditionalInfo(id, text) {
+  const additionalCollection = collection(db, "additional");
+  await setDoc(doc(additionalCollection), {
+      id,
+      text
+  });
+}
