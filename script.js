@@ -591,10 +591,6 @@ function longPress(marker, id) {
     marker.on('mouseout touchcancel', (e)=>{
         clearTimeout(pressTimer);
     });
-
-    marker.on('contextmenu', () => {
-        longPressListener(id);
-    })
 }
 function longPressListener(id) {
     const input = prompt("Add more info about this feature:");
