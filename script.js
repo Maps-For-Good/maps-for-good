@@ -300,7 +300,7 @@ let markers = [];
 for (const b of bathrooms) {
     let latlng = L.latLng(b.latitude, b.longitude);
     let marker = L.marker(latlng, { icon: bathroomIcon });
-    doubleClick(marker, getId(b));
+    longPress(marker, getId(b));
     markers.push(marker.bindPopup(renderBathroom(b, marker)));
 }
 bathroomCg.addLayers(markers);
@@ -359,7 +359,7 @@ for (let i = 0; i < parking.length; i++) {
     const p = parking[i];
     let latlng = L.latLng(p.latitude, p.longitude);
     const marker = L.marker(latlng, { icon: parkingIcon });
-    doubleClick(marker, getId(p));
+    longPress(marker, getId(p));
     markers.push(marker.bindPopup(renderParking(p, marker)));
 }
 parkingCg.addLayers(markers);
@@ -369,7 +369,7 @@ for (let i = 0; i < benches.length; i++) {
     const b = benches[i];
     const latlng = L.latLng(b.latitude, b.longitude);
     const marker = L.marker(latlng, { icon: benchIcon });
-    doubleClick(marker, getId(b));
+    longPress(marker, getId(b));
     markers.push(marker.bindPopup(renderBench(b, marker)));
 }
 benchCg.addLayers(markers);
@@ -574,29 +574,29 @@ map.on('click', (e) => {
 });
 document.querySelector('.add-feature').addEventListener('click', addFeature);
 
-function doubleClick(marker, id) {
-    let lastTapTime = 0;
-    const doubleTapTime = 300;
-
-    marker.on('dblclick', () => {
-        doubleClickListener(id);
+function longPress(marker, id) {
+    let pressTimer;
+    const dur = 800;
+    marker.on('mousedown touchstart', (e)=>{
+        pressTimer = setTimeout(() => {
+            longPressListener(id);
+        }, dur);
     });
 
-    // source: stackoverflow
-    // For mobile
-    marker.on('touchend', (e) => {
-        const currentTime = new Date().getTime();
-        const tapLength = currentTime - lastTapTime;
-
-        if (tapLength < doubleTapTime && tapLength > 0) {
-            doubleClickListener(id);
-        }
-
-        lastTapTime = currentTime;
+    // Source: stackoverflow
+    marker.on('mouseup touchend', (e)=>{
+        clearTimeout(pressTimer);
     });
+
+    marker.on('mouseout touchcancel', (e)=>{
+        clearTimeout(pressTimer);
+    });
+
+    marker.on('contextmenu', () => {
+        longPressListener(id);
+    })
 }
-
-function doubleClickListener(id) {
+function longPressListener(id) {
     const input = prompt("Add more info about this feature:");
     if (input.trim()) { addAdditionalInfo(id, input.trim()); }
 }
